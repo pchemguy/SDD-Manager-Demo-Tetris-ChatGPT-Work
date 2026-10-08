@@ -92,12 +92,14 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Completion: complete baseline gameplay score/speed/soft-drop rules integrated without expansion bonuses.
             Result: Observed two new score/soft-drop failures before wiring progression; 53/53 engine/controller tests and typecheck passed. Controlled public inputs verify blocked soft-drop deadline, successful row award/reset, pre-clear level at ten-line boundary, 900 ms new-piece speed and exactly one preview draw per lock. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/8.
 
-        - [ ] T-009 — Display progression and next preview during play
+        - [x] T-009 — Display progression and next preview during play
             Scope: view Canvas/status, basic ArrowDown adapter and app integration, `tests/e2e/display.spec.ts` and gameplay checks.
             Depends on: T-008.
             Contracts: U-01 soft-drop action, U-03 counters/preview; A-06/A-07 partial display.
             Evidence: visible score/lines/level match snapshots, preview identifier/shape matches next spawn, successful soft drop updates score, idle has no preview, game-over retains resulting counters. Run current unit tests/typecheck/build and focused Chromium gameplay/display scenarios; observe integration RED/GREEN and visually inspect preview.
             Completion: progression is usable in the existing browser game; complete repeat/focus policies remain for 1.3.
+            Result: New browser display scenario failed on absent score element before wiring; 53 unit tests, strict build and four Chromium gameplay/display cases passed. Visible soft-drop score and idle/running next identifier/Canvas verified; progression screenshot inspected. Pause/repeat remain explicitly deferred. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/9.
+
         - [ ] T-010 — Review, test and report milestone 1.2
             Depends on: T-007–T-009 complete and published.
             Scope: full progression/source/soft-drop integration and regressions of 1.1.

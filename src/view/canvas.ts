@@ -11,3 +11,9 @@ export function boardRenderer(canvas:HTMLCanvasElement):(state:GameSnapshot)=>vo
     if(state.active)for(const p of pieceCells(state.active.type,state.active.orientation))draw(p.x+state.active.x,p.y+state.active.y,state.active.type);
   };
 }
+
+/** Draw orientation-zero next shape into its own local Canvas, never into the board. */
+export function previewRenderer(canvas:HTMLCanvasElement):(state:GameSnapshot)=>void {
+ const context=canvas.getContext('2d');if(!context)throw new Error('Canvas is unavailable in this browser.');
+ return state=>{context.fillStyle='#101c2c';context.fillRect(0,0,canvas.width,canvas.height);if(state.next){const cell=canvas.width/4;context.fillStyle=colors[state.next];for(const p of pieceCells(state.next))context.fillRect(p.x*cell+1,p.y*cell+1,cell-2,cell-2);}};
+}
