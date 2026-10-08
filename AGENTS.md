@@ -12,7 +12,7 @@ This repository develops a browser TypeScript Tetris game and demonstrates SDD M
 - [TASKS](docs/dev/TASKS.md) is the sole executable checklist for the baseline; [TASKS review](docs/dev/TASKS-REVIEW-REPORT.md) records conformance and readiness.
 - [SDD Manager notice](SDD-MANAGER.md) and [disclosure](AI_DISCLOSURE.md) identify development assistance.
 
-SPEC, PLAN, and layout are accepted; their review gates and the TASKS preparation gate are Ready. No task range has been executed and no active feature exists. Product source, tests, package manifests, and application commands are absent. Commands in TASKS are planned, not validated. GitHub lifecycle tracking is confirmed for the baseline; project only an eligible phase after its inputs and review gates are established.
+SPEC, PLAN, and layout are accepted; their review gates and the TASKS preparation gate are Ready. The selected range is the full baseline phase T-001–T-020 on `phase/1-baseline-tetris`, starting at preparation merge `6d96a76a1976f5b8c2ca3ed7847777ffcdc4d66d`. Product implementation has started; TASKS remains the sole progress owner. No active feature exists. GitHub lifecycle tracking is confirmed for the baseline; project only an eligible phase after its inputs and review gates are established.
 
 ## Workflow
 
@@ -26,6 +26,6 @@ Maintain these links and command guidance when owning artifacts appear. Keep exe
 
 ## Environment and checks
 
-Preparation uses the standard ChatGPT Work Linux cloud sandbox. Node.js 24.19.0, npm 11.9.0, and Python 3.12.14 were observed. No application setup, build, or test command is declared or validated yet. Do not modify or execute files under `/pyenv`.
+Preparation uses the standard ChatGPT Work Linux cloud sandbox. Node.js 24.19.0, npm 11.9.0, and Python 3.12.14 were observed. Pinned dependencies are installed. `npm run test` and `npm run typecheck` were validated for the initial piece module. Build/dev/preview/browser-suite commands are declared but await a runnable application. Chromium provisioning was interrupted by cancelled network approval; no browser acceptance is claimed. Do not modify or execute files under `/pyenv`.
 
 For documentation changes, inspect relative links, consistency with accepted decisions, and `git diff --check`. Establish package commands during implementation preparation and update this guidance from actual evidence.

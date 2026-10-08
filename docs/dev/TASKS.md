@@ -28,12 +28,14 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
 
 - [ ] Phase 1 — Baseline Tetris
     - [ ] Milestone 1.1 — Playable browser slice
-        - [ ] T-001 — Define typed pieces and executable test toolchain
+        - [x] T-001 — Define typed pieces and executable test toolchain
             Scope: package manifest/lockfile, TypeScript/Vite/Vitest/Playwright configuration, engine types/pieces, `tests/engine/pieces.test.ts`; compatible stable tooling versions and ignored generated output. No UI framework or product scaffold from another application.
             Depends on: accepted preparation, eligible phase projection, and established phase branch.
             Contracts: B-01/B-02, engine isolation, U-05 tooling; layout tooling and piece owners.
             RED/GREEN evidence: tests of all seven orientation-0 grids, four occupied cells, independently specified clockwise/counterclockwise examples and four-turn identity fail before implementation, then pass. Run `npm run test -- tests/engine/pieces.test.ts` and `npm run typecheck`; verify package/browser provisioning capability before relying on it.
             Completion: usable typed piece definitions and pinned executable commands; record actual tool versions and any browser provisioning blocker without claiming runtime acceptance.
+            Result: Observed 16 geometry assertion failures against API skeleton, then 16/16 full Vitest tests passed and typecheck passed. Dependencies installed and pinned. Browser download network approval was cancelled; Chromium acceptance remains pending for browser integration. Existing npm http-proxy warning is environmental. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/1.
+
         - [ ] T-002 — Implement board placement and row compaction
             Scope: `src/engine/board.ts`, `tests/engine/board.test.ts`, independently constructed board fixtures under `tests/fixtures/` as needed.
             Depends on: T-001.
