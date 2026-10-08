@@ -23,13 +23,14 @@ At T-034, accepted task incorporation may transfer the single executable owner t
             Completion: Validated sevenBagPieceSource; no composition or unrelated random-source change.
             Result: RED observed 11 missing-source failures; focused 12/12 and full 93/93 tests passed; typecheck passed. Lazy six-call bags, literal permutations/boundary repeat, fresh instance and invalid/throwing refill atomicity verified. npm reports an environment http-proxy deprecation warning; no test failures/skips. GitHub issue #21 association verified.
 
-        - [ ] T-022 — Establish shared pure landing placement
+        - [x] T-022 — Establish shared pure landing placement
             Depends on: T-021.
             Scope: src/engine/landing.ts; tests/engine/landing.test.ts; existing board/types collaborators and API comments.
             Contracts: F-04 / FA-04.
             Evidence: Independently enumerated empty/stacked/cavity/zero-distance landings; first obstruction stops descent; preserves type/orientation/x and input board/value. Observe missing-helper RED.
             Checks: npm run test -- tests/engine/landing.test.ts; npm run typecheck; npm run test.
             Completion: Pure landing value usable by session/ghost; no renderer logic.
+            Result: Missing module identified then six behavioral RED failures observed with identity stub. Focused 7/7, full 100/100 and typecheck passed. Literal empty/stacked/cavity/zero-distance placements and input immutability verified. Issue #22 verified.
 
         - [ ] T-023 — Integrate ghost observations and delayed hard-drop transitions
             Depends on: T-022.
