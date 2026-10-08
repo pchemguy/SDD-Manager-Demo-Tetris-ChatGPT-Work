@@ -78,13 +78,14 @@ At T-034, accepted task incorporation may transfer the single executable owner t
             Completion: Session kicks obey ordered placement/contact rules without changing source or scoring.
             Result: Three public-session/wall RED failures observed (nine existing/blocked cases passed); full 160/160 and strict build pass; six production gameplay/modern Chromium cases pass. Floor kick retains 400-ms fall/contact and deadline; translated I kick loses stacked support and recontact starts full G; completely obstructed top candidates preserve whole snapshot. Obsolete no-kick assertion now expects literal x=0/orientation=0 wall result. O no-op remains covered. Issue #27 verified.
 
-        - [ ] T-028 — Implement coherent once-per-lock hold transitions
+        - [x] T-028 — Implement coherent once-per-lock hold transitions
             Depends on: T-027.
             Scope: src/engine/session.ts, types.ts; session/errors/timing fixtures and public API comments.
             Contracts: F-03/F-05/F-06 / FA-03/FA-05/FA-06.
             Evidence: Empty hold promotes preview plus one draw; occupied swaps no draw; orientation/origin reset, eligibility consumed/re-enabled on lock, fresh fall/contact, paused no-op, terminal retained observations; failed source preserves full state. Observe hold/error RED.
             Checks: npm run test; npm run typecheck; npm run build.
             Completion: Public hold command and snapshot eligibility coherent, atomic and detached.
+            Result: Six hold RED failures observed; final full 166/166 tests, typecheck and build pass. Empty draw/occupied no-draw, canonical reset, exhausted hold equality, lock re-enablement, restart/pause, fresh grounded incoming and blocked terminal exchange, source/identifier failure whole-state rollback verified. Contact fixture correctly expects terminal unavailability after its I lock blocks the next O spawn; earlier eligibility expectation was a fixture error. Unknown-command regression now uses teleport because hold is valid. Issue #28 verified.
 
         - [ ] T-029 — Deliver hold controls and held-piece information
             Depends on: T-028.

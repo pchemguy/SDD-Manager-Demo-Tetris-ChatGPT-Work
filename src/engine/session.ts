@@ -72,7 +72,9 @@ export class GameSession {
   }
   /** Attempt a discrete placement. Blocked moves preserve every timer.
    * Valid commands outside running are ignored.
-   * @throws TypeError for an unknown command; RangeError for counter overflow.
+   * Hold is once per lock; hard drop lands without locking.
+   * @throws TypeError for unknown commands/invalid draws; RangeError for counter overflow.
+   * Empty-hold source errors propagate before state publication.
    */
   command(command: GameCommand): void {
     if (
@@ -83,10 +85,15 @@ export class GameSession {
         "rotate-counterclockwise",
         "soft-drop",
         "hard-drop",
+        "hold",
       ].includes(command)
     )
       throw new TypeError("Unknown gameplay command.");
     if (this.state.status !== "running") return;
+    if (command === "hold") {
+      if (this.state.holdAvailable) this.hold();
+      return;
+    }
     const current = this.state.active!;
     if (command === "hard-drop") {
       const landing = landingPlacement(this.state.board, current);
@@ -167,6 +174,26 @@ export class GameSession {
       }
       if (remaining === 0) break;
     }
+  }
+  /** Exchange types once per lock; draw only for empty hold before publishing.
+   * Incoming spawn starts fresh timing; collision retains exchange and ends play.
+   * A failed draw preserves the entire state, including eligibility and timers.
+   */
+  private hold(): void {
+    const held = this.state.active!.type;
+    const type = this.state.held ?? this.state.next!;
+    const next = this.state.held === null ? this.draw(this.source!) : this.state.next;
+    const active: ActivePiece = { type, orientation: 0, ...spawnOrigin(type) };
+    const valid = canPlace(this.state.board, active);
+    this.state = {
+      ...this.state, held, next,
+      active: valid ? active : null,
+      status: valid ? "running" : "game-over",
+      holdAvailable: false,
+      gravityElapsedMs: 0,
+      grounded: null,
+    };
+    if (valid) this.updateContact();
   }
   /** Publish an entire merge/clear/promotion transition after collaborator work succeeds. */
   private lock(): void {

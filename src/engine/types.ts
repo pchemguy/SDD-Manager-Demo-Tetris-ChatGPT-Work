@@ -17,7 +17,8 @@ export type GameCommand =
   | "rotate-clockwise"
   | "rotate-counterclockwise"
   | "soft-drop"
-  | "hard-drop";
+  | "hard-drop"
+  | "hold";
 /** A source supplies one identifier; a factory supplies a fresh source on restart. */
 export type PieceSource = () => PieceType;
 export type PieceSourceFactory = () => PieceSource;
@@ -27,7 +28,9 @@ export interface GameSnapshot {
   board: Board;
   active: ActivePiece | null;
   next: PieceType | null;
+  /** Held type only; canonical orientation is restored on exchange. */
   held: PieceType | null;
+  /** Episode eligibility, retained in pause; false in idle/terminal states. */
   holdAvailable: boolean;
   ghost: ActivePiece | null;
   score: number;
