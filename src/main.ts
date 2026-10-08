@@ -1,3 +1,3 @@
-import './styles.css';
-import {mount} from './browser/app';
+import "./styles.css";
+import { mount } from "./browser/app";
 mount(document);

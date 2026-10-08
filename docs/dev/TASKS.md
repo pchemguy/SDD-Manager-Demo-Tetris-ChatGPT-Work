@@ -1,6 +1,6 @@
 # Baseline executable tasks
 
-This is the complete baseline Phase → Milestone → Task hierarchy derived from accepted [PLAN](PLAN.md), [layout](layout.md), [SPEC](SPEC.md), and design. [TASKS review](TASKS-REVIEW-REPORT.md) owns preparation conformance evidence. All tasks are initially unchecked; no product implementation or runtime acceptance has been established. Modern features belong to a subsequent feature campaign.
+This is the complete baseline Phase → Milestone → Task hierarchy derived from accepted [PLAN](PLAN.md), [layout](layout.md), [SPEC](SPEC.md), and design. [TASKS review](TASKS-REVIEW-REPORT.md) owns preparation conformance evidence. Preparation began with all tasks unchecked. Checked outcomes below carry observed implementation/verification evidence; reports own their review boundaries. Modern features belong to a subsequent feature campaign.
 
 ## Execution and verification conventions
 
@@ -164,12 +164,14 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Completion: reproducible static output and accurately recorded setup limits. Do not commit generated bundles or publish a hosted site.
             Result: Fresh git archive of published 272db5218e1f9c19e8ab123aa2066f6fa327e340 passed npm ci, fresh owned browser cache provisioning (Chromium 153.0.8010.0), 80 unit tests, strict build and 17 Chromium cases. Clean static files byte-identical; tracked/build secret, fixture, runtime remote-asset and engine browser-dependency checks passed. Tooling-only scripts/ownership added to layout; no hosted site or generated binary committed. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/17.
 
-        - [ ] T-018 — Complete user and agent documentation
+        - [x] T-018 — Complete user and agent documentation
             Scope: README, AGENTS, substantive engine/browser/view API/module documentation and relevant link corrections.
             Depends on: T-017.
             Contracts: U-05 launch/check guidance; layout documentation ownership and demo-context disclosure.
             Evidence: execute documented setup/dev/build/HTTP preview/check commands where applicable, verify controls match SPEC, validate links/public API contracts, preserve context/disclosure statements, and keep current owner/status guidance accurate. Run appropriate typechecks/regressions if source documentation changes; do not create tests for prose edits.
             Completion: usable player/developer guidance with actual evidence and no speculative command/status claims.
+            Result: README/AGENTS document actual setup/play/check commands and preserve activated-plugin/prior-Tetris-context disclosure. Executed dev/preview HTTP commands; links checked. Public API comments clarified and source/tests formatted without behavior changes; 80 unit tests, strict build and 17 cloud Chromium cases passed. Clean setup evidence retained from T-017; final integration remains explicitly pending. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/18.
+
         - [ ] T-019 — Review, test and report milestone 1.4
             Depends on: T-016–T-018 complete and published.
             Scope: complete distribution, documentation, acceptance traceability, production/test separation and prior regressions.
@@ -185,4 +187,4 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
 
 ## Preparation and selection boundary
 
-Twenty tasks comprise 15 delivery outcomes and five review outcomes. Milestone 1.1 ends at T-006; 1.2 at T-010; 1.3 at T-015; 1.4 at T-019; the phase ends at T-020. No range has been executed. The requested executable range is selected by sdd-implement from these identities; inline method selection does not silently select an arbitrary next-N boundary.
+Twenty tasks comprise 15 delivery outcomes and five review outcomes. Milestone 1.1 ends at T-006; 1.2 at T-010; 1.3 at T-015; 1.4 at T-019; the phase ends at T-020. The user selected the full phase T-001–T-020 for inline execution. Progress is recorded above; inline method selection does not silently select an arbitrary next-N boundary.

@@ -1,14 +1,133 @@
 /** Independently expected level-one timing boundaries, through public inputs only. */
-import {expect,test} from 'vitest';
-import {GameSession} from '../../src/engine/session';
-import {sequenceFactory} from '../fixtures/piece-sources';
-function game(types:Parameters<typeof sequenceFactory>[0]=['O']) {const g=new GameSession(sequenceFactory(types));g.start();return g;}
-test('movement rejects walls and rotation rejects occupied bounds without kicks',()=>{const g=game(['I']);for(let i=0;i<8;i++)g.command('left');expect(g.snapshot().active!.x).toBe(0);g.command('rotate-counterclockwise');expect(g.snapshot().active!.orientation).toBe(3);for(let i=0;i<8;i++)g.command('left');expect(g.snapshot().active!.x).toBe(-1);g.command('rotate-clockwise');expect(g.snapshot().active!.orientation).toBe(3);});
-test('gravity contacts at its event and locks only after a full subsequent interval',()=>{const g=game();g.advance(18400);expect(g.snapshot()).toMatchObject({active:{y:18},grounded:{elapsedMs:400,intervalMs:1000}});g.advance(599);expect(g.snapshot().board.flat().filter(Boolean)).toHaveLength(0);g.advance(1);expect(g.snapshot()).toMatchObject({active:{y:0},grounded:null,gravityElapsedMs:0});expect(g.snapshot().board.flat().filter(Boolean)).toHaveLength(4);});
-test('grounded horizontal adjustment preserves deadline; lock wins its gravity tie',()=>{const g=game();g.advance(18000);g.advance(400);g.command('left');expect(g.snapshot().grounded!.elapsedMs).toBe(400);g.advance(600);expect(g.snapshot().active!.y).toBe(0);expect(g.snapshot().board[18][3]).toBe('O');});
-test('movement off support clears contact, recontact begins a fresh full delay',()=>{const g=game(['O','I']);g.advance(19000);g.advance(16000);expect(g.snapshot().grounded).not.toBeNull();g.advance(400);for(let i=0;i<3;i++)g.command('left');expect(g.snapshot().grounded).toBeNull();for(let i=0;i<3;i++)g.command('right');expect(g.snapshot().grounded).toEqual({elapsedMs:0,intervalMs:1000});g.advance(999);expect(g.snapshot().active!.type).toBe('I');g.advance(1);expect(g.snapshot().active!.type).toBe('O');});
-test('rotation losing floor support clears timer and later gravity makes fresh contact',()=>{const g=game(['I','O']);g.command('rotate-clockwise');g.advance(16400);expect(g.snapshot().grounded!.elapsedMs).toBe(400);g.command('rotate-counterclockwise');expect(g.snapshot().grounded).toBeNull();g.advance(1600);expect(g.snapshot().grounded).toEqual({elapsedMs:0,intervalMs:1000});g.advance(999);expect(g.snapshot().active!.type).toBe('I');g.advance(1);expect(g.snapshot().active!.type).toBe('O');});
-test('elapsed remainder advances new piece and integer subdivision is identical',()=>{const a=game(),b=game();a.advance(20123);for(const dt of [5000,120,10000,5003])b.advance(dt);expect(a.snapshot()).toEqual(b.snapshot());expect(a.snapshot()).toMatchObject({active:{y:1},gravityElapsedMs:123});});
-test('five O placements clear two rows, promote preview and draw once per lock',()=>{let draws=0;const g=new GameSession(()=>()=>{draws++;return 'O';});g.start();for(const target of [0,2,4,6,8]){while(g.snapshot().active!.x>target)g.command('left');while(g.snapshot().active!.x<target)g.command('right');g.advance(19000);}expect(g.snapshot().board.flat().filter(Boolean)).toHaveLength(0);expect(draws).toBe(7);});
-test('grounded spawn gets full delay; blocked next spawn retains board and preview',()=>{const g=game();for(let i=0;i<9;i++)g.advance(19000-i*2000);expect(g.snapshot()).toMatchObject({active:{y:0},grounded:{elapsedMs:0,intervalMs:1000}});g.advance(999);expect(g.snapshot().status).toBe('running');g.advance(1);expect(g.snapshot()).toMatchObject({status:'game-over',active:null,next:'O'});expect(g.snapshot().board.flat().filter(Boolean)).toHaveLength(40);});
-test('rotation contacting floor between gravity ticks starts one full interval at that instant',()=>{const g=game(['I','O']);g.advance(16400);g.command('rotate-clockwise');expect(g.snapshot().grounded).toEqual({elapsedMs:0,intervalMs:1000});g.advance(999);expect(g.snapshot().board.flat().filter(Boolean)).toHaveLength(0);g.advance(1);expect(g.snapshot().board.flat().filter(Boolean)).toHaveLength(4);expect(g.snapshot()).toMatchObject({active:{type:'O',y:0},gravityElapsedMs:0});});
+import { expect, test } from "vitest";
+import { GameSession } from "../../src/engine/session";
+import { sequenceFactory } from "../fixtures/piece-sources";
+function game(types: Parameters<typeof sequenceFactory>[0] = ["O"]) {
+  const g = new GameSession(sequenceFactory(types));
+  g.start();
+  return g;
+}
+test("movement rejects walls and rotation rejects occupied bounds without kicks", () => {
+  const g = game(["I"]);
+  for (let i = 0; i < 8; i++) g.command("left");
+  expect(g.snapshot().active!.x).toBe(0);
+  g.command("rotate-counterclockwise");
+  expect(g.snapshot().active!.orientation).toBe(3);
+  for (let i = 0; i < 8; i++) g.command("left");
+  expect(g.snapshot().active!.x).toBe(-1);
+  g.command("rotate-clockwise");
+  expect(g.snapshot().active!.orientation).toBe(3);
+});
+test("gravity contacts at its event and locks only after a full subsequent interval", () => {
+  const g = game();
+  g.advance(18400);
+  expect(g.snapshot()).toMatchObject({
+    active: { y: 18 },
+    grounded: { elapsedMs: 400, intervalMs: 1000 },
+  });
+  g.advance(599);
+  expect(g.snapshot().board.flat().filter(Boolean)).toHaveLength(0);
+  g.advance(1);
+  expect(g.snapshot()).toMatchObject({
+    active: { y: 0 },
+    grounded: null,
+    gravityElapsedMs: 0,
+  });
+  expect(g.snapshot().board.flat().filter(Boolean)).toHaveLength(4);
+});
+test("grounded horizontal adjustment preserves deadline; lock wins its gravity tie", () => {
+  const g = game();
+  g.advance(18000);
+  g.advance(400);
+  g.command("left");
+  expect(g.snapshot().grounded!.elapsedMs).toBe(400);
+  g.advance(600);
+  expect(g.snapshot().active!.y).toBe(0);
+  expect(g.snapshot().board[18][3]).toBe("O");
+});
+test("movement off support clears contact, recontact begins a fresh full delay", () => {
+  const g = game(["O", "I"]);
+  g.advance(19000);
+  g.advance(16000);
+  expect(g.snapshot().grounded).not.toBeNull();
+  g.advance(400);
+  for (let i = 0; i < 3; i++) g.command("left");
+  expect(g.snapshot().grounded).toBeNull();
+  for (let i = 0; i < 3; i++) g.command("right");
+  expect(g.snapshot().grounded).toEqual({ elapsedMs: 0, intervalMs: 1000 });
+  g.advance(999);
+  expect(g.snapshot().active!.type).toBe("I");
+  g.advance(1);
+  expect(g.snapshot().active!.type).toBe("O");
+});
+test("rotation losing floor support clears timer and later gravity makes fresh contact", () => {
+  const g = game(["I", "O"]);
+  g.command("rotate-clockwise");
+  g.advance(16400);
+  expect(g.snapshot().grounded!.elapsedMs).toBe(400);
+  g.command("rotate-counterclockwise");
+  expect(g.snapshot().grounded).toBeNull();
+  g.advance(1600);
+  expect(g.snapshot().grounded).toEqual({ elapsedMs: 0, intervalMs: 1000 });
+  g.advance(999);
+  expect(g.snapshot().active!.type).toBe("I");
+  g.advance(1);
+  expect(g.snapshot().active!.type).toBe("O");
+});
+test("elapsed remainder advances new piece and integer subdivision is identical", () => {
+  const a = game(),
+    b = game();
+  a.advance(20123);
+  for (const dt of [5000, 120, 10000, 5003]) b.advance(dt);
+  expect(a.snapshot()).toEqual(b.snapshot());
+  expect(a.snapshot()).toMatchObject({
+    active: { y: 1 },
+    gravityElapsedMs: 123,
+  });
+});
+test("five O placements clear two rows, promote preview and draw once per lock", () => {
+  let draws = 0;
+  const g = new GameSession(() => () => {
+    draws++;
+    return "O";
+  });
+  g.start();
+  for (const target of [0, 2, 4, 6, 8]) {
+    while (g.snapshot().active!.x > target) g.command("left");
+    while (g.snapshot().active!.x < target) g.command("right");
+    g.advance(19000);
+  }
+  expect(g.snapshot().board.flat().filter(Boolean)).toHaveLength(0);
+  expect(draws).toBe(7);
+});
+test("grounded spawn gets full delay; blocked next spawn retains board and preview", () => {
+  const g = game();
+  for (let i = 0; i < 9; i++) g.advance(19000 - i * 2000);
+  expect(g.snapshot()).toMatchObject({
+    active: { y: 0 },
+    grounded: { elapsedMs: 0, intervalMs: 1000 },
+  });
+  g.advance(999);
+  expect(g.snapshot().status).toBe("running");
+  g.advance(1);
+  expect(g.snapshot()).toMatchObject({
+    status: "game-over",
+    active: null,
+    next: "O",
+  });
+  expect(g.snapshot().board.flat().filter(Boolean)).toHaveLength(40);
+});
+test("rotation contacting floor between gravity ticks starts one full interval at that instant", () => {
+  const g = game(["I", "O"]);
+  g.advance(16400);
+  g.command("rotate-clockwise");
+  expect(g.snapshot().grounded).toEqual({ elapsedMs: 0, intervalMs: 1000 });
+  g.advance(999);
+  expect(g.snapshot().board.flat().filter(Boolean)).toHaveLength(0);
+  g.advance(1);
+  expect(g.snapshot().board.flat().filter(Boolean)).toHaveLength(4);
+  expect(g.snapshot()).toMatchObject({
+    active: { type: "O", y: 0 },
+    gravityElapsedMs: 0,
+  });
+});

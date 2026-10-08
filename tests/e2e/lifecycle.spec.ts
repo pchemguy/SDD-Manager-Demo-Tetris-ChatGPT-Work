@@ -1,4 +1,54 @@
-import {expect,test} from '@playwright/test';
-test('pause/resume preserves display and long frame gaps auto-pause before catch-up',async({page})=>{await page.clock.install({time:new Date('2026-01-01T00:00:00Z')});await page.clock.pauseAt(new Date('2026-01-01T00:00:00Z'));await page.goto('/');await page.getByRole('button',{name:'Start',exact:true}).click();await page.keyboard.press('KeyP');await expect(page.getByRole('status')).toHaveText('Paused');await page.clock.fastForward(5000);await page.keyboard.press('Escape');await expect(page.getByRole('status')).toHaveText('Playing');await page.clock.fastForward(501);await expect(page.getByRole('status')).toHaveText('Paused');await page.getByRole('button',{name:'Resume',exact:true}).click();await expect(page.getByRole('status')).toHaveText('Playing');});
-test('unsupported Canvas produces visible inactive display message',async({page})=>{await page.addInitScript(()=>{HTMLCanvasElement.prototype.getContext=()=>null;});await page.goto('/');await expect(page.getByRole('status')).toContainText('Unsupported display');await expect(page.getByRole('button',{name:'Start',exact:true})).toBeDisabled();});
-test('isolated source failure stops gameplay, restart recovers, dispose removes listeners',async({page})=>{await page.clock.install({time:new Date('2026-01-01T00:00:00Z')});await page.clock.pauseAt(new Date('2026-01-01T00:00:00Z'));await page.goto('http://127.0.0.1:4175/tests/fixtures/recovery.html');await page.getByRole('button',{name:'Start',exact:true}).click();for(let i=0;i<18;i++)await page.keyboard.press('ArrowDown');await page.clock.runFor(1016);await expect(page.getByRole('status')).toContainText('Runtime error: fixture source failure');await expect(page.getByRole('button',{name:'Pause',exact:true})).toBeDisabled();await page.getByRole('button',{name:'Restart',exact:true}).click();await expect(page.getByRole('status')).toHaveText('Playing');await page.keyboard.press('ArrowDown');await expect(page.locator('#score')).toHaveText('1');await page.getByRole('button',{name:'Dispose test app'}).click();await page.keyboard.press('ArrowDown');await page.clock.runFor(1000);await expect(page.locator('#score')).toHaveText('1');});
+import { expect, test } from "@playwright/test";
+test("pause/resume preserves display and long frame gaps auto-pause before catch-up", async ({
+  page,
+}) => {
+  await page.clock.install({ time: new Date("2026-01-01T00:00:00Z") });
+  await page.clock.pauseAt(new Date("2026-01-01T00:00:00Z"));
+  await page.goto("/");
+  await page.getByRole("button", { name: "Start", exact: true }).click();
+  await page.keyboard.press("KeyP");
+  await expect(page.getByRole("status")).toHaveText("Paused");
+  await page.clock.fastForward(5000);
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("status")).toHaveText("Playing");
+  await page.clock.fastForward(501);
+  await expect(page.getByRole("status")).toHaveText("Paused");
+  await page.getByRole("button", { name: "Resume", exact: true }).click();
+  await expect(page.getByRole("status")).toHaveText("Playing");
+});
+test("unsupported Canvas produces visible inactive display message", async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    HTMLCanvasElement.prototype.getContext = () => null;
+  });
+  await page.goto("/");
+  await expect(page.getByRole("status")).toContainText("Unsupported display");
+  await expect(
+    page.getByRole("button", { name: "Start", exact: true }),
+  ).toBeDisabled();
+});
+test("isolated source failure stops gameplay, restart recovers, dispose removes listeners", async ({
+  page,
+}) => {
+  await page.clock.install({ time: new Date("2026-01-01T00:00:00Z") });
+  await page.clock.pauseAt(new Date("2026-01-01T00:00:00Z"));
+  await page.goto("http://127.0.0.1:4175/tests/fixtures/recovery.html");
+  await page.getByRole("button", { name: "Start", exact: true }).click();
+  for (let i = 0; i < 18; i++) await page.keyboard.press("ArrowDown");
+  await page.clock.runFor(1016);
+  await expect(page.getByRole("status")).toContainText(
+    "Runtime error: fixture source failure",
+  );
+  await expect(
+    page.getByRole("button", { name: "Pause", exact: true }),
+  ).toBeDisabled();
+  await page.getByRole("button", { name: "Restart", exact: true }).click();
+  await expect(page.getByRole("status")).toHaveText("Playing");
+  await page.keyboard.press("ArrowDown");
+  await expect(page.locator("#score")).toHaveText("1");
+  await page.getByRole("button", { name: "Dispose test app" }).click();
+  await page.keyboard.press("ArrowDown");
+  await page.clock.runFor(1000);
+  await expect(page.locator("#score")).toHaveText("1");
+});
