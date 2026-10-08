@@ -12,7 +12,11 @@ This repository develops a browser TypeScript Tetris game and demonstrates SDD M
 - [TASKS](docs/dev/TASKS.md) is the sole executable checklist for the baseline; [TASKS review](docs/dev/TASKS-REVIEW-REPORT.md) records conformance and readiness.
 - [SDD Manager notice](SDD-MANAGER.md) and [disclosure](AI_DISCLOSURE.md) identify development assistance.
 
-SPEC, PLAN, and layout are accepted; their review gates and the TASKS preparation gate are Ready. The selected range is the full baseline phase T-001–T-020 on `phase/1-baseline-tetris`, starting at preparation merge `6d96a76a1976f5b8c2ca3ed7847777ffcdc4d66d`. The full baseline is complete and integrated on `main`; TASKS remains the sole progress owner. The phase branch retains published checkpoints. No active feature exists. GitHub lifecycle tracking is confirmed for the baseline; project only an eligible phase after its inputs and review gates are established.
+SPEC, PLAN, and layout are accepted; their review gates and the TASKS preparation gate are Ready. The selected range is the full baseline phase T-001–T-020 on `phase/1-baseline-tetris`, starting at preparation merge `6d96a76a1976f5b8c2ca3ed7847777ffcdc4d66d`. The full baseline is complete and integrated on `main`; TASKS remains the sole progress owner. The phase branch retains published checkpoints. GitHub lifecycle tracking is confirmed for the baseline; project only an eligible phase after its inputs and review gates are established.
+
+## Active feature preparation
+
+Campaign [001_3fd5011-modern-piece-controls](docs/dev/features/001_3fd5011-modern-piece-controls/README.md) is open on `feature/001_3fd5011-modern-piece-controls`, based on full checkpoint `3fd501155708a92ddf63415f02180bdde9167836`, targeting `main`. Its proposed [feature architecture](docs/dev/FEATURE_ARCHITECTURE.md) and [feature decomposition](docs/dev/FEATURE_DECOMPOSITION.md) cover hold, ghost, seven bag, wall kicks and hard drop. Design acceptance is pending; feature specification, planning, task derivation and implementation have not started. The baseline TASKS remains completed and does not own feature execution. Read the active feature package before continuing. Preserve the full-contact-interval lock rule, including delayed hard drop.
 
 ## Workflow
 
