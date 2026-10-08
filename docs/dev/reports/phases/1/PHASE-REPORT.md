@@ -1,6 +1,6 @@
 # Phase 1 — Baseline Tetris
 
-Status: whole baseline reviewed and verified; authorized default-branch integration and final publication readback follow this checkpoint. The integration section will be reconciled from observed results, not inferred success.
+Status: **Complete.** Whole baseline reviewed, verified, explicitly merged into the confirmed default branch and published/read back. All twenty tasks and five hosted milestones are complete.
 
 ## Scope and evidence
 
@@ -30,13 +30,17 @@ Fixes were published in 08ed4b8. No second reviewer/re-review or additional arch
 | Full nonvisual play/accessibility certification | Keep semantic controls, readable status/focus and Canvas text required by U-04; full nonvisual play/certification is explicitly outside baseline. | Full nonvisual gameplay is not supplied/certified. |
 | Ordinary gameplay reaching counter overflow | Accept direct exact-boundary guard tests plus inspected pre-publication/source ordering and event rollback; no billions of synthetic public inputs. | No end-to-end run reaches an unsafe counter. |
 | Fresh installation/provisioning not repeated by reviewer | Root's T-017 committed-input clean run supplies that evidence; current full checks cover unchanged tooling and final code. | Clean install was demonstrated at the recorded tooling commit; final fixes were checked in the established install. |
-| Hosted/default-branch reconciliation outside read-only review | Root separately confirms markers/parents, issue/milestone states and published/default-branch containment. | Integration evidence remains pending until the section below is reconciled. |
+| Hosted/default-branch reconciliation outside read-only review | Root separately confirms markers/parents, issue/milestone states and published/default-branch containment. | None remaining: root read back all hosted closures and the published merged head. |
 
 Ruling: O metadata is a required contract repair despite limited visual effect; no change to accepted rotation behavior or player controls was introduced. No deferred Minor finding remains. Browser provisioning substituted pinned npm assets for an HTTP-200 HTML download failure, with ownership-safe extraction, local fonts and multiprocess contexts verified; it did not change accepted browser behavior.
 
 ## Integration and hosted reconciliation
 
-Pending observed final integration. Target reconfirmed as repository default branch `main`; its published head was 6d96a76a1976f5b8c2ca3ed7847777ffcdc4d66d before integration. Reports publish before T-020 issue/milestone closure, then the verified phase is explicitly merged without fast-forward, checked on the merged tree, pushed and read back. TASKS parent completion and this section will record actual results afterward.
+The repository default branch was reconfirmed as `main`, with unchanged pre-merge head 6d96a76a1976f5b8c2ca3ed7847777ffcdc4d66d. Final phase reports were published at 140ca00ed64a17e303b5ac051d085aa54c8444a4; T-020 then closed/read back and milestone 1.5 closed/read back. Root subsequently verified all 20 exact task markers/phase labels/milestone associations and all five closed milestones.
+
+Explicit non-fast-forward merge: **a01e4384b23398a30d8f5e5e520548bf35197d98**, with first parent 6d96a76a1976f5b8c2ca3ed7847777ffcdc4d66d and second parent 140ca00ed64a17e303b5ac051d085aa54c8444a4. The merged tree passed **82 unit/controller tests, strict typecheck/build and 18 Chromium cases**. It was pushed to `main`; GitHub's main-ref readback returned that exact merge SHA. A documentation-only reconciliation follows this merge and preserves its ancestry. TASKS phase/milestone/task completion is reconciled, and no active feature exists.
+
+The normal checkout is retained on `main`; the phase branch remains available for its auditable task checkpoints. No extra worktree, hosted deployment or feature campaign was created.
 
 ## TODO
 

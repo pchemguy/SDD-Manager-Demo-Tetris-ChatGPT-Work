@@ -1,6 +1,6 @@
 # Baseline implementation report
 
-Status: baseline code verified and ready for authorized `main` integration. Final publication/containment evidence will be recorded after merged-state checks.
+Status: **Complete.** All 20 baseline tasks and five milestones are complete; the verified game is integrated and published on `main`.
 
 The browser TypeScript/Canvas game implements all accepted baseline gameplay and lifecycle/display behavior, including one **full gravity interval from first contact** before locking. Independently selected pieces may repeat; rotations have no kicks. Soft drop, simultaneous clears, pre-clear-level awards, level/speed progression, one preview, pause/resume/focus policy, controlled repeat, restart, blocked-spawn game over and visible runtime recovery are present. Engine ownership is separate from the browser clock/input and presentation.
 
@@ -12,7 +12,7 @@ No hosted site was deployed. The static `dist` output requires HTTP serving but 
 
 ## Final integration
 
-Pending observed merged-state verification, issue/milestone reconciliation and remote containment readback.
+Explicit two-parent merge **a01e4384b23398a30d8f5e5e520548bf35197d98** incorporated verified phase head 140ca00ed64a17e303b5ac051d085aa54c8444a4 into confirmed default branch `main`. Merged-state 82 unit tests, strict build and 18 Chromium scenarios passed before push. GitHub main-ref readback matched the merge SHA; all 20 task identities/parent associations and all five closed milestones were read back. A documentation-only reconciliation records these results without changing verified product code.
 
 ## TODO
 

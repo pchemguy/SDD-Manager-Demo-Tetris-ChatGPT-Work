@@ -26,7 +26,7 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
 
 ## Phase 1 — Baseline Tetris
 
-- [ ] Phase 1 — Baseline Tetris
+- [x] Phase 1 — Baseline Tetris
     - [x] Milestone 1.1 — Playable browser slice
         - [x] T-001 — Define typed pieces and executable test toolchain
             Scope: package manifest/lockfile, TypeScript/Vite/Vitest/Playwright configuration, engine types/pieces, `tests/engine/pieces.test.ts`; compatible stable tooling versions and ignored generated output. No UI framework or product scaffold from another application.
@@ -186,7 +186,7 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Evidence: sdd-verify code review and complete relevant tests/typecheck/build/production Chromium acceptance; repair bugs/critical findings/SPEC or PLAN violations. Trace remaining eligible TODOs with provenance/options or state None. Publish reports, close review issue then milestone 1.5, reconcile parent completion, explicitly merge verified phase into confirmed default branch, verify merged state, publish and read back containment.
             Reports: `docs/dev/reports/phases/1/PHASE-REPORT.md` and `docs/dev/reports/IMPLEMENTATION-REPORT.md`.
             Completion: full baseline integration/publication and hosted reconciliation; stop before modern feature preparation unless separately requested.
-            Result: Independent read-only whole-branch review found initial paint recovery and O orientation metadata gaps; both observed RED then fixed GREEN in one pass. Fresh full checks passed 82 unit tests, strict build and 18 Chromium cases. Phase/final reports record acceptance, all reviewer boundary rulings and TODO None. Reports are ready for hosted review closure, authorized explicit main merge, merged-state verification and final readback; integration evidence will be reconciled afterward. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/20.
+            Result: Independent read-only whole-branch review found initial paint recovery and O orientation metadata gaps; both observed RED then fixed GREEN in one pass. Fresh full checks passed 82 unit tests, strict build and 18 Chromium cases. Phase/final reports record acceptance, all reviewer boundary rulings and TODO None. Reports published at 140ca00; all 20 task issues/five milestones closed and parent associations read back. Explicit main merge a01e4384b23398a30d8f5e5e520548bf35197d98 passed 82 unit tests, strict build and 18 Chromium cases, then was pushed/read back. Integration and phase parent completion are reconciled; no active modern feature. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/20.
 
 ## Preparation and selection boundary
 
