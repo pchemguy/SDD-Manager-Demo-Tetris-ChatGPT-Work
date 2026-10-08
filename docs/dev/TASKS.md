@@ -52,12 +52,14 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Completion: deterministic injectable session initialization, public value contracts, and detached snapshots support later rule/timing integration.
             Result: Source and lifecycle assertions failed against skeleton; separately observed snapshot mutation leaking into engine, then fixed ownership. Full Vitest suite passed 27/27 and typecheck passed. Controlled selection allows repeats, idle draws nothing, start draws two, restart creates fresh source, snapshots are detached. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/3.
 
-        - [ ] T-004 — Implement movement and event-driven locking cycles
+        - [x] T-004 — Implement movement and event-driven locking cycles
             Scope: gameplay/timing portions of `src/engine/session.ts`, `tests/engine/session.test.ts`, `tests/engine/timing.test.ts`; real board/source collaborators.
             Depends on: T-002, T-003.
             Contracts: B-02/B-04, T-03/T-04/T-05 core at level 1; A-01–A-04. Progression and soft drop are explicit later increments.
             Evidence: left/right/rotation rejection without kicks, gravity, contact between ordinary ticks, no lock before G and lock at G, grounded adjustments preserving timer, support loss/recontact, grounded spawn, lock-first tie, remainder crossing spawn, integer subdivision equality, clear/preview promotion/blocked spawn. Independently prepared fixtures exercise support-changing movement and rotation. Run session/timing and full current engine tests/typecheck; observe meaningful RED/GREEN.
             Completion: repeated coherent lock/clear/spawn cycles at the initial gravity interval without browser APIs or duplicate state ownership.
+            Result: Observed eight missing-operation RED failures then 36/36 full engine tests passed and typecheck passed. Public-input fixtures cover movement and rotation support loss, between-tick contact, unchanged grounded deadlines, lock-first ties, remainder/subdivision equality, two-row clear, preview draws, grounded spawn and blocked-spawn termination. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/4.
+
         - [ ] T-005 — Integrate the first playable browser path
             Scope: `index.html`, `src/main.ts`, basic browser app/controller/keyboard, Canvas/status views and styling; initial `tests/e2e/gameplay.spec.ts`, controller checks and isolated fixtures as needed.
             Depends on: T-004.
