@@ -52,3 +52,34 @@ test("isolated source failure stops gameplay, restart recovers, dispose removes 
   await page.clock.runFor(1000);
   await expect(page.locator("#score")).toHaveText("1");
 });
+
+test("transient first Canvas paint failure shows error and preserves working restart recovery", async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    const original = CanvasRenderingContext2D.prototype.fillRect;
+    let first = true;
+    CanvasRenderingContext2D.prototype.fillRect = function (...args) {
+      if (first) {
+        first = false;
+        throw Error("initial paint failure");
+      }
+      return original.apply(this, args);
+    };
+  });
+  await page.goto("/");
+  await expect(page.getByRole("status")).toContainText(
+    "Runtime error: initial paint failure",
+  );
+  await expect(
+    page.getByRole("button", { name: "Start", exact: true }),
+  ).toBeDisabled();
+  await expect(
+    page.getByRole("button", { name: "Pause", exact: true }),
+  ).toBeDisabled();
+  await page.getByRole("button", { name: "Restart", exact: true }).click();
+  await expect(page.getByRole("status")).toHaveText("Playing");
+  await expect(page.locator("#board")).toBeFocused();
+  await page.keyboard.press("ArrowDown");
+  await expect(page.locator("#score")).toHaveText("1");
+});

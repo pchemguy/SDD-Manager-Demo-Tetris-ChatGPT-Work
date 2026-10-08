@@ -105,3 +105,15 @@ test("lock awards pre-clear level, advances speed and promotes preview exactly o
   expect(g.snapshot()).toMatchObject({ lines: 12, score: 2640, level: 2 });
   expect(draws).toBe(32);
 });
+
+test.each(["rotate-clockwise", "rotate-counterclockwise"] as const)(
+  "%s keeps O orientation zero, placement and grounded timing",
+  (command) => {
+    const g = new GameSession(sequenceFactory(["O"]));
+    g.start();
+    g.advance(18400);
+    const before = g.snapshot();
+    g.command(command);
+    expect(g.snapshot()).toEqual(before);
+  },
+);

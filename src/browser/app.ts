@@ -51,9 +51,8 @@ export function mount(
       start.disabled = pause.disabled = true;
     },
   );
-  board(session.snapshot());
-  preview(session.snapshot());
-  status(session.snapshot());
+  // Initial painting uses the same protected failure/recovery route as later frames.
+  controller.tick(performance.now());
   const onStart = () => {
       controller.start(performance.now());
       canvas.focus();

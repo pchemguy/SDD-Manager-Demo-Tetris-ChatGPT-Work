@@ -79,8 +79,10 @@ export class GameSession {
     )
       throw new TypeError("Unknown gameplay command.");
     if (this.state.status !== "running") return;
-    const current = this.state.active!,
-      candidate = { ...current };
+    const current = this.state.active!;
+    // O is a rotation no-op in both geometry and the public orientation contract.
+    if (current.type === "O" && command.startsWith("rotate-")) return;
+    const candidate = { ...current };
     if (command === "left") candidate.x--;
     else if (command === "right") candidate.x++;
     else if (command === "rotate-clockwise")
