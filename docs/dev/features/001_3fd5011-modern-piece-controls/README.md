@@ -1,6 +1,6 @@
 # Modern piece controls feature campaign
 
-Status: design prepared for human review; implementation has not started.
+Status: design accepted; feature SPEC prepared for human review; implementation has not started.
 
 Campaign: `001_3fd5011`. Baseline: `3fd501155708a92ddf63415f02180bdde9167836`.
 Working branch: `feature/001_3fd5011-modern-piece-controls`. Integration target: `main`.
@@ -17,12 +17,12 @@ Extend the completed browser TypeScript Tetris baseline with hold, ghost piece, 
 - [Baseline SPEC](../../SPEC.md), [architecture](../../ARCHITECTURE.md) and [decomposition](../../DECOMPOSITION.md) govern unchanged behavior.
 - [Completed baseline report](../../reports/IMPLEMENTATION-REPORT.md) records the starting implementation evidence.
 
-The user requested beginning this campaign. Feature design acceptance is pending. FEATURE-SPEC, FEATURE-PLAN and FEATURE-TASKS do not yet exist. The next boundary is acceptance of the proposed design, followed by precise feature specification and its review. No product implementation, main-document incorporation or final feature merge is authorized by design preparation alone.
+The user requested beginning this campaign. The user accepted the feature architecture and decomposition on 2026-10-08. [FEATURE-SPEC](../../FEATURE-SPEC.md) and its [review](../../FEATURE-SPEC-REVIEW-REPORT.md) define the exact delta. FEATURE-PLAN and FEATURE-TASKS do not yet exist. The next boundary is human acceptance of the written feature SPEC before planning. No product implementation, main-document incorporation or final feature merge is authorized by design preparation alone.
 
 Baseline hosted tracking is complete. Feature phase eligibility and tracking scope must be established before creating feature task objects. No feature issues, labels or milestones have been created during design preparation.
 
-## Proposed decisions for review
+## Accepted design decisions
 
 Hold is available once per active-piece episode and is re-enabled only after a piece locks. Held pieces return at canonical spawn orientation and position. The ghost marks the same landing position used by hard drop. Production selection uses shuffled bags containing all seven types. Rotation uses explicit ordered kick tables with distinct I-piece handling; O remains a no-op. Hard drop awards two points per descended row and does not force locking or reset an existing grounded deadline.
 
-These choices are proposals until accepted. Exact kick tables, input bindings, source-draw counts, error behavior, snapshot fields and acceptance scenarios belong to FEATURE-SPEC.
+The user accepted these design choices. Exact kick tables, input bindings, source-draw counts, error behavior, snapshot fields and acceptance scenarios belong to FEATURE-SPEC.

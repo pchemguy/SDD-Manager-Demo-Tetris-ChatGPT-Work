@@ -1,6 +1,6 @@
 # Feature architecture — Modern piece controls
 
-Status: proposed design for review. [Campaign context](features/001_3fd5011-modern-piece-controls/README.md) owns identity, baseline and branch context. The [baseline architecture](ARCHITECTURE.md) governs unchanged blocks.
+Status: design accepted by the user on 2026-10-08. [Campaign context](features/001_3fd5011-modern-piece-controls/README.md) owns identity, baseline and branch context. The [baseline architecture](ARCHITECTURE.md) governs unchanged blocks.
 
 ## Outcome and constraints
 
@@ -34,6 +34,6 @@ Hard drop computes the maximum legal descent and proposes two points per descend
 
 Ownership review finds no new dependency cycle: placement/source helpers feed the session; controller consumes commands and snapshots; views consume snapshot values. Mutable hold eligibility and bag state each have one owner. Shared landing logic supports both display and input without moving gameplay into rendering.
 
-FEATURE-SPEC must define ordered kick offsets and coordinate conventions, bag shuffle/random-input validation, exact draw counts, hold/game-over transitions, drop scoring and timer behavior, snapshot values, key bindings and accessible display obligations. These proposed choices require human acceptance before dependent specification and implementation. Unchanged baseline scoring, level progression, one next preview, board dimensions and lifecycle rules remain in scope for regression verification. Full Guideline certification, T-spin/combo scoring, multiple previews, touch/audio and persistence are excluded.
+FEATURE-SPEC must define ordered kick offsets and coordinate conventions, bag shuffle/random-input validation, exact draw counts, hold/game-over transitions, drop scoring and timer behavior, snapshot values, key bindings and accessible display obligations. The design choices are accepted; the precise written feature SPEC requires human acceptance before planning and implementation. Unchanged baseline scoring, level progression, one next preview, board dimensions and lifecycle rules remain in scope for regression verification. Full Guideline certification, T-spin/combo scoring, multiple previews, touch/audio and persistence are excluded.
 
 See [feature decomposition](FEATURE_DECOMPOSITION.md) for component collaboration and verification seams.

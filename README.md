@@ -4,7 +4,7 @@ A classic single-player Tetris game in TypeScript and Canvas, developed as a pra
 
 The demo context contained several other activated plugins and skills in addition to SDD Manager. The global context also contained information from prior uses of the Tetris model, including earlier Tetris-development conversations. These contextual inputs could influence development decisions and outputs; this demo does not isolate the contribution of SDD Manager.
 
-The [modern feature campaign](docs/dev/features/001_3fd5011-modern-piece-controls/README.md) prepares hold, ghost, seven-bag randomization, wall kicks and hard drop. Its design is proposed for review; the playable code on this branch remains the completed baseline.
+The [modern feature campaign](docs/dev/features/001_3fd5011-modern-piece-controls/README.md) prepares hold, ghost, seven-bag randomization, wall kicks and hard drop. Its design is accepted and its feature SPEC is prepared for review; the playable code on this branch remains the completed baseline.
 
 ## Run locally
 

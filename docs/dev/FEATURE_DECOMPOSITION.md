@@ -1,6 +1,6 @@
 # Feature decomposition — Modern piece controls
 
-Status: proposed design for review. [Feature architecture](FEATURE_ARCHITECTURE.md) defines the change; [baseline decomposition](DECOMPOSITION.md) owns unchanged components. [Campaign context](features/001_3fd5011-modern-piece-controls/README.md) identifies the baseline and next boundary.
+Status: design accepted by the user on 2026-10-08. [Feature architecture](FEATURE_ARCHITECTURE.md) defines the change; [baseline decomposition](DECOMPOSITION.md) owns unchanged components. [Campaign context](features/001_3fd5011-modern-piece-controls/README.md) identifies the baseline and next boundary.
 
 ## Engine collaboration
 
@@ -29,4 +29,4 @@ Board rendering draws ghost distinctly from settled and active cells and keeps a
 
 Engine tests cover bag permutations, kick order, landing equality, hold eligibility/draw counts, safe drop scoring, blocked spawn and state isolation. Timing scenarios cover hard-drop contact between gravity ticks, zero-distance drop preserving a partially elapsed deadline, soft drop preserving that deadline, support loss/recontact, hold timer initialization and pause/resume. Browser checks exercise real production hold/drop controls, held/ghost displays and restart, complementing isolated deterministic collaborators without adding production mutation hooks.
 
-Precise kick tables and their relation to the existing bounding-square geometry, input choices, snapshot contracts and terminal/failure transitions require FEATURE-SPEC. Physical source allocation, delivery order and executable task ownership remain with feature planning and task derivation. This decomposition introduces no implementation or completion claim.
+Precise kick tables and their relation to the existing bounding-square geometry, input choices, snapshot contracts and terminal/failure transitions are owned by FEATURE-SPEC. Physical source allocation, delivery order and executable task ownership remain with feature planning and task derivation. This decomposition introduces no implementation or completion claim.

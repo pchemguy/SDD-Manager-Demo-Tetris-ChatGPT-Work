@@ -16,13 +16,13 @@ SPEC, PLAN, and layout are accepted; their review gates and the TASKS preparatio
 
 ## Active feature preparation
 
-Campaign [001_3fd5011-modern-piece-controls](docs/dev/features/001_3fd5011-modern-piece-controls/README.md) is open on `feature/001_3fd5011-modern-piece-controls`, based on full checkpoint `3fd501155708a92ddf63415f02180bdde9167836`, targeting `main`. Its proposed [feature architecture](docs/dev/FEATURE_ARCHITECTURE.md) and [feature decomposition](docs/dev/FEATURE_DECOMPOSITION.md) cover hold, ghost, seven bag, wall kicks and hard drop. Design acceptance is pending; feature specification, planning, task derivation and implementation have not started. The baseline TASKS remains completed and does not own feature execution. Read the active feature package before continuing. Preserve the full-contact-interval lock rule, including delayed hard drop.
+Campaign [001_3fd5011-modern-piece-controls](docs/dev/features/001_3fd5011-modern-piece-controls/README.md) is open on `feature/001_3fd5011-modern-piece-controls`, based on full checkpoint `3fd501155708a92ddf63415f02180bdde9167836`, targeting `main`. Its accepted [feature architecture](docs/dev/FEATURE_ARCHITECTURE.md) and [feature decomposition](docs/dev/FEATURE_DECOMPOSITION.md) cover hold, ghost, seven bag, wall kicks and hard drop. Design is accepted. [FEATURE-SPEC](docs/dev/FEATURE-SPEC.md) is prepared with its [QC report](docs/dev/FEATURE-SPEC-REVIEW-REPORT.md); written-spec acceptance is pending. Feature planning, task derivation and implementation have not started. The baseline TASKS remains completed and does not own feature execution. Read the active feature package before continuing. Preserve the full-contact-interval lock rule, including delayed hard drop.
 
 ## Workflow
 
 The user selected inline execution: the coordinating agent implements work in this session using the SDD checkpoints and review requirements. Execution-method selection is established; do not ask the user to choose it again.
 
-Keep preparation documents on `design-docs`. Complete specification, planning, task derivation, required review, and human decisions before implementation. Merge accepted preparation into the repository's actual default branch and publish it before creating implementation branches.
+Keep initial baseline preparation documents on `design-docs`; active feature preparation follows the established feature branch/package context. Complete specification, planning, task derivation, required review, and human decisions before implementation. Merge accepted preparation into the repository's actual default branch and publish it before creating implementation branches.
 
 Use the installed SDD Manager coordinator and focused skills. Preserve user-owned changes, use Git commits as checkpoints, verify scoped changes before committing, and publish authorized checkpoints to this repository. Do not reset, force-push, or create additional features without scope authority. Treat a completed partial implementation range as a stopping boundary.
 
