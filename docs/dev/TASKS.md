@@ -179,13 +179,14 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Report: `docs/dev/reports/phases/1/1.4.md`; publish and reconcile all constituent issue closures, then close/read back milestone 1.4.
             Result: Distribution/code/documentation review and A-01–A-08 traceability report complete; 80 unit tests, strict build and 17 Chromium cases passed. Clean setup from T-017 and viewport/visual evidence retained, test/production/credential boundaries inspected, TODO None within milestone. Independent phase review and integration remain T-020. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/19.
 
-    - [ ] Milestone 1.5 — Phase review
-        - [ ] T-020 — Review, test and report phase 1 and the complete baseline
+    - [x] Milestone 1.5 — Phase review
+        - [x] T-020 — Review, test and report phase 1 and the complete baseline
             Depends on: milestones 1.1–1.4 complete, reviewed and closed/read back; T-006, T-010, T-015, T-019 published.
             Scope: whole baseline, cross-milestone integration, all A-01–A-08 evidence, accepted scope/design/PLAN, final TODO aggregation and integration readiness.
             Evidence: sdd-verify code review and complete relevant tests/typecheck/build/production Chromium acceptance; repair bugs/critical findings/SPEC or PLAN violations. Trace remaining eligible TODOs with provenance/options or state None. Publish reports, close review issue then milestone 1.5, reconcile parent completion, explicitly merge verified phase into confirmed default branch, verify merged state, publish and read back containment.
             Reports: `docs/dev/reports/phases/1/PHASE-REPORT.md` and `docs/dev/reports/IMPLEMENTATION-REPORT.md`.
             Completion: full baseline integration/publication and hosted reconciliation; stop before modern feature preparation unless separately requested.
+            Result: Independent read-only whole-branch review found initial paint recovery and O orientation metadata gaps; both observed RED then fixed GREEN in one pass. Fresh full checks passed 82 unit tests, strict build and 18 Chromium cases. Phase/final reports record acceptance, all reviewer boundary rulings and TODO None. Reports are ready for hosted review closure, authorized explicit main merge, merged-state verification and final readback; integration evidence will be reconciled afterward. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/20.
 
 ## Preparation and selection boundary
 
