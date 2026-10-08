@@ -151,3 +151,6 @@ vite.config.ts.timestamp-*
 
 .obsidian
 .trash
+
+# Hosting credentials
+*.tkn
