@@ -75,7 +75,7 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Report: `docs/dev/reports/phases/1/1.1.md`, with checks/results/limitations and TODO None or eligible findings. Publish/close all constituent issues including this review, then close/read back milestone 1.1.
             Result: Code review found no blocker within slice; 37 unit tests, strict typecheck/build and three Chromium cases passed. Visual text/Canvas inspection passed after correcting task browser fonts. Report records environment limits, evidence and explicit 1.2/1.3 deferrals; TODO None. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/6.
 
-    - [ ] Milestone 1.2 — Complete gameplay progression
+    - [x] Milestone 1.2 — Complete gameplay progression
         - [x] T-007 — Define score, level and gravity progression rules
             Scope: `src/engine/progression.ts`, `tests/engine/progression.test.ts`, relevant public types/documentation.
             Depends on: T-006.
@@ -100,11 +100,13 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Completion: progression is usable in the existing browser game; complete repeat/focus policies remain for 1.3.
             Result: New browser display scenario failed on absent score element before wiring; 53 unit tests, strict build and four Chromium gameplay/display cases passed. Visible soft-drop score and idle/running next identifier/Canvas verified; progression screenshot inspected. Pause/repeat remain explicitly deferred. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/9.
 
-        - [ ] T-010 — Review, test and report milestone 1.2
+        - [x] T-010 — Review, test and report milestone 1.2
             Depends on: T-007–T-009 complete and published.
             Scope: full progression/source/soft-drop integration and regressions of 1.1.
             Evidence: code review, all engine tests/typecheck/build, current browser gameplay/display tests, all award/threshold/floor and blocked-soft-drop boundaries; resolve required failures before completion.
             Report: `docs/dev/reports/phases/1/1.2.md`; publish review evidence, close/read back constituent issues, then milestone 1.2.
+            Result: Reviewed progression/source/soft-drop and prior slice boundaries; 53 unit tests, strict typecheck/build and four Chromium cases passed. Report records award/speed/preview evidence and visual inspection with no blocker or TODO within scope. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/10.
+
     - [ ] Milestone 1.3 — Robust browser session
         - [ ] T-011 — Complete engine lifecycle and failure contracts
             Scope: session lifecycle/validation/atomic transitions, engine types as needed, `tests/engine/errors.test.ts`, state/timing regressions.
