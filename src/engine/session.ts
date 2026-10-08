@@ -1,5 +1,6 @@
 /** Synchronous aggregate owner. Commands/time are supplied externally; observations are detached. */
 import { canPlace, emptyBoard, mergeAndClear } from "./board";
+import { rotatedPlacement } from "./rotation";
 import { landingPlacement } from "./landing";
 import { PIECE_TYPES, spawnOrigin } from "./pieces";
 import {
@@ -98,15 +99,20 @@ export class GameSession {
       this.updateContact();
       return;
     }
-    // O is a rotation no-op in both geometry and the public orientation contract.
-    if (current.type === "O" && command.startsWith("rotate-")) return;
+    // O is a complete no-op, including timers and public orientation.
+    if (command.startsWith("rotate-")) {
+      if (current.type === "O") return;
+      const rotated = rotatedPlacement(this.state.board, current,
+        command === "rotate-clockwise" ? 1 : -1);
+      if (rotated) {
+        this.state.active = rotated;
+        this.updateContact();
+      }
+      return;
+    }
     const candidate = { ...current };
     if (command === "left") candidate.x--;
     else if (command === "right") candidate.x++;
-    else if (command === "rotate-clockwise")
-      candidate.orientation = (candidate.orientation + 1) % 4;
-    else if (command === "rotate-counterclockwise")
-      candidate.orientation = (candidate.orientation + 3) % 4;
     else if (command === "soft-drop") candidate.y++;
     else return;
     if (canPlace(this.state.board, candidate)) {

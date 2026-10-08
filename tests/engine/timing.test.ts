@@ -7,7 +7,7 @@ function game(types: Parameters<typeof sequenceFactory>[0] = ["O"]) {
   g.start();
   return g;
 }
-test("movement rejects walls and rotation rejects occupied bounds without kicks", () => {
+test("movement rejects walls and rotation uses ordered wall kicks", () => {
   const g = game(["I"]);
   for (let i = 0; i < 8; i++) g.command("left");
   expect(g.snapshot().active!.x).toBe(0);
@@ -16,7 +16,7 @@ test("movement rejects walls and rotation rejects occupied bounds without kicks"
   for (let i = 0; i < 8; i++) g.command("left");
   expect(g.snapshot().active!.x).toBe(-1);
   g.command("rotate-clockwise");
-  expect(g.snapshot().active!.orientation).toBe(3);
+  expect(g.snapshot().active).toMatchObject({ orientation: 0, x: 0 });
 });
 test("gravity contacts at its event and locks only after a full subsequent interval", () => {
   const g = game();

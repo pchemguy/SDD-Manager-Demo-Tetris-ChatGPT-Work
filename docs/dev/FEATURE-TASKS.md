@@ -69,13 +69,14 @@ At T-034, accepted task incorporation may transfer the single executable owner t
             Completion: Pure candidate/selection boundary with explicit y-down semantics; no hidden rows.
             Result: Milestone 2.1 closure read back. Observed 51 behavioral RED failures; 51/51 focused and 157/157 full tests passed. Typecheck initially caught fixture nullability annotation, corrected; final typecheck passes. Independently enumerated all 48 type/transition lists plus first/fifth candidate, wall/floor/stack/top/total rejection/O and input immutability. Issue #26 verified; session integration deferred.
 
-        - [ ] T-027 — Integrate kicked rotation with contact timing
+        - [x] T-027 — Integrate kicked rotation with contact timing
             Depends on: T-026.
             Scope: src/engine/session.ts; session/timing tests and declared-delta corrections to obsolete no-kick expectations.
             Contracts: F-02/F-04 / FA-02/FA-05.
             Evidence: Blocked snapshot equality, fall elapsed preservation, grounded deadline preservation, kick support loss/recontact, O no-op and ghost refresh. Observe public-session RED before integration.
             Checks: npm run test; npm run build; focused current browser gameplay regressions.
             Completion: Session kicks obey ordered placement/contact rules without changing source or scoring.
+            Result: Three public-session/wall RED failures observed (nine existing/blocked cases passed); full 160/160 and strict build pass; six production gameplay/modern Chromium cases pass. Floor kick retains 400-ms fall/contact and deadline; translated I kick loses stacked support and recontact starts full G; completely obstructed top candidates preserve whole snapshot. Obsolete no-kick assertion now expects literal x=0/orientation=0 wall result. O no-op remains covered. Issue #27 verified.
 
         - [ ] T-028 — Implement coherent once-per-lock hold transitions
             Depends on: T-027.
