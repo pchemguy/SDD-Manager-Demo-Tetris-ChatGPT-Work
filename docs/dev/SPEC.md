@@ -2,7 +2,7 @@
 
 ## Purpose, scope, and owners
 
-Preparation status: the scope and lock-delay rules are accepted. Concrete rules that refine them, including geometry, scoring, speed, input, and focus policy, are proposed here for human specification review. Dependent PLAN authoring waits for acceptance of this written specification.
+The user accepted this written specification, including geometry, scoring, speed, input, and focus policy. Its preparation conformance gate is recorded in the adjacent review report.
 
 Build a single-player keyboard-controlled browser Tetris game in TypeScript. The baseline includes seven independently selected tetrominoes, a 10 × 20 board, rotation, movement, soft drop, gravity, delayed locking, clearing, score/level progression, one next preview, pause/resume, restart, and game over. Hold, ghost piece, seven-bag randomization, wall kicks, and hard drop are excluded. No server, account, persistence, touch control, or audio is required.
 

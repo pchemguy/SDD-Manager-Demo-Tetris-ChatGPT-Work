@@ -10,7 +10,7 @@ This repository develops a browser TypeScript Tetris game and demonstrates SDD M
 - [SPEC](docs/dev/SPEC.md) and its linked children own observable behavior and acceptance; [SPEC review](docs/dev/SPEC-REVIEW-REPORT.md) records the preparation gate.
 - [SDD Manager notice](SDD-MANAGER.md) and [disclosure](AI_DISCLOSURE.md) identify development assistance.
 
-SPEC is prepared for human review. PLAN, layout, and TASKS have not been authored. No executable task range or active feature exists. Product source, tests, package manifests, and application commands are absent. GitHub lifecycle tracking is confirmed for the baseline; project only an eligible phase after its inputs and review gates are established.
+SPEC is accepted and its review gate is Ready. PLAN, layout, and TASKS have not been authored. No executable task range or active feature exists. Product source, tests, package manifests, and application commands are absent. GitHub lifecycle tracking is confirmed for the baseline; project only an eligible phase after its inputs and review gates are established.
 
 ## Workflow
 

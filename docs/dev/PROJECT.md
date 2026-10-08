@@ -27,7 +27,7 @@ The baseline excludes multiplayer, accounts, a server, online leaderboards, pers
 
 Success means a playable baseline with reproducible engine checks, a usable browser interface, and repository evidence connecting accepted requirements to verified delivery. The game is intended to run entirely in the browser and be distributable as static files; hosting is a separate deployment decision.
 
-The [specification](SPEC.md) defines exact rotation matrices and spawn positions, scoring and speed formulas, keyboard bindings/repeat behavior, pause/focus timing, game-over boundaries, simultaneous event ordering, and target browser support. Its concrete gameplay defaults require human specification review before dependent planning.
+The accepted [specification](SPEC.md) defines exact rotation matrices and spawn positions, scoring and speed formulas, keyboard bindings/repeat behavior, pause/focus timing, game-over boundaries, simultaneous event ordering, and target browser support.
 
 ## Preparation context
 
@@ -35,4 +35,4 @@ Repository: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work. In
 
 GitHub plugin repository reads, the HTTPS Git clone, and preparation publication succeeded. The user confirmed GitHub task/label/milestone tracking for the baseline lifecycle, including verification-based completion and reconciliation. No hosted tracking objects have been created. Counts and eligible phase scope will come from the accepted PLAN and TASKS; only the eligible phase will be projected.
 
-Design is accepted and specification preparation is recorded here. PLAN, layout, TASKS, and product implementation remain to be prepared. See [architecture](ARCHITECTURE.md), [decomposition](DECOMPOSITION.md), and the [SPEC review](SPEC-REVIEW-REPORT.md).
+Design and specification are accepted. PLAN, layout, TASKS, and product implementation remain to be prepared. See [architecture](ARCHITECTURE.md), [decomposition](DECOMPOSITION.md), and the [SPEC review](SPEC-REVIEW-REPORT.md).
