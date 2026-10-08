@@ -75,3 +75,28 @@ test("hold draw failure displays unavailable and restart restores usability", as
   await page.getByRole("button",{name:"Restart",exact:true}).click();
   await expect(page.locator("#hold-availability")).toHaveText("Available");
 });
+
+test("semantic button Space and editable/link focus retain native behavior",async({page})=>{
+  await page.getByRole("button",{name:"Start",exact:true}).focus(); await page.keyboard.press("Space");
+  await expect(page.getByRole("status")).toHaveText("Playing"); await expect(page.locator("#score")).toHaveText("0");
+  await page.getByRole("button",{name:"Pause",exact:true}).focus(); await page.keyboard.press("Space");
+  await expect(page.getByRole("status")).toHaveText("Paused"); await page.keyboard.press("Space");
+  await expect(page.getByRole("status")).toHaveText("Playing"); await page.keyboard.press("KeyC");
+  await expect(page.locator("#held-type")).toHaveText("None");
+  await page.evaluate(()=>{const i=document.createElement("input");i.id="modern-input";document.body.append(i);const a=document.createElement("a");a.id="modern-link";a.href="#";a.textContent="Focus link";document.body.append(a);});
+  await page.locator("#modern-input").focus(); await page.keyboard.press("KeyC"); await page.keyboard.press("Space");
+  await expect(page.locator("#modern-input")).toHaveValue("c ");
+  await page.locator("#modern-link").focus(); await page.keyboard.press("Space");await page.keyboard.press("ShiftLeft");
+  await expect(page.locator("#held-type")).toHaveText("None");await expect(page.locator("#score")).toHaveText("0");
+});
+
+test("production I wall kick publishes the first valid translated horizontal shape",async({page})=>{
+  await page.keyboard.press("Enter");await page.keyboard.press("KeyZ");
+  for(let n=0;n<8;n++)await page.keyboard.press("ArrowLeft");
+  await page.keyboard.press("KeyX");
+  expect(await page.locator("#board").evaluate(node=>{
+    const c=node as HTMLCanvasElement,cell=c.width/10;
+    return Array.from(c.getContext("2d")!.getImageData(Math.floor(cell/2),Math.floor(cell*1.5),1,1).data);
+  })).toEqual([101,219,232,255]);
+  await expect(page.locator("#score")).toHaveText("0");
+});

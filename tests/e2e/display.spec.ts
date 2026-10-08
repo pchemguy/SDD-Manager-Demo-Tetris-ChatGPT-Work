@@ -47,6 +47,9 @@ for (const viewport of [
         await expect(
           page.getByRole("button", { name: "Pause", exact: true }),
         ).toBeEnabled();
+        await page.keyboard.press("KeyC");
+        await expect(page.locator("#held-type")).toHaveText(/^[IJLOSTZ]$/);
+        await expect(page.locator("#hold-availability")).toHaveText("Used");
         const metrics = await page.evaluate(() => {
           const canvas = document.querySelector<HTMLCanvasElement>("#board")!,
             board = canvas.getBoundingClientRect(),

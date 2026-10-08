@@ -106,13 +106,14 @@ At T-034, accepted task incorporation may transfer the single executable owner t
             Result: Fresh 169/169 unit/controller tests, strict build and all 21/21 Chromium cases pass. Tables/candidates/contact/hold/source/UI reviewed separately; inspected required compact layout and paused held/ghost display. Remaining complete acceptance/setup/incorporation belongs to 2.3. Issue #30 verified; publication precedes review and milestone closure.
 
     - [ ] Milestone 2.3 — Verified coherent expansion
-        - [ ] T-031 — Complete cross-feature production acceptance and failure evidence
+        - [x] T-031 — Complete cross-feature production acceptance and failure evidence
             Depends on: T-030 and 2.2 closure.
             Scope: Existing engine/controller tests, e2e suites and isolated fixtures; only required bug repairs in their owning source.
             Contracts: FA-01–FA-08 and affected A-01–A-08.
             Evidence: Exact drop-at-deadline ordering, pause/subdivision, kick support loss/recontact, hold/contact and atomic source/counter failures; semantic-button Space/focus exclusions; production ghost/hold/restart/error, local-only requests, viewport/DPR 1/2. Add missing evidence, not implementation-mirroring tests or fabricated RED.
             Checks: npm run test; npm run build; npm run test:e2e:cloud; actual screenshot inspection.
-            Completion: Complete acceptance mapping with actual check counts and clear native-event/browser limits.
+            Completion: Cross-feature acceptance mapped to actual tests; no required production repair.
+            Result: Milestone 2.2 closure read back. Full 175/175 tests, strict build and all 23/23 Chromium cases pass. Six added controller/session characterizations pin drop/hold exactly after due lock, repeat/pause chronology, bag restart purity, occupied blocked no-draw hold and interleaved subdivision. A fixture expectation was corrected for the repeat due before pause; no fabricated feature RED or production change. FA-01 source/restart; FA-02 rotation/kick-session plus literal production pixel; FA-03 hold/occupied blocked; FA-04 landing/drop/guard; FA-05 timing/modern-timing; FA-06 errors/hold/drop; FA-07 modern/display/controls/lifecycle; affected A-01–A-08 gameplay/progression/board/session retained. Viewport/DPR screenshots with populated hold inspected; button Space, editable/link exclusion and local-only requests pass. FA-08 clean setup/guidance/incorporation remains for T-032–T-034. Chromium-only/modelled native-event limits retained. Issue #31 verified.
 
         - [ ] T-032 — Verify clean setup and complete player developer guidance
             Depends on: T-031.
