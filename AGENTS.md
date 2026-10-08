@@ -15,6 +15,8 @@ SPEC is accepted and its review gate is Ready. PLAN and layout are prepared for 
 
 ## Workflow
 
+The user selected inline execution: the coordinating agent implements work in this session using the SDD checkpoints and review requirements. Execution-method selection is established; do not ask the user to choose it again.
+
 Keep preparation documents on `design-docs`. Complete specification, planning, task derivation, required review, and human decisions before implementation. Merge accepted preparation into the repository's actual default branch and publish it before creating implementation branches.
 
 Use the installed SDD Manager coordinator and focused skills. Preserve user-owned changes, use Git commits as checkpoints, verify scoped changes before committing, and publish authorized checkpoints to this repository. Do not reset, force-push, or create additional features without scope authority. Treat a completed partial implementation range as a stopping boundary.

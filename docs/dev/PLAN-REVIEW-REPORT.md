@@ -2,7 +2,7 @@
 
 ## Current gate
 
-State: **Blocked pending human written-plan acceptance**. PLAN/SPEC conformance and physical-layout review pass; no confirmed QC defect remains. TASKS derivation waits for acceptance of this delivery strategy/layout. Execution-method and task-range selection also remain pending; no implementation is authorized by this review.
+State: **Blocked pending human written-plan acceptance**. PLAN/SPEC conformance and physical-layout review pass; no confirmed QC defect remains. TASKS derivation waits for acceptance of this delivery strategy/layout. The user selected inline execution in this session. Task-range selection remains pending; no implementation is authorized by this review.
 
 Scope: PLAN and layout. Inputs: accepted design and SPEC, with the SPEC Ready gate persisted and published at `336ebc6b68268d912a716b940b2e10c048c5075b`. Governing PROJECT receives only navigation/status maintenance during this preparation. Current exact reviewed content identities use SHA-256.
 
