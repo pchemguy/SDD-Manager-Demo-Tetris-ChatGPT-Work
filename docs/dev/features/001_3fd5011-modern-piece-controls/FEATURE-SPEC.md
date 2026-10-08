@@ -1,8 +1,10 @@
+> Historical accepted feature source/evidence. Current contracts and executable progress belong to the canonical main documents and TASKS. Checkboxes here are snapshots, never execution owners.
+
 # Modern piece controls feature specification
 
 ## Scope and authority
 
-This active delta defines campaign [001_3fd5011-modern-piece-controls](features/001_3fd5011-modern-piece-controls/README.md). The user accepted [feature architecture](FEATURE_ARCHITECTURE.md) and [feature decomposition](FEATURE_DECOMPOSITION.md). The user accepted the written feature SPEC on 2026-10-08; the contracts below govern feature planning. They specify intended behavior, not implemented capabilities or official Guideline compliance.
+This active delta defines campaign [001_3fd5011-modern-piece-controls](README.md). The user accepted [feature architecture](FEATURE_ARCHITECTURE.md) and [feature decomposition](FEATURE_DECOMPOSITION.md). The user accepted the written feature SPEC on 2026-10-08; the contracts below govern feature planning. They specify intended behavior, not implemented capabilities or official Guideline compliance.
 
 Add hold, ghost, seven-bag selection, wall kicks and hard drop to the completed browser game. Preserve 10 × 20 visible cells with no hidden rows, canonical geometry/spawn origins, one next preview, clear awards, level/gravity progression, pause/focus policy, static distribution and detached engine snapshots. No mode selector, 180-degree rotation, spin/combo bonus, extra preview, touch/audio, persistence or hosted deployment is required.
 
@@ -19,7 +21,7 @@ Add hold, ghost, seven-bag selection, wall kicks and hard drop to the completed 
 | U-01/U-03/U-04, A-07 | Hold/drop keys and held/ghost information | F-07 |
 | A-08 exclusions | Five feature capabilities are required; other exclusions remain | FA-01–FA-08 |
 
-Unchanged contracts remain owned by [SPEC](SPEC.md) and its [board](spec/board-and-pieces.md), [timing](spec/session-and-timing.md), and [browser](spec/browser-interaction.md) children. Feature contracts override only the explicitly identified deltas. Final incorporation belongs to the accepted feature integration workflow.
+Unchanged contracts remain owned by [SPEC](../../SPEC.md) and its [board](../../spec/board-and-pieces.md), [timing](../../spec/session-and-timing.md), and [browser](../../spec/browser-interaction.md) children. Feature contracts override only the explicitly identified deltas. Final incorporation belongs to the accepted feature integration workflow.
 
 ## F-01: seven-bag source
 

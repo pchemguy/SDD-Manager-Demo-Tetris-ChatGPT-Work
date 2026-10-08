@@ -2,24 +2,16 @@
 
 ## Current gate
 
-State: **Ready for executable range selection and eligible phase activation**. TASKS conforms to the accepted PLAN/layout and SPEC/design, with all 20 tasks initially unchecked. No confirmed QC issue remains. This readiness does not claim implementation, tests, provisioned tools, phase activation, or hosted object creation. Inline execution is the selected method; sdd-implement owns precise range selection.
+State: **Ready for current execution**. Complete TASKS conforms to incorporated PLAN/SPEC/design/layout. TASKS uniquely owns T-001–T-036; status evidence does not replace acceptance or phase integration.
 
-Inputs: PLAN/layout acceptance persisted/published at `f28cba9daadb363f913d7b307bb003b03234ea2e`, current upstream Ready reports, and accepted SPEC/design. Reviewed TASKS and governing sources are identified by SHA-256 below.
-
-| Document | Reviewed identity |
+| Document | Reviewed SHA-256 |
 | --- | --- |
-| `docs/dev/TASKS.md` | `4aca7482f20b2c7c27a45b393e23510a4fd99973bef3702b9106be019bd7caec` |
-| `docs/dev/PLAN.md` | `2b3b4290dea868e7cc02b8e8fd83160cccd6f6d456ac7662a90e0009fc5ef8c6` |
-| `docs/dev/layout.md` | `c21f2dfaf35417d6b2242f3a347e3d29d48579af43e90f9e6ac91b1cf019c6c4` |
-| `docs/dev/PLAN-REVIEW-REPORT.md` | `03d80be7d2bc05325094bad40881dd0adfd3ab222de952356e60e1473c6caeb2` |
-| `docs/dev/PROJECT.md` | `585820be5f322e346cff69789b2178a03c03c62367db4c2756a6198a7d86cb0e` |
-| `docs/dev/ARCHITECTURE.md` | `41849d0f494c99501847d21378cdb1378a6adc31b91775e4ae3cda002fb1c5f7` |
-| `docs/dev/DECOMPOSITION.md` | `0053d29f5628c1283f36e1d3f8158f6eacc3be1b25485c7bca9976dbfed30c74` |
-| `docs/dev/SPEC.md` | `1957efa19387693a72e5bc2578bc12eae41684ea2322205996f76c04b4e9cea4` |
-| `docs/dev/spec/board-and-pieces.md` | `318c7577899a2365c468c13f3ab8b8057643490a67716e01dc1a9327ce9752d7` |
-| `docs/dev/spec/browser-interaction.md` | `24d21f81dbb24b33d2d198793cce6194ec0d2b2fd190ec47e5ad9a3648096bcc` |
-| `docs/dev/spec/session-and-timing.md` | `e97bf04b409f2cb155f8c59e797fd90c775121aa21a0a77f623400f079d211dd` |
-| `docs/dev/SPEC-REVIEW-REPORT.md` | `86ce422522e85ec1bb432bc035eee6010789312bcfcb8a8f1a56e6d52a44f37d` |
+| `docs/dev/TASKS.md` | `ca9d39a0b22d7f9650ab9db2694298bd7f53d893cad677a23e9bb4075b2892b2` |
+| `docs/dev/PLAN.md` | `3fb6af27f1431cbf261bc7905c18484df46f06c67b19032a868a6d7892d6088f` |
+| `docs/dev/layout.md` | `e06bfd0fbd63614c2201decbad8d94cdfe8d87978cd9892b256c8e3e3f4ba616` |
+| `docs/dev/SPEC.md` | `464308a577e91bec87f8071abde85915e4a28b3f8bdf2ae9c0d5b844e68a81d4` |
+| `docs/dev/ARCHITECTURE.md` | `0a7ac908dfb0613fdcde87ea7b22aca7313149685c7ee4a0f7b8abe2feb824df` |
+| `docs/dev/DECOMPOSITION.md` | `b44d9af82c860792a739204c698c09c861118e9bdd63d19745cf972df3d3968d` |
 
 ## Initial review
 
@@ -57,3 +49,9 @@ Checked expected edit scopes against layout. Source/test paths and npm scripts a
 Automated preparation checks cover checklist indentation/ID/parent/count/dependency structure, local document links, reviewed source hashes, accepted SPEC/PLAN/layout byte equivalence, end-state language, authored-file whitespace and tracked secret markers. All initial implementation checkboxes must remain unchecked.
 
 No confirmed issue required a correction cycle; no Revision section is fabricated. Upstream context/navigation changes are reviewed as materially equivalent, with current hashes and retained upstream rechecks. No unresolved finding blocks range selection. Before implementation, preparation must be integrated/published on the confirmed default branch and phase 1 GitHub objects fully projected/read back. No task completion or hosted projection has occurred.
+
+## Revision 1
+
+T-034 incorporation assessment, 2026-10-08. Transfer retains every stable ID, dependency, completed result and remaining review in the complete hierarchy. Phase 1 has 15 delivery tasks and five excluded review tasks; phase 2 has twelve delivery tasks (four each in 2.1/2.2/2.3) and four excluded reviews. Bag/landing/session/UI, kicks/session/hold/UI, and acceptance/setup/docs/ownership are bounded cohesive outcomes, not padding. Mandatory delivery and phase reviews retain IDs T-025/T-030/T-035/T-036. Phase 2 remains unchecked until its exits pass.
+
+Recheck: exactly 36 unique ordered task IDs with four-space Phase → Milestone → Task hierarchy; no active duplicate owning feature list; T-035/T-036 remain unchecked; each PLAN outcome and F/FA acceptance has a task/verification route. Original baseline review retained. Historical sources/reports are marked and links repaired. No unresolved conformance finding or new strategy decision. Completion-status/evidence maintenance does not change this reviewed decomposition.

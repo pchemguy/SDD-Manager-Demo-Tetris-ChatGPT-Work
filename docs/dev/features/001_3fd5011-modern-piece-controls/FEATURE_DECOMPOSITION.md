@@ -1,6 +1,8 @@
+> Historical accepted feature source/evidence. Current contracts and executable progress belong to the canonical main documents and TASKS. Checkboxes here are snapshots, never execution owners.
+
 # Feature decomposition — Modern piece controls
 
-Status: design accepted by the user on 2026-10-08. [Feature architecture](FEATURE_ARCHITECTURE.md) defines the change; [baseline decomposition](DECOMPOSITION.md) owns unchanged components. [Campaign context](features/001_3fd5011-modern-piece-controls/README.md) identifies the baseline and next boundary.
+Status: design accepted by the user on 2026-10-08. [Feature architecture](FEATURE_ARCHITECTURE.md) defines the change; [baseline decomposition](../../DECOMPOSITION.md) owns unchanged components. [Campaign context](README.md) identifies the baseline and next boundary.
 
 ## Engine collaboration
 

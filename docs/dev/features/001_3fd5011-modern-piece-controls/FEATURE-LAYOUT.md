@@ -1,6 +1,8 @@
+> Historical accepted feature source/evidence. Current contracts and executable progress belong to the canonical main documents and TASKS. Checkboxes here are snapshots, never execution owners.
+
 # Modern piece controls physical layout delta
 
-This active delta maps accepted [feature decomposition](FEATURE_DECOMPOSITION.md) to [FEATURE-PLAN](FEATURE-PLAN.md). Unaffected ownership remains in [layout](layout.md). Existing paths are observed at the accepted baseline; proposed additions are marked planned. Placement does not establish implementation or task completion.
+This active delta maps accepted [feature decomposition](FEATURE_DECOMPOSITION.md) to [FEATURE-PLAN](FEATURE-PLAN.md). Unaffected ownership remains in [layout](../../layout.md). Existing paths are observed at the accepted baseline; proposed additions are marked planned. Placement does not establish implementation or task completion.
 
 | Owner | Source placement | Tests and evidence placement |
 | --- | --- | --- |

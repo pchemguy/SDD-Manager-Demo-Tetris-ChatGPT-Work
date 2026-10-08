@@ -4,7 +4,7 @@ A modern single-player Tetris game in TypeScript and Canvas, developed as a prac
 
 The demo context contained several other activated plugins and skills in addition to SDD Manager. The global context also contained information from prior uses of the Tetris model, including earlier Tetris-development conversations. These contextual inputs could influence development decisions and outputs; this demo does not isolate the contribution of SDD Manager.
 
-The [modern feature campaign](docs/dev/features/001_3fd5011-modern-piece-controls/README.md) records accepted contracts and delivery evidence. [Feature tasks](docs/dev/FEATURE-TASKS.md) currently own expansion progress; [phase 2 reports](docs/dev/reports/phases/2) record verified milestones.
+The [modern feature campaign](docs/dev/features/001_3fd5011-modern-piece-controls/README.md) records accepted contracts and delivery evidence. [Feature tasks](docs/dev/features/001_3fd5011-modern-piece-controls/FEATURE-TASKS.md) currently own expansion progress; [phase 2 reports](docs/dev/reports/phases/2) record verified milestones.
 
 ## Run locally
 

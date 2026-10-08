@@ -1,6 +1,8 @@
+> Historical accepted feature source/evidence. Current contracts and executable progress belong to the canonical main documents and TASKS. Checkboxes here are snapshots, never execution owners.
+
 # Feature architecture — Modern piece controls
 
-Status: design accepted by the user on 2026-10-08. [Campaign context](features/001_3fd5011-modern-piece-controls/README.md) owns identity, baseline and branch context. The [baseline architecture](ARCHITECTURE.md) governs unchanged blocks.
+Status: design accepted by the user on 2026-10-08. [Campaign context](README.md) owns identity, baseline and branch context. The [baseline architecture](../../ARCHITECTURE.md) governs unchanged blocks.
 
 ## Outcome and constraints
 

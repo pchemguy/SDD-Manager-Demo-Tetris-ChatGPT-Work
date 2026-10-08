@@ -1,3 +1,5 @@
+> Historical accepted feature source/evidence. Current contracts and executable progress belong to the canonical main documents and TASKS. Checkboxes here are snapshots, never execution owners.
+
 # Feature PLAN and layout review report
 
 ## Current gate

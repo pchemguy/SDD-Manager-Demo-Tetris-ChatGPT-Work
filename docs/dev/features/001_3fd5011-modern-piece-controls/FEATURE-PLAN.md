@@ -1,12 +1,14 @@
+> Historical accepted feature source/evidence. Current contracts and executable progress belong to the canonical main documents and TASKS. Checkboxes here are snapshots, never execution owners.
+
 # Modern piece controls delivery plan
 
 The user accepted written PLAN and feature layout on 2026-10-08.
 
 ## Goal and governing inputs
 
-Deliver the accepted [FEATURE-SPEC](FEATURE-SPEC.md), following [feature architecture](FEATURE_ARCHITECTURE.md), [feature decomposition](FEATURE_DECOMPOSITION.md) and the [physical layout delta](FEATURE-LAYOUT.md). [Campaign context](features/001_3fd5011-modern-piece-controls/README.md) records identity and baseline. The user accepted the written feature SPEC on 2026-10-08; its [conformance review](FEATURE-SPEC-REVIEW-REPORT.md) passes.
+Deliver the accepted [FEATURE-SPEC](FEATURE-SPEC.md), following [feature architecture](FEATURE_ARCHITECTURE.md), [feature decomposition](FEATURE_DECOMPOSITION.md) and the [physical layout delta](FEATURE-LAYOUT.md). [Campaign context](README.md) records identity and baseline. The user accepted the written feature SPEC on 2026-10-08; its [conformance review](FEATURE-SPEC-REVIEW-REPORT.md) passes.
 
-Reuse the playable baseline and existing TypeScript/Canvas, Vite, Vitest and Playwright tooling. No framework, backend, dependency upgrade or new rule mode is planned. The main [PLAN](PLAN.md) retains baseline strategy; this active delta adds phase 2 and is incorporated into coherent main documents during final delivery. FEATURE-TASKS will own executable units after written-plan acceptance and QC; it must use project-wide task IDs distinct from baseline T-001–T-020.
+Reuse the playable baseline and existing TypeScript/Canvas, Vite, Vitest and Playwright tooling. No framework, backend, dependency upgrade or new rule mode is planned. The main [PLAN](../../PLAN.md) retains baseline strategy; this active delta adds phase 2 and is incorporated into coherent main documents during final delivery. FEATURE-TASKS will own executable units after written-plan acceptance and QC; it must use project-wide task IDs distinct from baseline T-001–T-020.
 
 ## Branch and execution boundary
 
