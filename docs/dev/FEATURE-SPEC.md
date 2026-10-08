@@ -2,7 +2,7 @@
 
 ## Scope and authority
 
-This active delta defines campaign [001_3fd5011-modern-piece-controls](features/001_3fd5011-modern-piece-controls/README.md). The user accepted [feature architecture](FEATURE_ARCHITECTURE.md) and [feature decomposition](FEATURE_DECOMPOSITION.md). The written contracts below await human acceptance before planning. They specify intended behavior, not implemented capabilities or official Guideline compliance.
+This active delta defines campaign [001_3fd5011-modern-piece-controls](features/001_3fd5011-modern-piece-controls/README.md). The user accepted [feature architecture](FEATURE_ARCHITECTURE.md) and [feature decomposition](FEATURE_DECOMPOSITION.md). The user accepted the written feature SPEC on 2026-10-08; the contracts below govern feature planning. They specify intended behavior, not implemented capabilities or official Guideline compliance.
 
 Add hold, ghost, seven-bag selection, wall kicks and hard drop to the completed browser game. Preserve 10 × 20 visible cells with no hidden rows, canonical geometry/spawn origins, one next preview, clear awards, level/gravity progression, pause/focus policy, static distribution and detached engine snapshots. No mode selector, 180-degree rotation, spin/combo bonus, extra preview, touch/audio, persistence or hosted deployment is required.
 
@@ -122,4 +122,4 @@ Retain one next preview. Visible instructions explain C/Shift, Space, hold once 
 | FA-07: production browser | Actual hold/drop keys and native-focus exclusions; visible ghost/held identifiers/shapes and eligibility; one next preview; resize/DPR readability, pause/restart/error recovery, no runtime remote requests or production test hooks |
 | FA-08: coherent distribution | Static build and reproducible locked setup remain; affected baseline A-01–A-08 obligations pass under declared deltas; documentation explains all controls, awards and delayed locking; complete accepted feature sources incorporated before final feature integration |
 
-All significant behavior requires deterministic engine/controller evidence and real Chromium integration where observable. Failure and ordered-candidate fixtures must distinguish expected behavior from a test that simply copies implementation. Tests and review are not yet performed for this unimplemented feature. No material open design question remains; concrete SPEC defaults require the user's written-spec acceptance. See [preparation review](FEATURE-SPEC-REVIEW-REPORT.md).
+All significant behavior requires deterministic engine/controller evidence and real Chromium integration where observable. Failure and ordered-candidate fixtures must distinguish expected behavior from a test that simply copies implementation. Tests and review are not yet performed for this unimplemented feature. No material open design question remains; the written SPEC defaults are accepted by the user. See [preparation review](FEATURE-SPEC-REVIEW-REPORT.md).

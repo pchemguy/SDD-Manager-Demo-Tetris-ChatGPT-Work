@@ -2,7 +2,7 @@
 
 ## Current gate
 
-State: **Ready for human written-spec review.** SPEC/design conformance passes with no unresolved confirmed finding. Dependent planning awaits the user's acceptance of the written SPEC; this report does not supply that acceptance.
+State: **Ready.** SPEC/design conformance passes; the user accepted the written SPEC on 2026-10-08. Acceptance is recorded separately from QC evidence.
 
 Scope: FEATURE-SPEC F-01–F-07 and FA-01–FA-08 against the accepted feature design and unchanged main contracts. Governing baseline: `3fd501155708a92ddf63415f02180bdde9167836`; accepted design checkpoint: `5f2cffd64ff47909ab4a2992accf5108a65601bd`, with status/navigation clarified in this preparation checkpoint. Design acceptance: user response “Accepted” on 2026-10-08.
 
@@ -46,3 +46,7 @@ No confirmed conformance defect remains. Design/AGENTS status and preparation-br
 ## Limits and downstream effects
 
 Concrete new SPEC defaults await user review: exact kick offsets, lazy Fisher–Yates call order/validation, Space and C/Shift mapping, snapshot field names, hard-drop fall-timer reset on positive descent, and held/ghost display semantics. These elaborate the accepted design without broadening its capabilities. FEATURE-PLAN and FEATURE-TASKS do not exist; no hosted feature objects have been projected. Main SPEC remains the complete baseline authority until accepted final feature incorporation. Baseline PLAN/TASKS completion evidence is historical and does not certify this unimplemented feature.
+
+## Revision 1 — Written SPEC acceptance record
+
+The user accepted the written feature SPEC on 2026-10-08. Only acceptance wording changed in FEATURE-SPEC; F-01–F-07, all tables and FA-01–FA-08 remain byte-identical in meaning and content. Current FEATURE-SPEC SHA-256: `7d4cd4389718cf22d3c5b9e0f32d86ae44e56db32df245226c703241c1050836`. Governing design is unchanged from the initial review. Rechecked the acceptance-only diff; prior conformance coverage remains applicable. No behavioral correction, new requirement or runtime verification is implied. Planning gate is Ready.
