@@ -108,12 +108,14 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Result: Reviewed progression/source/soft-drop and prior slice boundaries; 53 unit tests, strict typecheck/build and four Chromium cases passed. Report records award/speed/preview evidence and visual inspection with no blocker or TODO within scope. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/10.
 
     - [ ] Milestone 1.3 — Robust browser session
-        - [ ] T-011 — Complete engine lifecycle and failure contracts
+        - [x] T-011 — Complete engine lifecycle and failure contracts
             Scope: session lifecycle/validation/atomic transitions, engine types as needed, `tests/engine/errors.test.ts`, state/timing regressions.
             Depends on: T-010.
             Contracts: complete T-01–T-06, B-05 overflow boundary; A-04/A-05.
             Evidence: pause/resume preserves timers; invalid transitions no-op; gameplay outside running is ignored after validation; invalid type/range/command, source errors/invalid identifiers, and safe-integer overflow publish no partial failing transition. Cover maximum advance and fractional precision from T-03, snapshot isolation, restart after terminal/error state. Run full engine tests/typecheck with RED/GREEN for newly added behavior.
             Completion: public engine API has documented deterministic success/no-op/rejection/error semantics.
+            Result: New error suite observed RED before lifecycle/guard implementation; 70/70 unit tests and typecheck passed. Covers pause preservation, idle validation, collaborator failure/invalid draws, no partial board/progression/piece publication, restart recovery, maximum advance and fractional tolerance. Safe-integer guard tested at exact boundary; integration ordering reviewed to reject before score/board publication (reachable overflow would require impractically many public inputs). Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/11.
+
         - [ ] T-012 — Implement controlled key repeat and focus-aware mapping
             Scope: `src/browser/keyboard.ts`, `tests/browser/keyboard.test.ts`, relevant command value contracts; no duplicate timing owner.
             Depends on: T-011.
