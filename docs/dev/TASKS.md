@@ -156,12 +156,14 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Completion: inspectable Chromium acceptance with actual browser version; no production test hooks or fixture inclusion.
             Result: Acceptance expansion initially passed 17/17 real Chromium scenarios; focused editable/link extension passed 3/3 controls cases. Full 80 unit tests and strict build passed. Production controls clear two rows with score 390, reach blocked-spawn score 90 and restart via Enter; next identifier/color promotion and local-only requests with zero runtime errors verified. No fictitious RED history or production mutation hook. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/16.
 
-        - [ ] T-017 — Verify reproducible setup and static distribution boundaries
+        - [x] T-017 — Verify reproducible setup and static distribution boundaries
             Scope: package/lock/build configuration where checks expose corrections; isolated temporary verification copy and production asset inspection.
             Depends on: T-016.
             Contracts: U-05/A-08 and PLAN 1.4.
             Evidence: clean `npm ci`, full tests/typecheck/build and production browser runs from committed inputs; generated/credential/cache files remain ignored; no runtime Node backend/remote asset dependency, excluded feature, test fixture import or secret in tracked files/built output. Diagnose and repair in-scope setup/build failures; do not change accepted behavior to fit tools.
             Completion: reproducible static output and accurately recorded setup limits. Do not commit generated bundles or publish a hosted site.
+            Result: Fresh git archive of published 272db5218e1f9c19e8ab123aa2066f6fa327e340 passed npm ci, fresh owned browser cache provisioning (Chromium 153.0.8010.0), 80 unit tests, strict build and 17 Chromium cases. Clean static files byte-identical; tracked/build secret, fixture, runtime remote-asset and engine browser-dependency checks passed. Tooling-only scripts/ownership added to layout; no hosted site or generated binary committed. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/17.
+
         - [ ] T-018 — Complete user and agent documentation
             Scope: README, AGENTS, substantive engine/browser/view API/module documentation and relevant link corrections.
             Depends on: T-017.
