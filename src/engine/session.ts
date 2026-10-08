@@ -46,6 +46,8 @@ export class GameSession {
       const gravityDue=this.state.gravityIntervalMs-this.state.gravityElapsedMs;
       const lockDue=this.state.grounded ? this.state.grounded.intervalMs-this.state.grounded.elapsedMs : Infinity;
       const step=Math.min(remaining,gravityDue,lockDue);
+      const beforeEvent=structuredClone(this.state);
+      try {
       this.state.gravityElapsedMs+=step;
       if(this.state.grounded)this.state.grounded.elapsedMs+=step;
       remaining-=step;
@@ -56,6 +58,7 @@ export class GameSession {
         if(canPlace(this.state.board,candidate))this.state.active=candidate;
         this.updateContact();
       } else break;
+      } catch(error){this.state=beforeEvent;throw error;}
       if(remaining===0)break;
     }
   }
