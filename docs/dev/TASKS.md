@@ -116,12 +116,14 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Completion: public engine API has documented deterministic success/no-op/rejection/error semantics.
             Result: New error suite observed RED before lifecycle/guard implementation; 68/68 unit tests and typecheck passed. Covers pause preservation, idle validation, collaborator failure/invalid draws, no partial board/progression/piece publication, restart recovery, maximum advance and fractional tolerance. Strengthened whole-snapshot failure assertion observed timer RED, then event-step rollback fixed it; 68/68 remained green. Safe-integer guard tested at exact boundary; integration ordering reviewed to reject before score/board publication (reachable overflow would require impractically many public inputs). Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/11.
 
-        - [ ] T-012 — Implement controlled key repeat and focus-aware mapping
+        - [x] T-012 — Implement controlled key repeat and focus-aware mapping
             Scope: `src/browser/keyboard.ts`, `tests/browser/keyboard.test.ts`, relevant command value contracts; no duplicate timing owner.
             Depends on: T-011.
             Contracts: U-01, T-05 adapter order.
             Evidence: 150 ms initial/50 ms repeat horizontal cadence, most-recent opposing-key precedence/release, 50 ms soft drop, one-shot rotation/pause/Enter, ignored native repeat, held-state reset, editable/interactive focus handling and native button activation. Use injected event/deadline inputs; run focused keyboard tests/current regressions/typecheck with observed RED/GREEN.
             Completion: a typed adapter supplies commands/deadlines without mutating board or independently advancing game time.
+            Result: Four new keyboard cases failed before adapter implementation; 72/72 full unit tests and typecheck passed. Independent cadence/order expectations cover 150/50 horizontal, 50 soft-drop, last-pressed direction and release fallback, native repeat rejection, one-shot actions, reset and interactive-focus suppression. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/12.
+
         - [ ] T-013 — Coordinate browser time, pause, recovery and resource lifecycle
             Scope: browser controller/app composition, `tests/browser/controller.test.ts`, clock fixture, `tests/e2e/lifecycle.spec.ts`, `tests/e2e/controls.spec.ts`.
             Depends on: T-011, T-012.
