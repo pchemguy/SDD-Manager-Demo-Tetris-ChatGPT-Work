@@ -76,12 +76,14 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Result: Code review found no blocker within slice; 37 unit tests, strict typecheck/build and three Chromium cases passed. Visual text/Canvas inspection passed after correcting task browser fonts. Report records environment limits, evidence and explicit 1.2/1.3 deferrals; TODO None. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/6.
 
     - [ ] Milestone 1.2 — Complete gameplay progression
-        - [ ] T-007 — Define score, level and gravity progression rules
+        - [x] T-007 — Define score, level and gravity progression rules
             Scope: `src/engine/progression.ts`, `tests/engine/progression.test.ts`, relevant public types/documentation.
             Depends on: T-006.
             Contracts: B-05/B-06.
             Evidence: independent expectations for all 0–4 clear awards at multiple pre-clear levels, 9/10/19/20 line boundaries, gravity at levels 1/2/9/10/higher and 100 ms floor. Run `npm run test -- tests/engine/progression.test.ts` and typecheck, observing RED/GREEN.
             Completion: pure progression functions introduce no mutable session or browser state.
+            Result: Missing progression module observed RED; 51/51 unit tests and typecheck passed. Independently tabulated all clear awards at levels 1/3/10, line thresholds 9/10/19/20 and gravity floor through high levels. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/7.
+
         - [ ] T-008 — Integrate soft drop and lock-time progression
             Scope: session command/lock transition, session/timing tests; progression and source integration.
             Depends on: T-007.
