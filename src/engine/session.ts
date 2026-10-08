@@ -1,6 +1,7 @@
 /** Synchronous aggregate owner. Commands/time are supplied externally; observations are detached. */
 import { canPlace, emptyBoard, mergeAndClear } from './board';
 import { spawnOrigin } from './pieces';
+import { clearAward, levelForLines, gravityInterval } from './progression';
 import type { ActivePiece, GameCommand, GameSnapshot, PieceSource, PieceSourceFactory } from './types';
 
 /** Own a session and its injected source factory; construction performs no source draw. */
@@ -24,8 +25,12 @@ export class GameSession {
     else if(command==='right')candidate.x++;
     else if(command==='rotate-clockwise')candidate.orientation=(candidate.orientation+1)%4;
     else if(command==='rotate-counterclockwise')candidate.orientation=(candidate.orientation+3)%4;
-    else return; // Soft drop belongs to the progression increment.
-    if(canPlace(this.state.board,candidate)){this.state.active=candidate;this.updateContact();}
+    else if(command==='soft-drop')candidate.y++;
+    else return;
+    if(canPlace(this.state.board,candidate)){
+      if(command==='soft-drop'){this.state.score++;this.state.gravityElapsedMs=0;}
+      this.state.active=candidate;this.updateContact();
+    }
   }
   /** Process due lock/gravity events in chronological order, carrying time across spawns. */
   advance(elapsedMs: number): void {
@@ -50,11 +55,12 @@ export class GameSession {
   }
   /** Publish an entire merge/clear/promotion transition after collaborator work succeeds. */
   private lock(): void {
-    const {board}=mergeAndClear(this.state.board,this.state.active!);
+    const {board,cleared}=mergeAndClear(this.state.board,this.state.active!);
+    const score=this.state.score+clearAward(cleared,this.state.level),lines=this.state.lines+cleared,level=levelForLines(lines);
     const type=this.state.next!, next=this.source!();
     const active: ActivePiece={type,orientation:0,...spawnOrigin(type)};
     const valid=canPlace(board,active);
-    this.state={...this.state,board,next,active:valid?active:null,status:valid?'running':'game-over',gravityElapsedMs:0,grounded:null};
+    this.state={...this.state,board,score,lines,level,gravityIntervalMs:gravityInterval(level),next,active:valid?active:null,status:valid?'running':'game-over',gravityElapsedMs:0,grounded:null};
     if(valid)this.updateContact();
   }
   private updateContact(): void {

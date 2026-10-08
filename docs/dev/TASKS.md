@@ -84,12 +84,14 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Completion: pure progression functions introduce no mutable session or browser state.
             Result: Missing progression module observed RED; 51/51 unit tests and typecheck passed. Independently tabulated all clear awards at levels 1/3/10, line thresholds 9/10/19/20 and gravity floor through high levels. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/7.
 
-        - [ ] T-008 — Integrate soft drop and lock-time progression
+        - [x] T-008 — Integrate soft drop and lock-time progression
             Scope: session command/lock transition, session/timing tests; progression and source integration.
             Depends on: T-007.
             Contracts: B-03–B-06, T-03/T-04 progression; A-03/A-06.
             Evidence: successful soft drop adds exactly 1 point/reset fall age; blocked descent changes neither score nor lock deadline; lock award uses pre-clear level, updates speed for new piece, promotes/draws preview once; grounded delay remains independent of soft-drop cadence. Run full engine tests and typecheck with observed RED/GREEN.
             Completion: complete baseline gameplay score/speed/soft-drop rules integrated without expansion bonuses.
+            Result: Observed two new score/soft-drop failures before wiring progression; 53/53 engine/controller tests and typecheck passed. Controlled public inputs verify blocked soft-drop deadline, successful row award/reset, pre-clear level at ten-line boundary, 900 ms new-piece speed and exactly one preview draw per lock. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/8.
+
         - [ ] T-009 — Display progression and next preview during play
             Scope: view Canvas/status, basic ArrowDown adapter and app integration, `tests/e2e/display.spec.ts` and gameplay checks.
             Depends on: T-008.
