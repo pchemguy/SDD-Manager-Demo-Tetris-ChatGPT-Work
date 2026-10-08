@@ -283,7 +283,7 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Completion: Reviewed complete 2.2 code and [milestone report](reports/phases/2/2.2.md); no blockers/TODO.
             Result: Fresh 169/169 unit/controller tests, strict build and all 21/21 Chromium cases pass. Tables/candidates/contact/hold/source/UI reviewed separately; inspected required compact layout and paused held/ghost display. Remaining complete acceptance/setup/incorporation belongs to 2.3. Issue #30 verified; publication precedes review and milestone closure.
 
-    - [ ] Milestone 2.3 — Verified coherent expansion
+    - [x] Milestone 2.3 — Verified coherent expansion
         - [x] T-031 — Complete cross-feature production acceptance and failure evidence
             Depends on: T-030 and 2.2 closure.
             Scope: Existing engine/controller tests, e2e suites and isolated fixtures; only required bug repairs in their owning source.
@@ -320,13 +320,14 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Completion: Main TASKS becomes canonical only on verified transfer; continuation resolves T-035/T-036 there.
             Result: T-021–T-036 transferred once with stable IDs, statuses, dependencies and evidence; T-035/T-036 remain unchecked. Canonical TASKS/PLAN review Ready; counts 4/4/4 delivery plus dedicated reviews, four-space hierarchy and all local links verified. Eligible source/QC pairs archived with historical status; root navigation and AGENTS identify TASKS as sole owner. Issue #34 verified. Feature archives retain provenance rather than current authority.
 
-        - [ ] T-035 — Review test and report milestone 2.3
+        - [x] T-035 — Review test and report milestone 2.3
             Depends on: T-031–T-034.
             Scope: Complete distribution/acceptance/incorporation and report docs/dev/reports/phases/2/2.3.md.
             Contracts: FEATURE-PLAN 2.3 exit, FA-01–FA-08.
             Evidence: Review complete evidence matrix, clean setup/docs, canonical ownership/archive and current main QC; repair blockers; record implemented capabilities, check/tool versions, native event limits and TODO disposition.
             Checks: Full unit/controller suite, strict typecheck/build and production cloud Chromium; document links and ownership readback.
             Completion: Report published/read back; all constituent issues and review close before milestone closure.
+            Result: Complete milestone code/docs/acceptance review passes; fresh 175/175 unit/controller, strict typecheck/build and 23/23 Chromium checks pass. Current QC identities, unique 36-ID hierarchy, relocated Markdown links, distribution boundary and compact/paused screenshot readability verified. T-032 clean setup evidence retained for unchanged product/tooling inputs. Report: docs/dev/reports/phases/2/2.3.md; TODO None; final phase integration remains T-036. Issue #35 verified.
 
     - [ ] Milestone 2.4 — Phase review
         - [ ] T-036 — Review test integrate and report the complete modern expansion
