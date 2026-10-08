@@ -36,12 +36,14 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Completion: usable typed piece definitions and pinned executable commands; record actual tool versions and any browser provisioning blocker without claiming runtime acceptance.
             Result: Observed 16 geometry assertion failures against API skeleton, then 16/16 full Vitest tests passed and typecheck passed. Dependencies installed and pinned. Browser download network approval was cancelled; Chromium acceptance remains pending for browser integration. Existing npm http-proxy warning is environmental. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/1.
 
-        - [ ] T-002 — Implement board placement and row compaction
+        - [x] T-002 — Implement board placement and row compaction
             Scope: `src/engine/board.ts`, `tests/engine/board.test.ts`, independently constructed board fixtures under `tests/fixtures/` as needed.
             Depends on: T-001.
             Contracts: B-01, B-02 placement validation, B-04 merge/clear; A-02.
             Evidence: invalid occupied cells at walls/floor/top, overlaps, empty bounding margins, one-to-four simultaneous clears, stable compaction and empty rows; observed RED then GREEN. Run `npm run test -- tests/engine/board.test.ts` plus piece regression/typecheck.
             Completion: board helpers preserve input/aggregate ownership and return coherent placement/merge/clear results without clock or browser access.
+            Result: Observed seven board failures against skeleton. Corrected a test fixture that accidentally seeded a collision in the legal-margin case. Full Vitest suite passed 23/23 and typecheck passed; covers occupied bounds, overlap, independent rows, pure merge, one-to-four clears and stable row order. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/2.
+
         - [ ] T-003 — Establish piece sources and session lifecycle snapshots
             Scope: `src/engine/piece-source.ts`, lifecycle/state portions of `src/engine/session.ts`, related engine types, `tests/engine/piece-source.test.ts`, `tests/engine/session.test.ts`, controlled-source fixture.
             Depends on: T-001, T-002.
