@@ -124,12 +124,14 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Completion: a typed adapter supplies commands/deadlines without mutating board or independently advancing game time.
             Result: Four new keyboard cases failed before adapter implementation; 72/72 full unit tests and typecheck passed. Independent cadence/order expectations cover 150/50 horizontal, 50 soft-drop, last-pressed direction and release fallback, native repeat rejection, one-shot actions, reset and interactive-focus suppression. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/12.
 
-        - [ ] T-013 — Coordinate browser time, pause, recovery and resource lifecycle
+        - [x] T-013 — Coordinate browser time, pause, recovery and resource lifecycle
             Scope: browser controller/app composition, `tests/browser/controller.test.ts`, clock fixture, `tests/e2e/lifecycle.spec.ts`, `tests/e2e/controls.spec.ts`.
             Depends on: T-011, T-012.
             Contracts: U-01/U-02, T-02/T-05/T-06 collaboration; A-04/A-05.
             Evidence: partition elapsed time at repeats, lock before exact-deadline input, horizontal before soft repeat, no double-counted clock time, pause preservation, blur/hidden/gap >250 ms pause before catch-up, exactly 250 ms progression, fresh resume/restart input, single loop/listeners and cleanup. Verify visible runtime/Canvas initialization failure recovery with isolated doubles; production remains free of test state hooks. Run controller/current engine tests/typecheck/build plus focused Chromium controls/lifecycle cases, observing RED/GREEN.
             Completion: complete clock/input/error collaboration respects engine ownership and remains correct across lifecycle changes.
+            Result: Seven new controller failures preceded implementation; 80/80 unit tests, typecheck/build and nine Chromium cases passed. Real production controls, pause and gap paths plus isolated source/Canvas failure and dispose verified. Browser clock fixtures now pause wall-time progression; exact repeat test flushes via physical keyup and recovery waits for the next due frame, correcting fixture assumptions without changing contracts. Native desktop blur/hidden delivery not certified; handler/controller semantics covered. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/13.
+
         - [ ] T-014 — Finish readable display and accessible controls
             Scope: Canvas/status views, page shell/styles, display/controls browser checks and meaningful rendering-operation checks.
             Depends on: T-013.
