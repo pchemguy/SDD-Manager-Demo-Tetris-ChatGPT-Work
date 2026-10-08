@@ -2,7 +2,7 @@
 
 ## Current gate
 
-State: **Ready for human PLAN/layout review.** Strategy/layout conformance passes; task derivation awaits the user's written-plan acceptance. No confirmed unresolved issue remains. This review supplies no implementation-range authorization.
+State: **Ready.** Strategy/layout conformance passes; the user accepted written PLAN/layout on 2026-10-08. No confirmed unresolved issue remains. This review supplies no implementation-range authorization.
 
 Reviewed scope: FEATURE-PLAN phase 2 and FEATURE-LAYOUT against accepted design and SPEC. Baseline: `3fd501155708a92ddf63415f02180bdde9167836`. Written SPEC publication: `e483690b7f439bc408dad15fef23fbdd5ce01f59`; user accepted it on 2026-10-08. Acceptance-only updates retain unchanged contract coverage, as recorded in SPEC review Revision 1.
 
@@ -43,3 +43,7 @@ Review focus includes kick-coordinate/geometry mismatch, zero-distance timer res
 Checks: local changed-document Markdown links and whitespace pass; both plan/layout files identify the same four milestone IDs and report owners; all F/FA coverage groups have an explicit delivery route. Main PLAN/layout are left unchanged during preparation. Their stale baseline preparation wording is not promoted to current implementation evidence; coherent complete-document incorporation is explicitly owned by the final feature delivery.
 
 No original confirmed finding requires correction. No fabricated Revision cycle, predicted test count, new hosted object or runtime acceptance claim is recorded. Written PLAN/layout acceptance remains pending; inline execution method is already established and does not need reselection.
+
+## Revision 1 — PLAN/layout acceptance
+
+The user accepted the written plan and physical layout on 2026-10-08. FEATURE-PLAN gains only an acceptance sentence; strategy, milestone boundaries, coverage and FEATURE-LAYOUT are unchanged. Initial conformance/count evidence remains applicable. Rechecked acceptance-only difference; TASKS derivation gate is Ready. Current FEATURE-PLAN SHA-256: `91e58ac87f5867d1755222a1bdf9723092e02c4e0819f53eab257f6273a11b57`; FEATURE-LAYOUT is unchanged.

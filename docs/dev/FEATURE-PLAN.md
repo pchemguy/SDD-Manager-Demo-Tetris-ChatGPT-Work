@@ -1,5 +1,7 @@
 # Modern piece controls delivery plan
 
+The user accepted written PLAN and feature layout on 2026-10-08.
+
 ## Goal and governing inputs
 
 Deliver the accepted [FEATURE-SPEC](FEATURE-SPEC.md), following [feature architecture](FEATURE_ARCHITECTURE.md), [feature decomposition](FEATURE_DECOMPOSITION.md) and the [physical layout delta](FEATURE-LAYOUT.md). [Campaign context](features/001_3fd5011-modern-piece-controls/README.md) records identity and baseline. The user accepted the written feature SPEC on 2026-10-08; its [conformance review](FEATURE-SPEC-REVIEW-REPORT.md) passes.

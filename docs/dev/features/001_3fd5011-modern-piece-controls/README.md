@@ -1,6 +1,6 @@
 # Modern piece controls feature campaign
 
-Status: design and feature SPEC accepted; feature PLAN/layout prepared for human review; implementation has not started.
+Status: design, SPEC and PLAN/layout accepted; feature TASKS prepared and reviewed; implementation has not started.
 
 Campaign: `001_3fd5011`. Baseline: `3fd501155708a92ddf63415f02180bdde9167836`.
 Working branch: `feature/001_3fd5011-modern-piece-controls`. Integration target: `main`.
@@ -17,7 +17,7 @@ Extend the completed browser TypeScript Tetris baseline with hold, ghost piece, 
 - [Baseline SPEC](../../SPEC.md), [architecture](../../ARCHITECTURE.md) and [decomposition](../../DECOMPOSITION.md) govern unchanged behavior.
 - [Completed baseline report](../../reports/IMPLEMENTATION-REPORT.md) records the starting implementation evidence.
 
-The user requested beginning this campaign. The user accepted the feature architecture and decomposition on 2026-10-08. [FEATURE-SPEC](../../FEATURE-SPEC.md) and its [review](../../FEATURE-SPEC-REVIEW-REPORT.md) define the exact delta. [FEATURE-PLAN](../../FEATURE-PLAN.md), [feature layout](../../FEATURE-LAYOUT.md) and the [plan review](../../FEATURE-PLAN-REVIEW-REPORT.md) define the proposed delivery boundaries. FEATURE-TASKS does not yet exist. The next boundary is human acceptance of written PLAN/layout before task derivation. Inline execution remains selected. No product implementation, main-document incorporation or final feature merge is authorized by design preparation alone.
+The user requested beginning this campaign. The user accepted the feature architecture and decomposition on 2026-10-08. [FEATURE-SPEC](../../FEATURE-SPEC.md) and its [review](../../FEATURE-SPEC-REVIEW-REPORT.md) define the exact delta. [FEATURE-PLAN](../../FEATURE-PLAN.md), [feature layout](../../FEATURE-LAYOUT.md) and the [plan review](../../FEATURE-PLAN-REVIEW-REPORT.md) define the proposed delivery boundaries. [FEATURE-TASKS](../../FEATURE-TASKS.md) and its [review](../../FEATURE-TASKS-REVIEW-REPORT.md) derive T-021–T-036. The next boundary is implementation-range selection. Inline execution remains selected. No range has been selected for this feature. No product implementation, main-document incorporation or final feature merge is authorized by design preparation alone.
 
 Baseline hosted tracking is complete. Feature phase eligibility and tracking scope must be established before creating feature task objects. No feature issues, labels or milestones have been created during design preparation.
 
