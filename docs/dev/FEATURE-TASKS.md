@@ -41,13 +41,14 @@ At T-034, accepted task incorporation may transfer the single executable owner t
             Completion: Engine hard-drop/ghost contracts pass; hold behavior and kicks explicitly deferred.
             Result: Five RED contract failures observed; full 105/105 tests, typecheck/build passed. Positive 2d/fall reset, no draw/merge, exact G boundary, whole-snapshot zero-distance equality, detached source-free paused/terminal ghost verified. Adjacent pure progression hardDropScore enables exact overflow-boundary evidence without a mutation hook; session inspection verifies guard precedes all publication. held/availability shape is coherent; hold/kicks remain deferred. Issue #23 verified.
 
-        - [ ] T-024 — Deliver production bag selection ghost and Space controls
+        - [x] T-024 — Deliver production bag selection ghost and Space controls
             Depends on: T-021, T-023.
             Scope: src/browser/app.ts, keyboard.ts and affected controller input types; src/view/canvas.ts, instructions; keyboard/controller tests and tests/e2e/modern-features.spec.ts.
             Contracts: F-01/F-04/F-07 / FA-01/FA-04/FA-07 partial.
             Evidence: Fresh bag production composition; discrete Space, native repeat/focus rejection; visible ghost before/after landing; actual production input preserves delayed lock. Source injection remains isolated; no test mutation hook. Observe browser integration RED before wiring; inspect screenshot.
             Checks: npm run test; npm run build; npm run test:e2e:cloud -- tests/e2e/modern-features.spec.ts; relevant gameplay/display regressions.
-            Completion: Playable bag/ghost/drop path; record hold/kick deferrals and real browser version.
+            Completion: Playable bag/ghost/drop path; hold/kicks deferred to 2.2.
+            Result: Keyboard RED and production non-bag preview RED observed before wiring. Full 106/106 tests/build passed; modern/display/gameplay Chromium 153.0.8010.0 suite 12/12 passed. Actual pixel outline/drop, 400-ms partial gravity/full delay, native repeat/focus exclusion and repeat preservation verified. Four obsolete independent-source cases updated to literal identity-bag geometry: I/J/L bottom tiling gives one line/154 points; center stack gives 101 points and preview T. Ghost/active/settled readability inspected in screenshot; 800/1280 DPR 1/2 bounds pass. npm proxy/color environment warnings only. Issue #24 verified.
 
         - [ ] T-025 — Review test and report milestone 2.1
             Depends on: T-021–T-024.

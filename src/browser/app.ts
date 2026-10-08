@@ -1,15 +1,15 @@
 /** Compose real engine/adapters/views. The returned disposer releases the single loop and listeners. */
 import { GameSession } from "../engine/session";
-import { randomPieceSource } from "../engine/piece-source";
+import { sevenBagPieceSource } from "../engine/piece-source";
 import type { PieceSourceFactory } from "../engine/types";
 import { Controller } from "./controller";
 import { mappedCommand } from "./keyboard";
 import { boardRenderer, previewRenderer } from "../view/canvas";
 import { statusRenderer } from "../view/status";
-/** Optional source injection is a composition seam; production uses independent Math.random draws. */
+/** Optional source injection is a composition seam; production uses a fresh seven bag with injected Math.random. */
 export function mount(
   root: Document,
-  factory: PieceSourceFactory = () => randomPieceSource(Math.random),
+  factory: PieceSourceFactory = () => sevenBagPieceSource(Math.random),
 ): () => void {
   const canvas = root.querySelector<HTMLCanvasElement>("#board")!,
     start = root.querySelector<HTMLButtonElement>("#start")!,

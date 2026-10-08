@@ -60,19 +60,20 @@ test("production controls clear rows with scoring and make no external gameplay 
   await page.clock.install({ time: new Date("2026-01-01T00:00:00Z") });
   await page.clock.pauseAt(new Date("2026-01-01T00:00:00Z"));
   await page.addInitScript(() => {
-    Math.random = () => 0.45;
+    Math.random = () => 0.999;
   });
   await page.goto("/");
   await page.keyboard.press("Enter");
-  for (const target of [0, 2, 4, 6, 8]) {
-    const difference = target - 4;
+  // Identity bag I/J/L tile the bottom row at columns 0–3/4–6/7–9.
+  for (const target of [0, 4, 7]) {
+    const difference = target - 3;
     for (let i = 0; i < Math.abs(difference); i++)
       await page.keyboard.press(difference < 0 ? "ArrowLeft" : "ArrowRight");
     for (let i = 0; i < 18; i++) await page.keyboard.press("ArrowDown");
     await page.clock.runFor(1016);
   }
-  await expect(page.locator("#lines")).toHaveText("2");
-  await expect(page.locator("#score")).toHaveText("390");
+  await expect(page.locator("#lines")).toHaveText("1");
+  await expect(page.locator("#score")).toHaveText("154");
   await expect(page.locator("#level")).toHaveText("1");
   await page.keyboard.press("KeyP");
   await expect(page.getByRole("status")).toHaveText("Paused");
@@ -92,18 +93,18 @@ test("production blocked spawn retains counters/preview and Enter restarts termi
   await page.clock.install({ time: new Date("2026-01-01T00:00:00Z") });
   await page.clock.pauseAt(new Date("2026-01-01T00:00:00Z"));
   await page.addInitScript(() => {
-    Math.random = () => 0.45;
+    Math.random = () => 0.999;
   });
   await page.goto("/");
   await page.keyboard.press("Enter");
-  for (let n = 0; n < 10; n++) {
+  for (let n = 0; n < 11; n++) {
     for (let i = 0; i < 18; i++) await page.keyboard.press("ArrowDown");
     await page.clock.runFor(1016);
   }
   await expect(page.getByRole("status")).toHaveText("Game over");
-  await expect(page.locator("#score")).toHaveText("90");
+  await expect(page.locator("#score")).toHaveText("101");
   await expect(page.locator("#lines")).toHaveText("0");
-  await expect(page.locator("#next-type")).toHaveText("O");
+  await expect(page.locator("#next-type")).toHaveText("T");
   await expect(
     page.getByRole("button", { name: "Pause", exact: true }),
   ).toBeDisabled();

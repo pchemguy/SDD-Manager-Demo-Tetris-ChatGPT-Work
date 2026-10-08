@@ -11,6 +11,7 @@ export function mappedCommand(code: string): GameCommand | null {
         ArrowUp: "rotate-clockwise",
         KeyX: "rotate-clockwise",
         KeyZ: "rotate-counterclockwise",
+        Space: "hard-drop",
       } as Record<string, GameCommand>
     )[code] ?? null
   );
@@ -43,6 +44,7 @@ export class Keyboard {
     if (code === "KeyP" || code === "Escape") return ["toggle-pause"];
     if (code === "Enter") return ["enter"];
     const command = mappedCommand(code);
+    if (code === "Space") this.held.add(code);
     return command ? [command] : [];
   }
   /** Release a key; the surviving opposing horizontal key starts a fresh repeat episode. */

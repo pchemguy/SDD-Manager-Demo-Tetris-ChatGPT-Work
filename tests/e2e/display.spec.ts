@@ -5,13 +5,13 @@ test("idle counters/preview, running soft-drop score and next shape are visible"
   await page.clock.install({ time: new Date("2026-01-01T00:00:00Z") });
   await page.clock.pauseAt(new Date("2026-01-01T00:00:00Z"));
   await page.addInitScript(() => {
-    Math.random = () => 0.45;
+    Math.random = () => 0.999;
   });
   await page.goto("/");
   await expect(page.locator("#score")).toHaveText("0");
   await expect(page.locator("#next-type")).toHaveText("—");
   await page.getByRole("button", { name: "Start", exact: true }).click();
-  await expect(page.locator("#next-type")).toHaveText("O");
+  await expect(page.locator("#next-type")).toHaveText("J");
   await page.keyboard.press("ArrowDown");
   await expect(page.locator("#score")).toHaveText("1");
   await expect(page.locator("#lines")).toHaveText("0");
@@ -20,7 +20,7 @@ test("idle counters/preview, running soft-drop score and next shape are visible"
     await page.locator("#preview").evaluate((node) => {
       const c = node as HTMLCanvasElement,
         d = c.getContext("2d")!.getImageData(0, 0, c.width, c.height).data;
-      return Array.from(d).some((v, i) => i % 4 === 0 && v > 200);
+      return Array.from(d).some((v, i) => i % 4 === 2 && v > 200);
     }),
   ).toBe(true);
   await page.screenshot({ path: "/tmp/tetris-progression.png" });
@@ -85,23 +85,22 @@ test("preview identifier/color becomes the next active type after locking", asyn
   await page.clock.install({ time: new Date("2026-01-01T00:00:00Z") });
   await page.clock.pauseAt(new Date("2026-01-01T00:00:00Z"));
   await page.addInitScript(() => {
-    let n = 0;
-    Math.random = () => [0.45, 0, 0.99][n++ % 3];
+    Math.random = () => 0.999;
   });
   await page.goto("/");
   await page.getByRole("button", { name: "Start", exact: true }).click();
-  await expect(page.locator("#next-type")).toHaveText("I");
+  await expect(page.locator("#next-type")).toHaveText("J");
   for (let i = 0; i < 18; i++) await page.keyboard.press("ArrowDown");
   await page.clock.runFor(1016);
-  await expect(page.locator("#next-type")).toHaveText("Z");
+  await expect(page.locator("#next-type")).toHaveText("L");
   expect(
     await page.locator("#board").evaluate((node) => {
       const c = node as HTMLCanvasElement,
         p = c.getContext("2d")!.getImageData(0, 0, c.width, c.height / 4).data;
-      let cyan = 0;
+      let blue = 0;
       for (let i = 0; i < p.length; i += 4)
-        if (p[i] === 101 && p[i + 1] === 219 && p[i + 2] === 232) cyan++;
-      return cyan;
+        if (p[i] === 118 && p[i + 1] === 157 && p[i + 2] === 255) blue++;
+      return blue;
     }),
   ).toBeGreaterThan(100);
 });
