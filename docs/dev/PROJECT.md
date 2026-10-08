@@ -35,4 +35,4 @@ Repository: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work. In
 
 GitHub plugin repository reads, the HTTPS Git clone, and preparation publication succeeded. The user confirmed GitHub task/label/milestone tracking for the baseline lifecycle, including verification-based completion and reconciliation. No hosted tracking objects have been created. Counts and eligible phase scope will come from the accepted PLAN and TASKS; only the eligible phase will be projected.
 
-Design and specification are accepted. PLAN, layout, TASKS, and product implementation remain to be prepared. See [architecture](ARCHITECTURE.md), [decomposition](DECOMPOSITION.md), and the [SPEC review](SPEC-REVIEW-REPORT.md).
+Design and specification are accepted. [PLAN](PLAN.md) and [layout](layout.md) are prepared for human review. TASKS and product implementation remain to be prepared. See [architecture](ARCHITECTURE.md), [decomposition](DECOMPOSITION.md), the [SPEC review](SPEC-REVIEW-REPORT.md), and the [PLAN review](PLAN-REVIEW-REPORT.md).

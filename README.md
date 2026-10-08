@@ -6,6 +6,6 @@ The project is in design preparation. No game implementation or runnable applica
 
 The baseline MVP covers movement, rotation, soft drop, line clearing, scoring, increasing speed, next-piece preview, pause, restart, and game over. A grounded piece receives one full gravity interval before locking. Hold, ghost piece, seven-bag randomization, wall kicks, and hard drop are reserved for a subsequent feature expansion.
 
-Start with the [project brief](docs/dev/PROJECT.md), [architecture](docs/dev/ARCHITECTURE.md), [component decomposition](docs/dev/DECOMPOSITION.md), and [specification](docs/dev/SPEC.md). The [SPEC review](docs/dev/SPEC-REVIEW-REPORT.md) records conformance and readiness. Agent workflow guidance is in [AGENTS.md](AGENTS.md).
+Start with the [project brief](docs/dev/PROJECT.md), [architecture](docs/dev/ARCHITECTURE.md), [component decomposition](docs/dev/DECOMPOSITION.md), and [specification](docs/dev/SPEC.md). The [delivery plan](docs/dev/PLAN.md) and [layout](docs/dev/layout.md) describe intended implementation. Adjacent [SPEC review](docs/dev/SPEC-REVIEW-REPORT.md) and [PLAN review](docs/dev/PLAN-REVIEW-REPORT.md) record preparation readiness. Agent workflow guidance is in [AGENTS.md](AGENTS.md).
 
 Development uses [SDD Manager](SDD-MANAGER.md). See the [AI-assisted development disclosure](AI_DISCLOSURE.md). The bundled disclosure describes the development lifecycle; implemented stages and verification are established by repository evidence.
