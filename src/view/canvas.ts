@@ -47,9 +47,10 @@ export function boardRenderer(
   };
 }
 
-/** Draw orientation-zero next shape into its own local Canvas, never into the board. */
+/** Draw a selected next/held identifier in canonical orientation into its local Canvas. */
 export function previewRenderer(
   canvas: HTMLCanvasElement,
+  field: "next" | "held" = "next",
 ): (state: GameSnapshot) => void {
   const context = canvas.getContext("2d");
   if (!context) throw new Error("Canvas is unavailable in this browser.");
@@ -57,10 +58,11 @@ export function previewRenderer(
     resizeBuffer(canvas, 1);
     context.fillStyle = "#101c2c";
     context.fillRect(0, 0, canvas.width, canvas.height);
-    if (state.next) {
+    const type = state[field];
+    if (type) {
       const cell = canvas.width / 4;
-      context.fillStyle = colors[state.next];
-      for (const p of pieceCells(state.next))
+      context.fillStyle = colors[type];
+      for (const p of pieceCells(type))
         context.fillRect(p.x * cell + 1, p.y * cell + 1, cell - 2, cell - 2);
     }
   };

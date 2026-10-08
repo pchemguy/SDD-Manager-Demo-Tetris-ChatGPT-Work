@@ -18,5 +18,9 @@ export function statusRenderer(root: Document): (state: GameSnapshot) => void {
     for (const key of ["score", "lines", "level"] as const)
       root.querySelector("#" + key)!.textContent = String(state[key]);
     root.querySelector("#next-type")!.textContent = state.next ?? "—";
+    root.querySelector("#held-type")!.textContent = state.held ?? "None";
+    root.querySelector("#hold-availability")!.textContent = state.holdAvailable
+      ? "Available"
+      : state.active ? "Used" : "Unavailable";
   };
 }

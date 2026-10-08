@@ -87,13 +87,14 @@ At T-034, accepted task incorporation may transfer the single executable owner t
             Completion: Public hold command and snapshot eligibility coherent, atomic and detached.
             Result: Six hold RED failures observed; final full 166/166 tests, typecheck and build pass. Empty draw/occupied no-draw, canonical reset, exhausted hold equality, lock re-enablement, restart/pause, fresh grounded incoming and blocked terminal exchange, source/identifier failure whole-state rollback verified. Contact fixture correctly expects terminal unavailability after its I lock blocks the next O spawn; earlier eligibility expectation was a fixture error. Unknown-command regression now uses teleport because hold is valid. Issue #28 verified.
 
-        - [ ] T-029 — Deliver hold controls and held-piece information
+        - [x] T-029 — Deliver hold controls and held-piece information
             Depends on: T-028.
             Scope: src/browser/keyboard.ts, app.ts/controller consumers; src/view/canvas.ts, status.ts, index.html/styles; browser tests and modern feature e2e.
             Contracts: F-07 / FA-07.
             Evidence: C and both Shift keys discrete; held shape/type and Available/Used/Unavailable including runtime error; next stays one; native controls retain activation; real hold/drop/kick interplay and restart. Observe UI RED and inspect updated layout.
             Checks: npm run test; npm run build; npm run test:e2e:cloud -- tests/e2e/modern-features.spec.ts; relevant controls/lifecycle/display checks.
-            Completion: All five capabilities operate through actual production paths; preserve repeat clock ownership.
+            Completion: All five capabilities operate through actual production paths; repeat clock ownership preserved.
+            Result: Three keyboard and two UI RED failures observed before wiring. Full 169/169 tests/build and all 21/21 Chromium cases pass; strengthened both-Shift modern suite rerun 3/3. Held canonical pixels/type and Available/Used/Unavailable, hold/drop/rotation interplay, pause/restart and failed-hold recovery verified. Shared local next/held rendering adds no simulation owner. Required viewport/DPR layout passes; 800×600 and paused hold screenshots inspected with clear shapes/labels/ghost and visible footer. Issue #29 verified.
 
         - [ ] T-030 — Review test and report milestone 2.2
             Depends on: T-026–T-029.

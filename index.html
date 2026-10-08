@@ -50,20 +50,24 @@
                 >Next piece appears here.</canvas
               >
             </div>
+            <div class="hold">
+              <h2>Hold <span id="held-type">None</span></h2>
+              <canvas id="held-preview" width="112" height="112" aria-label="Held piece preview">Held piece appears here.</canvas>
+              <p id="hold-availability">Unavailable</p>
+            </div>
           </div>
           <h2>Keyboard controls</h2>
           <p id="instructions">
             ← → Move<br />↑ / X Rotate clockwise<br />Z Rotate
-            counterclockwise<br />↓ Soft drop<br />Space Hard drop (delayed lock)<br />P / Esc Pause / resume<br />Enter
+            counterclockwise<br />↓ Soft drop<br />Space Hard drop (delayed lock)<br />C / Shift Hold<br />P / Esc Pause / resume<br />Enter
             Start / restart
           </p>
           <p class="note">
-            Each contact gets one full gravity interval before locking. Pause
-            holds your place.
+            Hold once per lock. Hard drop still waits one full gravity interval before locking.
           </p>
         </aside>
       </section>
-      <footer>Baseline browser Tetris · Built with TypeScript</footer>
+      <footer>Modern browser Tetris · Built with TypeScript</footer>
     </main>
     <script type="module" src="/src/main.ts"></script>
   </body>

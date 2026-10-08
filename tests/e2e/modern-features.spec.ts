@@ -32,3 +32,46 @@ test("production bag, outlined ghost and Space preserve delayed locking", async 
   await expect(page.locator("#next-type")).toHaveText("L");
   await page.screenshot({ path: "/tmp/tetris-modern-drop.png" });
 });
+
+test("C and both Shift controls show held shape, eligibility and fresh restart", async ({page}) => {
+  await expect(page.locator("#held-type")).toHaveText("None");
+  await expect(page.locator("#hold-availability")).toHaveText("Unavailable");
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#hold-availability")).toHaveText("Available");
+  await page.keyboard.press("KeyC");
+  await expect(page.locator("#held-type")).toHaveText("I");
+  await expect(page.locator("#next-type")).toHaveText("L");
+  await expect(page.locator("#hold-availability")).toHaveText("Used");
+  await page.keyboard.press("ShiftLeft");
+  await expect(page.locator("#held-type")).toHaveText("I");
+  await page.keyboard.press("KeyX"); await page.keyboard.press("Space"); await page.clock.runFor(1016);
+  await expect(page.locator("#hold-availability")).toHaveText("Available");
+  await page.keyboard.press("ShiftRight");
+  await expect(page.locator("#held-type")).toHaveText("L");
+  await expect(page.locator("#next-type")).toHaveText("O");
+  expect(await page.locator("#held-preview").evaluate(node => {
+    const c = node as HTMLCanvasElement; const p=c.getContext("2d")!.getImageData(0,0,c.width,c.height).data;
+    let orange=0; for(let i=0;i<p.length;i+=4) if(p[i]===255&&p[i+1]===178&&p[i+2]===103)orange++; return orange;
+  })).toBeGreaterThan(100);
+  await page.keyboard.press("KeyP");
+  await expect(page.locator("#hold-availability")).toHaveText("Used");
+  await page.screenshot({path:"/tmp/tetris-modern-hold.png"});
+  await page.getByRole("button",{name:"Restart",exact:true}).click();
+  await expect(page.locator("#held-type")).toHaveText("None");
+  await expect(page.locator("#hold-availability")).toHaveText("Available");
+  await expect(page.locator("#next-type")).toHaveText("J");
+  await page.keyboard.press("ShiftLeft");
+  await expect(page.locator("#held-type")).toHaveText("I");
+  await expect(page.locator("#hold-availability")).toHaveText("Used");
+});
+
+test("hold draw failure displays unavailable and restart restores usability", async ({page}) => {
+  await page.goto("http://127.0.0.1:4175/tests/fixtures/recovery.html");
+  await page.getByRole("button",{name:"Start",exact:true}).click();
+  await page.keyboard.press("KeyC");
+  await expect(page.getByRole("status")).toContainText("Runtime error");
+  await expect(page.locator("#hold-availability")).toHaveText("Unavailable");
+  await expect(page.locator("#held-type")).toHaveText("None");
+  await page.getByRole("button",{name:"Restart",exact:true}).click();
+  await expect(page.locator("#hold-availability")).toHaveText("Available");
+});

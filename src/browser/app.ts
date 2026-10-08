@@ -17,12 +17,14 @@ export function mount(
     pause = root.querySelector<HTMLButtonElement>("#pause")!,
     label = root.querySelector<HTMLElement>("#status")!;
   let board: ReturnType<typeof boardRenderer>,
-    preview: ReturnType<typeof previewRenderer>;
+    preview: ReturnType<typeof previewRenderer>,
+    held: ReturnType<typeof previewRenderer>;
   try {
     board = boardRenderer(canvas);
     preview = previewRenderer(
       root.querySelector<HTMLCanvasElement>("#preview")!,
     );
+    held = previewRenderer(root.querySelector<HTMLCanvasElement>("#held-preview")!, "held");
   } catch (error) {
     label.textContent =
       "Unsupported display: " +
@@ -43,11 +45,13 @@ export function mount(
     (state) => {
       board(state);
       preview(state);
+      held(state);
       status(state);
     },
     (message) => {
       label.textContent =
         "Runtime error: " + message + " — Restart to recover.";
+      root.querySelector("#hold-availability")!.textContent = "Unavailable";
       start.disabled = pause.disabled = true;
     },
   );

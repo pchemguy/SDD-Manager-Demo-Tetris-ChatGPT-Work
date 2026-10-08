@@ -40,7 +40,7 @@ test("one-shot mapping and native interactive focus prevent duplicate activation
   expect(k.down("Enter", 5)).toEqual(["enter"]);
   expect(k.down("Enter", 6, false, true)).toEqual([]);
   expect(k.down("ArrowDown", 7, false, true)).toEqual([]);
-  expect(k.down("KeyC", 8)).toEqual([]);
+  expect(k.down("KeyV", 8)).toEqual([]);
 });
 
 test("Space is discrete, excludes native focus/repeat and preserves scheduled repeats", () => {
@@ -54,4 +54,16 @@ test("Space is discrete, excludes native focus/repeat and preserves scheduled re
   k.up("Space", 60);
   expect(k.down("Space", 61, false, true)).toEqual([]);
   expect(k.down("Space", 62)).toEqual(["hard-drop"]);
+});
+
+test.each(["KeyC","ShiftLeft","ShiftRight"])("%s hold is discrete and preserves repeats", code => {
+  const k = new Keyboard(); k.down("ArrowLeft",0);
+  expect(k.down(code,10)).toEqual(["hold"]);
+  expect(k.down(code,11,true)).toEqual([]);
+  expect(k.down(code,12)).toEqual([]);
+  expect(k.deadline()).toBe(150);
+  expect(k.due(150)).toEqual(["left"]);
+  k.up(code,160);
+  expect(k.down(code,170,false,true)).toEqual([]);
+  expect(k.down(code,180)).toEqual(["hold"]);
 });
