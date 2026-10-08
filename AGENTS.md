@@ -12,7 +12,7 @@ This repository develops a browser TypeScript Tetris game and demonstrates SDD M
 - [TASKS](docs/dev/TASKS.md) is the sole executable checklist for the baseline; [TASKS review](docs/dev/TASKS-REVIEW-REPORT.md) records conformance and readiness.
 - [SDD Manager notice](SDD-MANAGER.md) and [disclosure](AI_DISCLOSURE.md) identify development assistance.
 
-SPEC, PLAN, and layout are accepted; their review gates and the TASKS preparation gate are Ready. No task range has been executed and no active feature exists. Product source, tests, package manifests, and application commands are absent. Commands in TASKS are planned, not validated. GitHub lifecycle tracking is confirmed for the baseline; project only an eligible phase after its inputs and review gates are established.
+SPEC, PLAN, and layout are accepted; their review gates and the TASKS preparation gate are Ready. The selected range is the full baseline phase T-001–T-020 on `phase/1-baseline-tetris`, starting at preparation merge `6d96a76a1976f5b8c2ca3ed7847777ffcdc4d66d`. Product implementation has started; TASKS remains the sole progress owner. No active feature exists. GitHub lifecycle tracking is confirmed for the baseline; project only an eligible phase after its inputs and review gates are established.
 
 ## Workflow
 
@@ -26,6 +26,8 @@ Maintain these links and command guidance when owning artifacts appear. Keep exe
 
 ## Environment and checks
 
-Preparation uses the standard ChatGPT Work Linux cloud sandbox. Node.js 24.19.0, npm 11.9.0, and Python 3.12.14 were observed. No application setup, build, or test command is declared or validated yet. Do not modify or execute files under `/pyenv`.
+Validated standard ChatGPT Work Linux sandbox: Node.js 24.19.0, npm 11.9.0, Python 3.12.14 and Chromium 153.0.8010.0. Do not modify or execute files under `/pyenv`. The README owns full setup/controls and evidence limitations.
 
-For documentation changes, inspect relative links, consistency with accepted decisions, and `git diff --check`. Establish package commands during implementation preparation and update this guidance from actual evidence.
+Run `npm ci`, `npm run test`, `npm run typecheck`, `npm run build`. Development and preview use explicit `--host 127.0.0.1`; arbitrary interfaces hit sandbox enumeration limits. Standard `npm run test:e2e` requires Playwright Chromium. Here use `npm run browser:prepare` followed by `npm run test:e2e:cloud` (same suite, pinned test-only assets, ownership-safe extraction, local fonts, multiprocess launch). Generated/browser cache output stays ignored. Clean committed-input installation, fresh provisioning, 82 unit tests and 18 browser cases have passed. Full phase review/integration remains pending in TASKS.
+
+Tests can inject source/time collaborators and compose isolated entries under tests/fixtures. Never add production state mutation hooks or runtime fixture imports. Changes follow accepted SPEC; record actual verification and any limitations in the owning task/report. Modelled focus-loss handlers are distinct from native desktop blur/visibility certification.

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tetris · SDD demo</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">SDD MANAGER DEMO</p>
+        <h1>Tetris</h1>
+        <p class="subtitle">
+          A classic game, built one specification at a time.
+        </p>
+      </header>
+      <section class="game" aria-label="Tetris game">
+        <canvas
+          id="board"
+          width="280"
+          height="560"
+          tabindex="0"
+          aria-label="Tetris game board. See status and keyboard controls alongside."
+          aria-describedby="instructions"
+          >A 10 by 20 Tetris board. See status and controls alongside.</canvas
+        >
+        <aside>
+          <p id="status" role="status" aria-live="polite">Ready</p>
+          <div class="actions">
+            <button id="start">Start</button
+            ><button id="pause" disabled>Pause</button
+            ><button id="restart">Restart</button>
+          </div>
+          <div class="metrics">
+            <dl>
+              <dt>Score</dt>
+              <dd id="score">0</dd>
+              <dt>Lines</dt>
+              <dd id="lines">0</dd>
+              <dt>Level</dt>
+              <dd id="level">1</dd>
+            </dl>
+            <div class="next">
+              <h2>Next <span id="next-type">—</span></h2>
+              <canvas
+                id="preview"
+                width="112"
+                height="112"
+                aria-label="Next piece preview"
+                >Next piece appears here.</canvas
+              >
+            </div>
+          </div>
+          <h2>Keyboard controls</h2>
+          <p id="instructions">
+            ← → Move<br />↑ / X Rotate clockwise<br />Z Rotate
+            counterclockwise<br />↓ Soft drop<br />P / Esc Pause / resume<br />Enter
+            Start / restart
+          </p>
+          <p class="note">
+            Each contact gets one full gravity interval before locking. Pause
+            holds your place.
+          </p>
+        </aside>
+      </section>
+      <footer>Baseline browser Tetris · Built with TypeScript</footer>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

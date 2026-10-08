@@ -154,3 +154,7 @@ vite.config.ts.timestamp-*
 
 # Hosting credentials
 *.tkn
+
+# Browser verification output
+test-results/
+playwright-report/
