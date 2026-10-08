@@ -107,7 +107,7 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Report: `docs/dev/reports/phases/1/1.2.md`; publish review evidence, close/read back constituent issues, then milestone 1.2.
             Result: Reviewed progression/source/soft-drop and prior slice boundaries; 53 unit tests, strict typecheck/build and four Chromium cases passed. Report records award/speed/preview evidence and visual inspection with no blocker or TODO within scope. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/10.
 
-    - [ ] Milestone 1.3 — Robust browser session
+    - [x] Milestone 1.3 — Robust browser session
         - [x] T-011 — Complete engine lifecycle and failure contracts
             Scope: session lifecycle/validation/atomic transitions, engine types as needed, `tests/engine/errors.test.ts`, state/timing regressions.
             Depends on: T-010.
@@ -140,11 +140,13 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Completion: readable complete player interface; no unsupported full nonvisual-accessibility claim.
             Result: Four viewport/DPR checks failed before layout/buffer corrections; 80 unit tests, strict build and five display cases passed. Inspected 800x600 and 1280x720 screenshots, including DPR2: square sharp board, visible counters/preview/controls, focus and readable glyphs. Semantic controls/disabled states, accessible Canvas text and polite status verified; no certification claim. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/14.
 
-        - [ ] T-015 — Review, test and report milestone 1.3
+        - [x] T-015 — Review, test and report milestone 1.3
             Depends on: T-011–T-014 complete and published.
             Scope: whole baseline engine/browser contract collaboration, input/lifecycle/failure/display paths and prior milestone regressions.
             Evidence: code review, complete engine/controller tests/typecheck/build/current Chromium suites, representative timing/focus/error/viewport inspection; gather useful controls/pause feedback and repair required failures.
             Report: `docs/dev/reports/phases/1/1.3.md`; publish, close constituent issues/read back, then milestone 1.3. Preserve actionable human steering opportunities without automatic requirement changes.
+            Result: Whole engine/browser collaboration reviewed; 80 unit tests, strict build and 13 Chromium cases passed. Viewport/DPR screenshots inspected and source/render/input failure paths verified. Report records real fixture repairs, native desktop limitations and counter-overflow evidence limits; TODO None within scope. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/15.
+
     - [ ] Milestone 1.4 — Verified static distribution
         - [ ] T-016 — Establish complete production browser acceptance
             Scope: gameplay/controls/lifecycle/display Playwright suites, deterministic fixtures and isolated test-only harness, Playwright server/artifact configuration.
