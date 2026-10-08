@@ -2,7 +2,7 @@
 
 ## Current gate
 
-State: **Blocked pending human written-plan acceptance**. PLAN/SPEC conformance and physical-layout review pass; no confirmed QC defect remains. TASKS derivation waits for acceptance of this delivery strategy/layout. The user selected inline execution in this session. Task-range selection remains pending; no implementation is authorized by this review.
+State: **Ready for TASKS derivation**. The user accepted PLAN/layout and selected inline execution in this session on 2026-10-08. PLAN/SPEC conformance and physical-layout review pass; no confirmed QC defect remains. Task-range selection belongs to sdd-implement; preparation readiness is not implementation evidence.
 
 Scope: PLAN and layout. Inputs: accepted design and SPEC, with the SPEC Ready gate persisted and published at `336ebc6b68268d912a716b940b2e10c048c5075b`. Governing PROJECT receives only navigation/status maintenance during this preparation. Current exact reviewed content identities use SHA-256.
 
@@ -51,3 +51,7 @@ Inspected every SPEC child and A-01–A-08 against the coverage table and milest
 Documentation checks validate relative links to existing preparation files, table/source identities, unique milestone IDs, source requirement coverage, end-state wording, and authored-file whitespace. Paths described in layout are intentional future paths, not false existence claims. Tool setup sources were read; dependency installation/build/browser execution have not been performed.
 
 No confirmed technical finding required a correction cycle; no Revision section is fabricated. The only pending decision is human acceptance of PLAN/layout. Missing product/tool-provisioning evidence is an implementation risk with an early gate, not a claimed setup pass. Scope does not require hosted deployment, CI automation, new features, or server operation. No TASKS exists to invalidate.
+
+## Revision 1
+
+The user accepted PLAN and layout at checkpoint `0939da3` and selected inline execution. Recheck confirms both governing files and their reviewed source inputs are unchanged; the current-gate statement records acceptance only. No strategy, placement, scope, requirement, or count changed. PLAN is Ready for TASKS derivation. Source/package/browser setup remains unperformed.
