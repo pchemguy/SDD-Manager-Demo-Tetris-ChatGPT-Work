@@ -148,12 +148,14 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Result: Whole engine/browser collaboration reviewed; 80 unit tests, strict build and 13 Chromium cases passed. Viewport/DPR screenshots inspected and source/render/input failure paths verified. Report records real fixture repairs, native desktop limitations and counter-overflow evidence limits; TODO None within scope. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/15.
 
     - [ ] Milestone 1.4 — Verified static distribution
-        - [ ] T-016 — Establish complete production browser acceptance
+        - [x] T-016 — Establish complete production browser acceptance
             Scope: gameplay/controls/lifecycle/display Playwright suites, deterministic fixtures and isolated test-only harness, Playwright server/artifact configuration.
             Depends on: T-015.
             Contracts: A-01–A-08, U-05 production evidence; accepted engine/browser contracts supply independent expectations.
             Evidence: HTTP-served production entry start/play/pause/restart/game-over, real controls/status/rendering, required viewport/DPR variants, zero runtime errors, local-only application assets and no gameplay backend calls. Use controlled isolated composition for otherwise inaccessible board/deadline boundaries; it complements rather than substitutes for production-entry smoke. Run `npm run build` and `npm run test:e2e` plus current unit/type checks. Tests added for existing behavior are characterization/acceptance expansion; report their observed initial outcomes rather than invent a RED history.
             Completion: inspectable Chromium acceptance with actual browser version; no production test hooks or fixture inclusion.
+            Result: Acceptance expansion initially passed 17/17 real Chromium scenarios; focused editable/link extension passed 3/3 controls cases. Full 80 unit tests and strict build passed. Production controls clear two rows with score 390, reach blocked-spawn score 90 and restart via Enter; next identifier/color promotion and local-only requests with zero runtime errors verified. No fictitious RED history or production mutation hook. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/16.
+
         - [ ] T-017 — Verify reproducible setup and static distribution boundaries
             Scope: package/lock/build configuration where checks expose corrections; isolated temporary verification copy and production asset inspection.
             Depends on: T-016.
