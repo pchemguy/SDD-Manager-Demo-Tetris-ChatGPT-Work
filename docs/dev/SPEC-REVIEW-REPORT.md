@@ -12,7 +12,7 @@ Reviewed scope: SPEC and its three children. Governing design was accepted by th
 | `docs/dev/spec/board-and-pieces.md` | `318c7577899a2365c468c13f3ab8b8057643490a67716e01dc1a9327ce9752d7` |
 | `docs/dev/spec/browser-interaction.md` | `24d21f81dbb24b33d2d198793cce6194ec0d2b2fd190ec47e5ad9a3648096bcc` |
 | `docs/dev/spec/session-and-timing.md` | `e97bf04b409f2cb155f8c59e797fd90c775121aa21a0a77f623400f079d211dd` |
-| `docs/dev/PROJECT.md` | `1c120cc68b0d0713385148c9dd8ba8cb88f75d3498418627c7e79c556722ba1c` |
+| `docs/dev/PROJECT.md` | `585820be5f322e346cff69789b2178a03c03c62367db4c2756a6198a7d86cb0e` |
 | `docs/dev/ARCHITECTURE.md` | `41849d0f494c99501847d21378cdb1378a6adc31b91775e4ae3cda002fb1c5f7` |
 | `docs/dev/DECOMPOSITION.md` | `0053d29f5628c1283f36e1d3f8158f6eacc3be1b25485c7bca9976dbfed30c74` |
 
@@ -51,3 +51,7 @@ The user accepted the complete written SPEC on 2026-10-08. SPEC-D01 is resolved 
 ## Revision 3
 
 PLAN preparation updates PROJECT's document-navigation/status paragraph only. Comparison with accepted SPEC checkpoint `336ebc6b68268d912a716b940b2e10c048c5075b` confirms SPEC and all children, ARCHITECTURE, DECOMPOSITION, and every behavioral/scope decision are byte-identical. The current identity table reflects PROJECT's status-text change. This does not invalidate the established SPEC/design conformance assessment; Ready is retained. No new specification correction or behavioral decision was made.
+
+## Revision 4
+
+TASKS preparation updates PROJECT's preparation context and navigation to record accepted PLAN/layout, inline method selection, and the executable hierarchy. No project scope or gameplay contract changes. SPEC and all children, ARCHITECTURE, and DECOMPOSITION remain byte-identical to their accepted state. Refresh the PROJECT identity in the current table and retain the conformance gate as Ready. No implementation acceptance is claimed.

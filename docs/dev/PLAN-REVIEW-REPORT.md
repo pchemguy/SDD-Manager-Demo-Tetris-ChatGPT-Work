@@ -10,14 +10,14 @@ Scope: PLAN and layout. Inputs: accepted design and SPEC, with the SPEC Ready ga
 | --- | --- |
 | `docs/dev/PLAN.md` | `2b3b4290dea868e7cc02b8e8fd83160cccd6f6d456ac7662a90e0009fc5ef8c6` |
 | `docs/dev/layout.md` | `c21f2dfaf35417d6b2242f3a347e3d29d48579af43e90f9e6ac91b1cf019c6c4` |
-| `docs/dev/PROJECT.md` | `1c120cc68b0d0713385148c9dd8ba8cb88f75d3498418627c7e79c556722ba1c` |
+| `docs/dev/PROJECT.md` | `585820be5f322e346cff69789b2178a03c03c62367db4c2756a6198a7d86cb0e` |
 | `docs/dev/ARCHITECTURE.md` | `41849d0f494c99501847d21378cdb1378a6adc31b91775e4ae3cda002fb1c5f7` |
 | `docs/dev/DECOMPOSITION.md` | `0053d29f5628c1283f36e1d3f8158f6eacc3be1b25485c7bca9976dbfed30c74` |
 | `docs/dev/SPEC.md` | `1957efa19387693a72e5bc2578bc12eae41684ea2322205996f76c04b4e9cea4` |
 | `docs/dev/spec/board-and-pieces.md` | `318c7577899a2365c468c13f3ab8b8057643490a67716e01dc1a9327ce9752d7` |
 | `docs/dev/spec/browser-interaction.md` | `24d21f81dbb24b33d2d198793cce6194ec0d2b2fd190ec47e5ad9a3648096bcc` |
 | `docs/dev/spec/session-and-timing.md` | `e97bf04b409f2cb155f8c59e797fd90c775121aa21a0a77f623400f079d211dd` |
-| `docs/dev/SPEC-REVIEW-REPORT.md` | `7b85eaea8fdadf4278333875c0233dcc6774b154b9245e0be63d875b3f439658` |
+| `docs/dev/SPEC-REVIEW-REPORT.md` | `86ce422522e85ec1bb432bc035eee6010789312bcfcb8a8f1a56e6d52a44f37d` |
 
 ## Initial review
 
@@ -55,3 +55,7 @@ No confirmed technical finding required a correction cycle; no Revision section 
 ## Revision 1
 
 The user accepted PLAN and layout at checkpoint `0939da3` and selected inline execution. Recheck confirms both governing files and their reviewed source inputs are unchanged; the current-gate statement records acceptance only. No strategy, placement, scope, requirement, or count changed. PLAN is Ready for TASKS derivation. Source/package/browser setup remains unperformed.
+
+## Revision 2
+
+TASKS preparation maintains PROJECT's preparation context/navigation and appends SPEC evidence-currency records. PLAN/layout, accepted behavior, design boundaries, milestone strategy, and physical ownership remain byte-identical to the accepted preparation at `f28cba9daadb363f913d7b307bb003b03234ea2e`. Current reviewed-input hashes reflect documentation status maintenance. The PLAN conformance gate remains Ready; no changed delivery decision requires re-approval.

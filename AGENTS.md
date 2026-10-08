@@ -9,9 +9,10 @@ This repository develops a browser TypeScript Tetris game and demonstrates SDD M
 - [DECOMPOSITION](docs/dev/DECOMPOSITION.md) owns logical responsibilities and verification seams.
 - [SPEC](docs/dev/SPEC.md) and its linked children own observable behavior and acceptance; [SPEC review](docs/dev/SPEC-REVIEW-REPORT.md) records the preparation gate.
 - [PLAN](docs/dev/PLAN.md) owns delivery boundaries; [layout](docs/dev/layout.md) owns planned physical paths; [PLAN review](docs/dev/PLAN-REVIEW-REPORT.md) records their preparation gate.
+- [TASKS](docs/dev/TASKS.md) is the sole executable checklist for the baseline; [TASKS review](docs/dev/TASKS-REVIEW-REPORT.md) records conformance and readiness.
 - [SDD Manager notice](SDD-MANAGER.md) and [disclosure](AI_DISCLOSURE.md) identify development assistance.
 
-SPEC is accepted and its review gate is Ready. PLAN and layout are accepted and their review gate is Ready. TASKS has not been authored; no executable range or active feature exists. Product source, tests, package manifests, and application commands are absent. GitHub lifecycle tracking is confirmed for the baseline; project only an eligible phase after its inputs and review gates are established.
+SPEC, PLAN, and layout are accepted; their review gates and the TASKS preparation gate are Ready. No task range has been executed and no active feature exists. Product source, tests, package manifests, and application commands are absent. Commands in TASKS are planned, not validated. GitHub lifecycle tracking is confirmed for the baseline; project only an eligible phase after its inputs and review gates are established.
 
 ## Workflow
 
