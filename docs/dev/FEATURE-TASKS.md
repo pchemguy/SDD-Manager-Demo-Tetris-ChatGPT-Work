@@ -60,13 +60,14 @@ At T-034, accepted task incorporation may transfer the single executable owner t
             Result: Fresh full 106/106 tests, strict build and all 19/19 Chromium cases pass. Source/landing/drop/contact/input/render ownership inspected separately; screenshots readable at required viewport/DPR. Hold/kicks deferred explicitly; no whole-feature or main integration claim. Issue #25 verified; hosted review/milestone closure follows publication.
 
     - [ ] Milestone 2.2 — Kicks and hold
-        - [ ] T-026 — Implement ordered rotation candidate placement
+        - [x] T-026 — Implement ordered rotation candidate placement
             Depends on: T-025 and 2.1 closure.
             Scope: src/engine/rotation.ts; tests/engine/rotation.test.ts; pieces/board/type collaborators and API comments.
             Contracts: F-02 / FA-02.
             Evidence: Every orientation transition in both tables against independent expectations; five ordered offsets, first valid wins and later candidates succeed; walls/floor/stack/above-top failure; O fixed. Observe helper RED.
             Checks: npm run test -- tests/engine/rotation.test.ts; npm run typecheck; npm run test.
             Completion: Pure candidate/selection boundary with explicit y-down semantics; no hidden rows.
+            Result: Milestone 2.1 closure read back. Observed 51 behavioral RED failures; 51/51 focused and 157/157 full tests passed. Typecheck initially caught fixture nullability annotation, corrected; final typecheck passes. Independently enumerated all 48 type/transition lists plus first/fifth candidate, wall/floor/stack/top/total rejection/O and input immutability. Issue #26 verified; session integration deferred.
 
         - [ ] T-027 — Integrate kicked rotation with contact timing
             Depends on: T-026.
