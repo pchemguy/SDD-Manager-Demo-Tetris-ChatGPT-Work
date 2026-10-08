@@ -32,13 +32,14 @@ At T-034, accepted task incorporation may transfer the single executable owner t
             Completion: Pure landing value usable by session/ghost; no renderer logic.
             Result: Missing module identified then six behavioral RED failures observed with identity stub. Focused 7/7, full 100/100 and typecheck passed. Literal empty/stacked/cavity/zero-distance placements and input immutability verified. Issue #22 verified.
 
-        - [ ] T-023 — Integrate ghost observations and delayed hard-drop transitions
+        - [x] T-023 — Integrate ghost observations and delayed hard-drop transitions
             Depends on: T-022.
             Scope: src/engine/session.ts, types.ts; session/timing/errors tests and affected typed fixtures.
             Contracts: F-04–F-06 / FA-04–FA-06.
             Evidence: Detached source-free ghost; positive drop exact 2d award and fall reset with no merge/source/lock; zero drop entire snapshot equality; full contact interval at partial gravity phase, paused/terminal values and counter atomicity. Add coherent held/availability value shape while hold command remains deferred. Observe meaningful session/timing RED.
             Checks: npm run test; npm run typecheck; npm run build.
             Completion: Engine hard-drop/ghost contracts pass; hold behavior and kicks explicitly deferred.
+            Result: Five RED contract failures observed; full 105/105 tests, typecheck/build passed. Positive 2d/fall reset, no draw/merge, exact G boundary, whole-snapshot zero-distance equality, detached source-free paused/terminal ghost verified. Adjacent pure progression hardDropScore enables exact overflow-boundary evidence without a mutation hook; session inspection verifies guard precedes all publication. held/availability shape is coherent; hold/kicks remain deferred. Issue #23 verified.
 
         - [ ] T-024 — Deliver production bag selection ghost and Space controls
             Depends on: T-021, T-023.

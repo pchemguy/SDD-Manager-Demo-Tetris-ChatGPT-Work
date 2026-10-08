@@ -20,3 +20,8 @@ export function checkedCounter(value: number): number {
     );
   return value;
 }
+
+/** Add two points per descended row, rejecting overflow before placement publishes. */
+export function hardDropScore(score: number, distance: number): number {
+  return checkedCounter(score + 2 * distance);
+}

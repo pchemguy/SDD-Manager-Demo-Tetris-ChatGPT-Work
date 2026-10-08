@@ -16,7 +16,8 @@ export type GameCommand =
   | "right"
   | "rotate-clockwise"
   | "rotate-counterclockwise"
-  | "soft-drop";
+  | "soft-drop"
+  | "hard-drop";
 /** A source supplies one identifier; a factory supplies a fresh source on restart. */
 export type PieceSource = () => PieceType;
 export type PieceSourceFactory = () => PieceSource;
@@ -26,6 +27,9 @@ export interface GameSnapshot {
   board: Board;
   active: ActivePiece | null;
   next: PieceType | null;
+  held: PieceType | null;
+  holdAvailable: boolean;
+  ghost: ActivePiece | null;
   score: number;
   lines: number;
   level: number;

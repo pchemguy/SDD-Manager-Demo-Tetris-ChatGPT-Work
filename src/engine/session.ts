@@ -1,11 +1,13 @@
 /** Synchronous aggregate owner. Commands/time are supplied externally; observations are detached. */
 import { canPlace, emptyBoard, mergeAndClear } from "./board";
+import { landingPlacement } from "./landing";
 import { PIECE_TYPES, spawnOrigin } from "./pieces";
 import {
   clearAward,
   levelForLines,
   gravityInterval,
   checkedCounter,
+  hardDropScore,
 } from "./progression";
 import type {
   ActivePiece,
@@ -17,11 +19,13 @@ import type {
 
 /** Own a session and its injected source factory; construction performs no source draw. */
 export class GameSession {
-  private state: GameSnapshot = {
+  private state: Omit<GameSnapshot, "ghost"> = {
     status: "idle",
     board: emptyBoard(),
     active: null,
     next: null,
+    held: null,
+    holdAvailable: false,
     score: 0,
     lines: 0,
     level: 1,
@@ -47,6 +51,8 @@ export class GameSession {
       board: emptyBoard(),
       active: { type, orientation: 0, ...spawnOrigin(type) },
       next,
+      held: null,
+      holdAvailable: true,
       score: 0,
       lines: 0,
       level: 1,
@@ -75,11 +81,23 @@ export class GameSession {
         "rotate-clockwise",
         "rotate-counterclockwise",
         "soft-drop",
+        "hard-drop",
       ].includes(command)
     )
       throw new TypeError("Unknown gameplay command.");
     if (this.state.status !== "running") return;
     const current = this.state.active!;
+    if (command === "hard-drop") {
+      const landing = landingPlacement(this.state.board, current);
+      const distance = landing.y - current.y;
+      if (distance === 0) return;
+      const score = hardDropScore(this.state.score, distance);
+      this.state.active = landing;
+      this.state.score = score;
+      this.state.gravityElapsedMs = 0;
+      this.updateContact();
+      return;
+    }
     // O is a rotation no-op in both geometry and the public orientation contract.
     if (current.type === "O" && command.startsWith("rotate-")) return;
     const candidate = { ...current };
@@ -169,6 +187,7 @@ export class GameSession {
       next,
       active: valid ? active : null,
       status: valid ? "running" : "game-over",
+      holdAvailable: valid,
       gravityElapsedMs: 0,
       grounded: null,
     };
@@ -190,8 +209,13 @@ export class GameSession {
         intervalMs: this.state.gravityIntervalMs,
       };
   }
-  /** Return an independently owned nested snapshot. */
+  /** Return a detached snapshot with source-free derived ghost placement. */
   snapshot(): GameSnapshot {
-    return structuredClone(this.state);
+    return structuredClone({
+      ...this.state,
+      ghost: this.state.active
+        ? landingPlacement(this.state.board, this.state.active)
+        : null,
+    });
   }
 }
