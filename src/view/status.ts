@@ -1,5 +1,6 @@
 /** Present lifecycle and button availability as semantic DOM controls. */
 import type { GameSnapshot } from "../engine/types";
+/** Render counters/lifecycle and hold eligibility without per-frame live announcements. */
 export function statusRenderer(root: Document): (state: GameSnapshot) => void {
   const status = root.querySelector<HTMLElement>("#status")!,
     start = root.querySelector<HTMLButtonElement>("#start")!;

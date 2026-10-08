@@ -32,6 +32,7 @@ export interface GameSnapshot {
   held: PieceType | null;
   /** Episode eligibility, retained in pause; false in idle/terminal states. */
   holdAvailable: boolean;
+  /** Derived continuous landing, retained while paused and absent in idle/game over. */
   ghost: ActivePiece | null;
   score: number;
   lines: number;

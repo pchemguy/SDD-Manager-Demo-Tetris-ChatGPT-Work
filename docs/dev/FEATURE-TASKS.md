@@ -115,13 +115,14 @@ At T-034, accepted task incorporation may transfer the single executable owner t
             Completion: Cross-feature acceptance mapped to actual tests; no required production repair.
             Result: Milestone 2.2 closure read back. Full 175/175 tests, strict build and all 23/23 Chromium cases pass. Six added controller/session characterizations pin drop/hold exactly after due lock, repeat/pause chronology, bag restart purity, occupied blocked no-draw hold and interleaved subdivision. A fixture expectation was corrected for the repeat due before pause; no fabricated feature RED or production change. FA-01 source/restart; FA-02 rotation/kick-session plus literal production pixel; FA-03 hold/occupied blocked; FA-04 landing/drop/guard; FA-05 timing/modern-timing; FA-06 errors/hold/drop; FA-07 modern/display/controls/lifecycle; affected A-01–A-08 gameplay/progression/board/session retained. Viewport/DPR screenshots with populated hold inspected; button Space, editable/link exclusion and local-only requests pass. FA-08 clean setup/guidance/incorporation remains for T-032–T-034. Chromium-only/modelled native-event limits retained. Issue #31 verified.
 
-        - [ ] T-032 — Verify clean setup and complete player developer guidance
+        - [x] T-032 — Verify clean setup and complete player developer guidance
             Depends on: T-031.
             Scope: README, AGENTS and public source/API comments; test-only provisioning/docs boundary; task-owned clean verification copy.
             Contracts: FA-08; F-07 guidance and unchanged distribution obligations.
             Evidence: Fresh committed-input npm ci and owned browser prepare/build/e2e; verify no fixture/secret/remote asset in production; validate dev/preview commands and all controls/scoring/delayed drop guidance. Preserve other-plugin/prior-Tetris disclosure.
             Checks: In clean copy: npm ci, npm run browser:prepare, npm run test, npm run build, npm run test:e2e:cloud; main links/docs checks.
-            Completion: Reproducible static distribution and accurate user/agent commands; no dependency upgrade or site deployment.
+            Completion: Reproducible static distribution and accurate user/agent/API guidance; no dependency upgrade or site deployment.
+            Result: Fresh git-archive copy of committed 002e5d5: npm ci installed 62 locked packages; fresh owned browser prepare reports Chromium 153.0.8010.0; 175/175 tests, strict build and 23/23 browser cases pass. Dev/preview HTTP commands exercised by suite. README covers all keys, bags/kicks/ghost/hold, awards and delayed drop; API/TSDoc audit preserves valid-piece preconditions and error ownership. Current documentation-only diff typecheck/build passes with identical production bundles. README/AGENTS links and tracked credential exclusion pass; inspected production contains no fixture import, secret or remote asset. Other-plugin/prior-Tetris disclosure retained. Issue #32 verified.
 
         - [ ] T-033 — Incorporate accepted design contracts strategy and layout
             Depends on: T-032.

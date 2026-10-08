@@ -10,6 +10,9 @@ const colors: Record<PieceType, string> = {
   T: "#c79afb",
   Z: "#f47d91",
 };
+/** Paint settled cells, outlined ghost, then filled active cells at device density.
+ * @throws Error when the Canvas 2D context is unavailable.
+ */
 export function boardRenderer(
   canvas: HTMLCanvasElement,
 ): (state: GameSnapshot) => void {

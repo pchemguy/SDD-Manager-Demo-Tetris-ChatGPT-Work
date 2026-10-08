@@ -1,6 +1,7 @@
 /** Translate physical events into actions/deadlines. This adapter owns no engine clock or board. */
 import type { GameCommand } from "../engine/types";
 export type InputAction = GameCommand | "toggle-pause" | "enter";
+/** Map a physical key code to a gameplay command; unknown codes return null. */
 export function mappedCommand(code: string): GameCommand | null {
   return (
     (
