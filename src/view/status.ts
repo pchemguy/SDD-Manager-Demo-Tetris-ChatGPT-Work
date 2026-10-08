@@ -1,5 +1,6 @@
 /** Present lifecycle and button availability as semantic DOM controls. */
 import type { GameSnapshot } from "../engine/types";
+/** Render counters/lifecycle and hold eligibility without per-frame live announcements. */
 export function statusRenderer(root: Document): (state: GameSnapshot) => void {
   const status = root.querySelector<HTMLElement>("#status")!,
     start = root.querySelector<HTMLButtonElement>("#start")!;
@@ -18,5 +19,9 @@ export function statusRenderer(root: Document): (state: GameSnapshot) => void {
     for (const key of ["score", "lines", "level"] as const)
       root.querySelector("#" + key)!.textContent = String(state[key]);
     root.querySelector("#next-type")!.textContent = state.next ?? "—";
+    root.querySelector("#held-type")!.textContent = state.held ?? "None";
+    root.querySelector("#hold-availability")!.textContent = state.holdAvailable
+      ? "Available"
+      : state.active ? "Used" : "Unavailable";
   };
 }

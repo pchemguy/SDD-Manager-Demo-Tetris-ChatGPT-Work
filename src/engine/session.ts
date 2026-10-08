@@ -1,11 +1,14 @@
 /** Synchronous aggregate owner. Commands/time are supplied externally; observations are detached. */
 import { canPlace, emptyBoard, mergeAndClear } from "./board";
+import { rotatedPlacement } from "./rotation";
+import { landingPlacement } from "./landing";
 import { PIECE_TYPES, spawnOrigin } from "./pieces";
 import {
   clearAward,
   levelForLines,
   gravityInterval,
   checkedCounter,
+  hardDropScore,
 } from "./progression";
 import type {
   ActivePiece,
@@ -17,11 +20,13 @@ import type {
 
 /** Own a session and its injected source factory; construction performs no source draw. */
 export class GameSession {
-  private state: GameSnapshot = {
+  private state: Omit<GameSnapshot, "ghost"> = {
     status: "idle",
     board: emptyBoard(),
     active: null,
     next: null,
+    held: null,
+    holdAvailable: false,
     score: 0,
     lines: 0,
     level: 1,
@@ -47,6 +52,8 @@ export class GameSession {
       board: emptyBoard(),
       active: { type, orientation: 0, ...spawnOrigin(type) },
       next,
+      held: null,
+      holdAvailable: true,
       score: 0,
       lines: 0,
       level: 1,
@@ -65,7 +72,9 @@ export class GameSession {
   }
   /** Attempt a discrete placement. Blocked moves preserve every timer.
    * Valid commands outside running are ignored.
-   * @throws TypeError for an unknown command; RangeError for counter overflow.
+   * Hold is once per lock; hard drop lands without locking.
+   * @throws TypeError for unknown commands/invalid draws; RangeError for counter overflow.
+   * Empty-hold source errors propagate before state publication.
    */
   command(command: GameCommand): void {
     if (
@@ -75,20 +84,42 @@ export class GameSession {
         "rotate-clockwise",
         "rotate-counterclockwise",
         "soft-drop",
+        "hard-drop",
+        "hold",
       ].includes(command)
     )
       throw new TypeError("Unknown gameplay command.");
     if (this.state.status !== "running") return;
+    if (command === "hold") {
+      if (this.state.holdAvailable) this.hold();
+      return;
+    }
     const current = this.state.active!;
-    // O is a rotation no-op in both geometry and the public orientation contract.
-    if (current.type === "O" && command.startsWith("rotate-")) return;
+    if (command === "hard-drop") {
+      const landing = landingPlacement(this.state.board, current);
+      const distance = landing.y - current.y;
+      if (distance === 0) return;
+      const score = hardDropScore(this.state.score, distance);
+      this.state.active = landing;
+      this.state.score = score;
+      this.state.gravityElapsedMs = 0;
+      this.updateContact();
+      return;
+    }
+    // O is a complete no-op, including timers and public orientation.
+    if (command.startsWith("rotate-")) {
+      if (current.type === "O") return;
+      const rotated = rotatedPlacement(this.state.board, current,
+        command === "rotate-clockwise" ? 1 : -1);
+      if (rotated) {
+        this.state.active = rotated;
+        this.updateContact();
+      }
+      return;
+    }
     const candidate = { ...current };
     if (command === "left") candidate.x--;
     else if (command === "right") candidate.x++;
-    else if (command === "rotate-clockwise")
-      candidate.orientation = (candidate.orientation + 1) % 4;
-    else if (command === "rotate-counterclockwise")
-      candidate.orientation = (candidate.orientation + 3) % 4;
     else if (command === "soft-drop") candidate.y++;
     else return;
     if (canPlace(this.state.board, candidate)) {
@@ -144,6 +175,26 @@ export class GameSession {
       if (remaining === 0) break;
     }
   }
+  /** Exchange types once per lock; draw only for empty hold before publishing.
+   * Incoming spawn starts fresh timing; collision retains exchange and ends play.
+   * A failed draw preserves the entire state, including eligibility and timers.
+   */
+  private hold(): void {
+    const held = this.state.active!.type;
+    const type = this.state.held ?? this.state.next!;
+    const next = this.state.held === null ? this.draw(this.source!) : this.state.next;
+    const active: ActivePiece = { type, orientation: 0, ...spawnOrigin(type) };
+    const valid = canPlace(this.state.board, active);
+    this.state = {
+      ...this.state, held, next,
+      active: valid ? active : null,
+      status: valid ? "running" : "game-over",
+      holdAvailable: false,
+      gravityElapsedMs: 0,
+      grounded: null,
+    };
+    if (valid) this.updateContact();
+  }
   /** Publish an entire merge/clear/promotion transition after collaborator work succeeds. */
   private lock(): void {
     const { board, cleared } = mergeAndClear(
@@ -169,6 +220,7 @@ export class GameSession {
       next,
       active: valid ? active : null,
       status: valid ? "running" : "game-over",
+      holdAvailable: valid,
       gravityElapsedMs: 0,
       grounded: null,
     };
@@ -190,8 +242,13 @@ export class GameSession {
         intervalMs: this.state.gravityIntervalMs,
       };
   }
-  /** Return an independently owned nested snapshot. */
+  /** Return a detached snapshot with source-free derived ghost placement. */
   snapshot(): GameSnapshot {
-    return structuredClone(this.state);
+    return structuredClone({
+      ...this.state,
+      ghost: this.state.active
+        ? landingPlacement(this.state.board, this.state.active)
+        : null,
+    });
   }
 }

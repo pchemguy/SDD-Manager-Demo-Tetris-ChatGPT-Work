@@ -25,7 +25,7 @@ test.each([-1, 60000.01])("out of range time %i rejected", (n) =>
 );
 test("unknown command rejects outside running without draws", () => {
   const g = new GameSession(sequenceFactory(["O"]));
-  expect(() => g.command("hold" as GameCommand)).toThrow(TypeError);
+  expect(() => g.command("teleport" as GameCommand)).toThrow(TypeError);
   expect(g.snapshot().status).toBe("idle");
 });
 test("pause/resume preserve timers and outside-running input is ignored after validation", () => {

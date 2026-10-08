@@ -1,15 +1,15 @@
 /** Compose real engine/adapters/views. The returned disposer releases the single loop and listeners. */
 import { GameSession } from "../engine/session";
-import { randomPieceSource } from "../engine/piece-source";
+import { sevenBagPieceSource } from "../engine/piece-source";
 import type { PieceSourceFactory } from "../engine/types";
 import { Controller } from "./controller";
 import { mappedCommand } from "./keyboard";
 import { boardRenderer, previewRenderer } from "../view/canvas";
 import { statusRenderer } from "../view/status";
-/** Optional source injection is a composition seam; production uses independent Math.random draws. */
+/** Optional source injection is a composition seam; production uses a fresh seven bag with injected Math.random. */
 export function mount(
   root: Document,
-  factory: PieceSourceFactory = () => randomPieceSource(Math.random),
+  factory: PieceSourceFactory = () => sevenBagPieceSource(Math.random),
 ): () => void {
   const canvas = root.querySelector<HTMLCanvasElement>("#board")!,
     start = root.querySelector<HTMLButtonElement>("#start")!,
@@ -17,12 +17,14 @@ export function mount(
     pause = root.querySelector<HTMLButtonElement>("#pause")!,
     label = root.querySelector<HTMLElement>("#status")!;
   let board: ReturnType<typeof boardRenderer>,
-    preview: ReturnType<typeof previewRenderer>;
+    preview: ReturnType<typeof previewRenderer>,
+    held: ReturnType<typeof previewRenderer>;
   try {
     board = boardRenderer(canvas);
     preview = previewRenderer(
       root.querySelector<HTMLCanvasElement>("#preview")!,
     );
+    held = previewRenderer(root.querySelector<HTMLCanvasElement>("#held-preview")!, "held");
   } catch (error) {
     label.textContent =
       "Unsupported display: " +
@@ -43,11 +45,13 @@ export function mount(
     (state) => {
       board(state);
       preview(state);
+      held(state);
       status(state);
     },
     (message) => {
       label.textContent =
         "Runtime error: " + message + " — Restart to recover.";
+      root.querySelector("#hold-availability")!.textContent = "Unavailable";
       start.disabled = pause.disabled = true;
     },
   );

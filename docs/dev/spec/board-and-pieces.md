@@ -22,23 +22,23 @@ Rows in the following table are slash-separated, top to bottom; `X` denotes an o
 | T | 3 | `.X./XXX/...` | (3, 0) |
 | Z | 3 | `XX./.XX/...` | (3, 0) |
 
-Rotation retains the origin and succeeds only if the resulting placement is valid. No translation, wall kick, floor kick, or spawn collision adjustment is attempted. Left/right and soft drop propose exactly one cell of displacement.
+Rotation selects the first valid ordered translated candidate under [F-02](modern-piece-controls.md); total rejection preserves the whole session. Spawn collision receives no kick adjustment. Left/right and soft drop propose exactly one cell of displacement.
 
 ## B-03: source and preview
 
-Production chooses each requested identifier independently with equal probability among the seven types. Repeated identical identifiers are permitted; there is no seven-bag or avoidance rule. Source calls occur only when starting/restarting a session or replenishing the preview after a lock. Rendering, failed commands, time with no spawn, and preview observation do not draw pieces.
+Production uses lazy validated seven bags under [F-01](modern-piece-controls.md). Start/restart draws active then one preview; each ordinary lock and empty hold promotes preview and draws one replacement, including blocked incoming spawn. Occupied hold performs no draw. Observation, placement and failed commands draw nothing.
 
-Start/restart draws the active identifier followed by the preview identifier. Each lock promotes the preview to the spawn candidate and draws one replacement preview, including when that candidate is blocked. Tests can inject a deterministic source; no statistical randomness test is required to prove individual gameplay rules. Restart uses a fresh source instance from the supplied source factory; a deterministic factory can return the same sequence each time.
+The source/factory boundary remains injectable and may provide arbitrary repeated identifiers. Restart constructs a fresh source; collaborator consumption is not rolled back on failure. Exact shuffle/validation/refill semantics and hold exchange belong to F-01/F-03.
 
 ## B-04: locking, clearing, and spawning
 
 At the lock deadline, merge the active piece's four cells into settled cells. Find all full rows and remove them simultaneously. Remaining rows preserve top-to-bottom order; prepend the same number of empty rows. Update score/lines/level, then spawn the preview in orientation 0 at its type's spawn origin and replenish preview.
 
-If that spawn placement is invalid, enter game over and expose no active piece; retain the resulting settled board, score, lines, level, and preview. Otherwise initialize the active piece's timing and immediately check groundedness. Spawn collision is the sole gameplay game-over criterion; a high stack that leaves the spawn placement valid continues.
+If that spawn placement is invalid, enter game over and expose no active piece; retain the resulting settled board, score, lines, level, and preview/held observations with unavailable hold and null ghost. Otherwise initialize the active piece's timing and immediately check groundedness. Spawn collision is the sole gameplay game-over criterion; a high stack that leaves the spawn placement valid continues.
 
 ## B-05: score and level
 
-Score and cleared-line count start at 0; level starts at 1. A successful soft-drop command adds 1 point per one-row descent. Ordinary gravity, blocked soft drop, movement, and rotation add no points.
+Score and cleared-line count start at 0; level starts at 1. A successful soft-drop command adds 1 point per one-row descent. Hard drop adds two points per positive descended row under F-04. Ordinary gravity, blocked/zero-distance drops, movement, rotation and hold add no points.
 
 | Rows cleared by one lock | Points multiplied by the level immediately before this clear |
 | --- | --- |

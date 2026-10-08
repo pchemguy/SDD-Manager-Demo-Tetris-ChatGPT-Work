@@ -1,6 +1,7 @@
 /** Translate physical events into actions/deadlines. This adapter owns no engine clock or board. */
 import type { GameCommand } from "../engine/types";
 export type InputAction = GameCommand | "toggle-pause" | "enter";
+/** Map a physical key code to a gameplay command; unknown codes return null. */
 export function mappedCommand(code: string): GameCommand | null {
   return (
     (
@@ -11,6 +12,10 @@ export function mappedCommand(code: string): GameCommand | null {
         ArrowUp: "rotate-clockwise",
         KeyX: "rotate-clockwise",
         KeyZ: "rotate-counterclockwise",
+        Space: "hard-drop",
+        KeyC: "hold",
+        ShiftLeft: "hold",
+        ShiftRight: "hold",
       } as Record<string, GameCommand>
     )[code] ?? null
   );
@@ -43,6 +48,7 @@ export class Keyboard {
     if (code === "KeyP" || code === "Escape") return ["toggle-pause"];
     if (code === "Enter") return ["enter"];
     const command = mappedCommand(code);
+    if (command === "hard-drop" || command === "hold") this.held.add(code);
     return command ? [command] : [];
   }
   /** Release a key; the surviving opposing horizontal key starts a fresh repeat episode. */

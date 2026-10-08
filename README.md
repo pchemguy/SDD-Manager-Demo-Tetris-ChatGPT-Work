@@ -1,8 +1,10 @@
 # Browser Tetris
 
-A classic single-player Tetris game in TypeScript and Canvas, developed as a practical SDD Manager demo in the standard ChatGPT Work cloud sandbox. The complete baseline is verified and integrated on `main`; [TASKS](docs/dev/TASKS.md) and the [implementation report](docs/dev/reports/IMPLEMENTATION-REPORT.md) record completion. Modern features are a later SDD expansion.
+A modern single-player Tetris game in TypeScript and Canvas, developed as a practical SDD Manager demo in the standard ChatGPT Work cloud sandbox. The complete baseline is verified and integrated on `main`; [TASKS](docs/dev/TASKS.md) and the [implementation report](docs/dev/reports/IMPLEMENTATION-REPORT.md) record completion. The modern expansion on this feature branch adds hold, ghost, seven bags, wall kicks and delayed hard drop; final review and integration remain pending.
 
 The demo context contained several other activated plugins and skills in addition to SDD Manager. The global context also contained information from prior uses of the Tetris model, including earlier Tetris-development conversations. These contextual inputs could influence development decisions and outputs; this demo does not isolate the contribution of SDD Manager.
+
+The [modern feature campaign](docs/dev/features/001_3fd5011-modern-piece-controls/README.md) records accepted contracts and delivery evidence. [TASKS](docs/dev/TASKS.md) owns baseline and expansion progress; [phase 2 reports](docs/dev/reports/phases/2) record verified milestones.
 
 ## Run locally
 
@@ -30,13 +32,15 @@ The build creates `dist/`: static HTML, JavaScript and CSS. Serve it with any st
 | ↓ | Soft drop; one point per successful row, 50 ms repeat |
 | ↑ / X | Rotate clockwise |
 | Z | Rotate counterclockwise |
+| Space | Hard drop; two points per descended row; delayed locking |
+| C / either Shift | Hold once until the next lock |
 | P / Escape | Pause / resume |
 | Enter | Start from Ready; restart after Game over |
 | Start / Pause or Resume / Restart | Corresponding button action |
 
-A piece gets **one full gravity interval from first contact** before locking. Grounded movement/rotation and blocked soft drop preserve that deadline. Losing support clears it; recontact starts a fresh interval. Pause preserves both timers. Blur, a hidden page, or a clock gap over 250 ms pauses before catch-up; resume explicitly.
+A piece gets **one full gravity interval from first contact** before locking. Grounded movement/rotation and blocked soft drop preserve that deadline. Losing support clears it; recontact starts a fresh interval. Positive hard drop resets fall timing and starts full contact; a zero-distance drop preserves the existing deadline. Pause preserves both timers. Blur, a hidden page, or a clock gap over 250 ms pauses before catch-up; resume explicitly.
 
-All seven pieces are independently selected, so repeats are valid. There are no wall kicks. Clearing 1/2/3/4 rows awards 100/300/500/800 × the level before clearing. Every ten cleared rows advances a level; gravity drops from 1000 ms by 100 ms per level to a 100 ms floor. Blocked spawning ends the game. Hold, ghost, seven bag, wall kicks and hard drop are reserved for the subsequent feature expansion.
+Each shuffled seven-piece bag contains all types exactly once; repeats can occur at bag boundaries. Rotation tries the project’s ordered kick candidates, with a distinct I table; O stays fixed. The outlined ghost shows the current landing. Hold stores a type and returns it at canonical spawn/orientation; empty hold promotes next, and occupied hold swaps without drawing. Available/Used describes once-per-lock eligibility, retained while paused; idle, game over and runtime errors show Unavailable. Clearing 1/2/3/4 rows awards 100/300/500/800 × the level before clearing. Every ten cleared rows advances a level; gravity drops from 1000 ms by 100 ms per level to a 100 ms floor. Blocked spawning ends the game. Restart clears hold and constructs a fresh bag.
 
 ## Check
 
@@ -62,7 +66,7 @@ npm run test:e2e:cloud
 
 This provisions test-only Chromium **153.0.8010.0** into an ignored owned cache, extracts without changing archive ownership, configures local fonts and runs the same Playwright suite with multiprocess browser launch. It requires Linux x64 and `tar`; the packaged assets are a development dependency, never part of the production app. `TETRIS_BROWSER_CACHE` can select a fresh task-owned cache. Both browser commands accept a selected test path after `--`.
 
-Verification to date: **82 unit/controller tests and 18 Chromium scenarios**, including actual production controls, two-row clear/scoring, preview promotion, game over/restart, pause, recovery through isolated collaborators, disposal, local-only requests and 800×600 / 1280×720 at DPR 1/2. Clean `npm ci` and fresh browser provisioning passed from a committed-input copy. Desktop Chrome/Edge are intended player browsers; other browsers and native desktop blur/visibility delivery have not been certified. The UI has semantic controls, focus, readable status and Canvas fallback text; full nonvisual play and accessibility certification are outside scope.
+Verification to date: **175 unit/controller tests and 23 Chromium scenarios**, including actual production controls, bag-compatible row clear/scoring, preview promotion, game over/restart, pause, recovery through isolated collaborators, disposal, local-only requests and 800×600 / 1280×720 at DPR 1/2. Clean `npm ci` and fresh browser provisioning passed from a committed-input copy. Desktop Chrome/Edge are intended player browsers; other browsers and native desktop blur/visibility delivery have not been certified. The UI has semantic controls, focus, readable status and Canvas fallback text; full nonvisual play and accessibility certification are outside scope.
 
 ## Development map
 
@@ -73,9 +77,12 @@ Verification to date: **82 unit/controller tests and 18 Chromium scenarios**, in
 | `new GameSession(factory)` | Idle; no draw or implicit clock/randomness |
 | `start()` / `restart()` | Start only idle / reset from any state with a fresh source |
 | `pause()` / `resume()` | Running ↔ paused; preserve timers |
-| `command(value)` | Attempt movement, rotation or soft drop; unknown values reject even outside play |
+| `command(value)` | Attempt movement, kicked rotation, soft/hard drop or hold; unknown values reject even outside play |
 | `advance(ms)` | Finite numeric 0–60000 ms; chronological events, remainder across spawns, lock first on a tie |
-| `snapshot()` | Detached board, piece, preview, counters, lifecycle and timing values |
+| `snapshot()` | Detached board, piece, one preview, held/eligibility, derived ghost, counters, lifecycle and timing values |
+| `sevenBagPieceSource(random)` | Lazy six-call descending shuffle; invalid randomness rejects without partial bag |
+| `landingPlacement(board, piece)` | Pure continuous descent for a valid placement; no merge/mutation |
+| `rotatedPlacement(board, piece, direction)` | First legal ordered kick or null; direction 1/-1; valid input piece |
 | `mount(document, factory?)` | Compose the app; returned function disposes its loop/listeners |
 
 Sources may throw or return invalid identifiers: a failing transition publishes no partial board/progression/piece/timer step. Earlier completed events remain committed; a consumed source sequence is not rolled back. Counter overflow rejects before the failing transition publishes. Browser errors stop input with a visible message and a restart route.
