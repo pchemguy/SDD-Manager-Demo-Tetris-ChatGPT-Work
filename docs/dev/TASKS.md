@@ -60,12 +60,14 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Completion: repeated coherent lock/clear/spawn cycles at the initial gravity interval without browser APIs or duplicate state ownership.
             Result: Observed eight missing-operation RED failures then 36/36 full engine tests passed and typecheck passed. Public-input fixtures cover movement and rotation support loss, between-tick contact, unchanged grounded deadlines, lock-first ties, remainder/subdivision equality, two-row clear, preview draws, grounded spawn and blocked-spawn termination. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/4.
 
-        - [ ] T-005 — Integrate the first playable browser path
+        - [x] T-005 — Integrate the first playable browser path
             Scope: `index.html`, `src/main.ts`, basic browser app/controller/keyboard, Canvas/status views and styling; initial `tests/e2e/gameplay.spec.ts`, controller checks and isolated fixtures as needed.
             Depends on: T-004.
             Contracts: 1.1's PLAN scope; U-01 movement/rotation/start/restart, U-03 board/state, U-05 initial tooling integration; A-01/A-02 partial browser path.
             Evidence: a real Chromium run starts/restarts, accepts basic keyboard movement/rotation, renders active/settled cells, and continues across locking/spawning; integrated deterministic evidence demonstrates a row clear and blocked spawn. Observe failing entry/integration checks before production wiring. Run current unit tests/typecheck/build and `npm run test:e2e -- tests/e2e/gameplay.spec.ts`. Record actual Chromium version and visually inspect the playable board.
             Completion: working intermediate browser game, with 1.1 deferrals accurately stated in README; no claim of complete baseline acceptance.
+            Result: Observed missing entry build and missing controller RED; 37 unit/controller tests, typecheck/build and three Playwright cases passed. Chromium 153.0.8010.0 packaged assets used with ownership-safe extraction and multiprocess contexts; official CDN supplied HTML and cloud browser could not reach local sandbox. Pixel evidence and screenshot inspect active/settled cells; isolated public-API fixture verifies clear and blocked spawn. Remaining progression/pause policies documented. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/5.
+
         - [ ] T-006 — Review, test and report milestone 1.1
             Depends on: T-001–T-005 complete and published.
             Scope: whole playable slice and its dependency/test boundaries, relevant README/guidance, PLAN 1.1 exits; no new milestone scope.
