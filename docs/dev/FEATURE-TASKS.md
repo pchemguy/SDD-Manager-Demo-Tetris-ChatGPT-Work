@@ -59,7 +59,7 @@ At T-034, accepted task incorporation may transfer the single executable owner t
             Completion: Reviewed 2.1 code and published [milestone report](reports/phases/2/2.1.md); no blockers/TODO.
             Result: Fresh full 106/106 tests, strict build and all 19/19 Chromium cases pass. Source/landing/drop/contact/input/render ownership inspected separately; screenshots readable at required viewport/DPR. Hold/kicks deferred explicitly; no whole-feature or main integration claim. Issue #25 verified; hosted review/milestone closure follows publication.
 
-    - [ ] Milestone 2.2 — Kicks and hold
+    - [x] Milestone 2.2 — Kicks and hold
         - [x] T-026 — Implement ordered rotation candidate placement
             Depends on: T-025 and 2.1 closure.
             Scope: src/engine/rotation.ts; tests/engine/rotation.test.ts; pieces/board/type collaborators and API comments.
@@ -96,13 +96,14 @@ At T-034, accepted task incorporation may transfer the single executable owner t
             Completion: All five capabilities operate through actual production paths; repeat clock ownership preserved.
             Result: Three keyboard and two UI RED failures observed before wiring. Full 169/169 tests/build and all 21/21 Chromium cases pass; strengthened both-Shift modern suite rerun 3/3. Held canonical pixels/type and Available/Used/Unavailable, hold/drop/rotation interplay, pause/restart and failed-hold recovery verified. Shared local next/held rendering adds no simulation owner. Required viewport/DPR layout passes; 800×600 and paused hold screenshots inspected with clear shapes/labels/ghost and visible footer. Issue #29 verified.
 
-        - [ ] T-030 — Review test and report milestone 2.2
+        - [x] T-030 — Review test and report milestone 2.2
             Depends on: T-026–T-029.
             Scope: Whole 2.2 integration and report docs/dev/reports/phases/2/2.2.md.
             Contracts: FEATURE-PLAN 2.2 exit.
             Evidence: Review tables/geometry/timers, hold draw/eligibility/terminal/failure publication, ghost/drop collaboration and usable held display; repair required issues; report capabilities, limitations and TODO disposition.
             Checks: Complete unit/controller tests, strict build and all relevant production-browser scenarios; inspect display.
-            Completion: Publish/read back report and task evidence before review issue and milestone closure.
+            Completion: Reviewed complete 2.2 code and [milestone report](reports/phases/2/2.2.md); no blockers/TODO.
+            Result: Fresh 169/169 unit/controller tests, strict build and all 21/21 Chromium cases pass. Tables/candidates/contact/hold/source/UI reviewed separately; inspected required compact layout and paused held/ghost display. Remaining complete acceptance/setup/incorporation belongs to 2.3. Issue #30 verified; publication precedes review and milestone closure.
 
     - [ ] Milestone 2.3 — Verified coherent expansion
         - [ ] T-031 — Complete cross-feature production acceptance and failure evidence
