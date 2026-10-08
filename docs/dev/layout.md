@@ -32,6 +32,7 @@ The session remains the sole mutable aggregate owner. Do not split timers into i
 | `tsconfig.json` | Strict type checking for project source/tests or explicit referenced configurations if tooling requires separation |
 | `vite.config.ts` | Static development/build configuration; shares compatible transformation settings with Vitest where useful |
 | `vitest.config.ts` | Deterministic engine/controller checks and exact test inclusion; does not collect Playwright suites |
+| `scripts/prepare-browser.mjs`, `scripts/run-browser-tests.mjs` | Actual Linux cloud test-browser provisioning/run boundary; uses pinned npm assets, ownership-safe extraction and ignored task cache. Added after official browser-download failure; has no production import. |
 | `playwright.config.ts` | Chromium browser suites, HTTP server lifecycle, viewport variants and artifact settings |
 | `dist/` | Generated production static output; ignored, reproducible from source and lockfile |
 | `node_modules/`, `coverage/`, `test-results/`, `playwright-report/` | Generated dependencies/check artifacts; ignored |
