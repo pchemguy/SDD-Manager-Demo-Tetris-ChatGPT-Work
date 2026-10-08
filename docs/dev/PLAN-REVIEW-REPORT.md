@@ -2,22 +2,21 @@
 
 ## Current gate
 
-State: **Ready for TASKS derivation**. The user accepted PLAN/layout and selected inline execution in this session on 2026-10-08. PLAN/SPEC conformance and physical-layout review pass; no confirmed QC defect remains. Task-range selection belongs to sdd-implement; preparation readiness is not implementation evidence.
+State: **Ready for complete-project task reconciliation**. Accepted baseline and modern feature decisions are incorporated; the complete current owners pass scoped conformance. Original reviews and findings remain below. This gate describes document readiness, not runtime acceptance.
 
-Scope: PLAN and layout. Inputs: accepted design and SPEC, with the SPEC Ready gate persisted and published at `336ebc6b68268d912a716b940b2e10c048c5075b`. Governing PROJECT receives only navigation/status maintenance during this preparation. Current exact reviewed content identities use SHA-256.
-
-| Document | Reviewed identity |
+| Document | Reviewed identity (SHA-256) |
 | --- | --- |
-| `docs/dev/PLAN.md` | `2b3b4290dea868e7cc02b8e8fd83160cccd6f6d456ac7662a90e0009fc5ef8c6` |
-| `docs/dev/layout.md` | `c21f2dfaf35417d6b2242f3a347e3d29d48579af43e90f9e6ac91b1cf019c6c4` |
-| `docs/dev/PROJECT.md` | `585820be5f322e346cff69789b2178a03c03c62367db4c2756a6198a7d86cb0e` |
-| `docs/dev/ARCHITECTURE.md` | `41849d0f494c99501847d21378cdb1378a6adc31b91775e4ae3cda002fb1c5f7` |
-| `docs/dev/DECOMPOSITION.md` | `0053d29f5628c1283f36e1d3f8158f6eacc3be1b25485c7bca9976dbfed30c74` |
-| `docs/dev/SPEC.md` | `1957efa19387693a72e5bc2578bc12eae41684ea2322205996f76c04b4e9cea4` |
-| `docs/dev/spec/board-and-pieces.md` | `318c7577899a2365c468c13f3ab8b8057643490a67716e01dc1a9327ce9752d7` |
-| `docs/dev/spec/browser-interaction.md` | `24d21f81dbb24b33d2d198793cce6194ec0d2b2fd190ec47e5ad9a3648096bcc` |
-| `docs/dev/spec/session-and-timing.md` | `e97bf04b409f2cb155f8c59e797fd90c775121aa21a0a77f623400f079d211dd` |
-| `docs/dev/SPEC-REVIEW-REPORT.md` | `86ce422522e85ec1bb432bc035eee6010789312bcfcb8a8f1a56e6d52a44f37d` |
+| `docs/dev/PLAN.md` | `3fb6af27f1431cbf261bc7905c18484df46f06c67b19032a868a6d7892d6088f` |
+| `docs/dev/layout.md` | `e06bfd0fbd63614c2201decbad8d94cdfe8d87978cd9892b256c8e3e3f4ba616` |
+| `docs/dev/SPEC.md` | `464308a577e91bec87f8071abde85915e4a28b3f8bdf2ae9c0d5b844e68a81d4` |
+| `docs/dev/spec/board-and-pieces.md` | `9bb85e488f2bab86be88ff8d1eedc285f749a30f5589df65075d7a0d83d74833` |
+| `docs/dev/spec/session-and-timing.md` | `9f98d13667add448adbfd37ade6a7eca888ec20e5085412f54032ad6fe2f901d` |
+| `docs/dev/spec/browser-interaction.md` | `f114ddb641f829cb30f009cc515938973d098497d622d9096a9d09b7dfb901da` |
+| `docs/dev/spec/modern-piece-controls.md` | `7444dd212359d75b2b2a86684ebfd6c4519bd76708e807cb61639f45197c5763` |
+| `docs/dev/PROJECT.md` | `aa795c0fd4ecc704f42f6c037a3556e94b612ae22b0e85cf1ebbb0fe579833db` |
+| `docs/dev/ARCHITECTURE.md` | `0a7ac908dfb0613fdcde87ea7b22aca7313149685c7ee4a0f7b8abe2feb824df` |
+| `docs/dev/DECOMPOSITION.md` | `b44d9af82c860792a739204c698c09c861118e9bdd63d19745cf972df3d3968d` |
+| `docs/dev/SPEC-REVIEW-REPORT.md` | `d398ee1447c24301a088841abbfe345b0e2066b6e589fe38f1f4594b4d8e6e20` |
 
 ## Initial review
 
@@ -59,3 +58,9 @@ The user accepted PLAN and layout at checkpoint `0939da3` and selected inline ex
 ## Revision 2
 
 TASKS preparation maintains PROJECT's preparation context/navigation and appends SPEC evidence-currency records. PLAN/layout, accepted behavior, design boundaries, milestone strategy, and physical ownership remain byte-identical to the accepted preparation at `f28cba9daadb363f913d7b307bb003b03234ea2e`. Current reviewed-input hashes reflect documentation status maintenance. The PLAN conformance gate remains Ready; no changed delivery decision requires re-approval.
+
+## Revision 3
+
+2026-10-08: T-033 accepted-source incorporation, inline assessment. Every significant B/T/U/F and A/FA group has a route in the complete PLAN coverage table. Phase 1 retains four delivery milestones plus one excluded phase review; phase 2 has three delivery milestones plus one excluded phase review. Earliest modern playable increment is bag/ghost/delayed drop, then kicks/hold, then complete acceptance/incorporation. Counts and actual collaboration remain bounded. Layout maps all pure helpers, aggregate/browser/view paths and tests; test fixtures and caches remain outside production. Unfinished document/task ownership and phase review are explicitly preserved. Incorporated phase-2 strategy is the accepted FEATURE-PLAN, without a new milestone or execution boundary.
+
+Checks: read complete changed roots/children against accepted feature sources; grouped requirement/acceptance coverage, ownership/dependency/error/timing semantics, local links and whitespace. Current exact identities are above. No unresolved conformance finding remains. Active FEATURE-TASKS still owns T-021–T-036; transfer and TASKS reassessment remain T-034.

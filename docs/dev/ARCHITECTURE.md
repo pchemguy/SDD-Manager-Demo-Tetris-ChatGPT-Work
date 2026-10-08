@@ -1,39 +1,31 @@
 # Architecture
 
-## Arrangement
+## Arrangement and dependencies
 
-The [project brief](PROJECT.md) establishes a browser TypeScript MVP. A synchronous game engine owns gameplay; a browser application supplies commands and elapsed time, then renders an engine snapshot. No backend is required.
+The [project brief](PROJECT.md) establishes a browser TypeScript game. A synchronous engine owns gameplay; browser adapters supply commands/time and request rendering. No backend or UI framework is required.
 
 | Block | Responsibility | Dependencies |
 | --- | --- | --- |
-| Game engine | Board, active/next piece, movement and rotation validity, gravity, lock delay, clearing, score, level, and session transitions | Game rules and injected piece source; no browser APIs |
-| Browser controller | Convert keyboard and session actions into commands; supply elapsed time; coordinate updates and display | Engine API, browser events, monotonic clock, animation scheduling |
-| Presentation | Canvas board/pieces and DOM status, controls, and next preview | Read-only snapshots and controller callbacks |
+| Engine | Board, active/next/held state and eligibility, bag source, rotation/landing, gravity/contact, clear/progression and lifecycle | Engine values/rules and injected piece source; no browser APIs |
+| Browser controller | Physical keys, controlled repeats, one monotonic clock, lifecycle/focus/error handling and source composition | Engine API, browser events/scheduling and presentation |
+| Presentation | Settled/ghost/active Canvas drawing, next/held previews and semantic status/controls | Detached snapshots and immutable shapes/colors |
 
-Dependency direction is browser controller toward engine and presentation. Presentation does not mutate engine state. The engine does not know about Canvas, DOM, timers, keyboard codes, storage, network, or animation frames. TypeScript value contracts describe commands and snapshots without a framework abstraction.
+Dependencies point from browser/view consumers toward engine values and operations. The engine imports no DOM, Canvas, keyboard, timer, storage, network or animation APIs. Views issue no simulation decisions and mutate no snapshot to control play.
 
-## State and time ownership
+## State, placement and time
 
-The engine is the sole owner of mutable game state. Rendering receives a snapshot that cannot serve as a mutation path. Session state distinguishes idle, running, paused, and game over; exact transition contracts belong in SPEC.
+GameSession is the sole mutable gameplay aggregate. Hold belongs here because exchange coordinates active/preview/held state, source consumption, eligibility and canonical spawning. Store held type only. Preview remains exactly one type. Ghost is derived from active/board using the same pure continuous landing calculation as hard drop; it has no independent state or timer.
 
-The browser controller measures elapsed time and passes it to the engine. The engine owns gravity and grounded-duration accumulation. Lock delay is independent of the gravity tick phase and soft-drop rate. First contact starts a full current gravity interval; grounded movement/rotation preserves elapsed delay, and becoming airborne clears it. Pause supplies no gameplay time.
+Pure rotation helpers enumerate project-owned ordered offsets and choose the first valid candidate. The session publishes successful placement and reevaluates contact; failed candidates publish nothing. Geometry and board validation remain separate immutable/pure collaborators.
 
-Engine updates must account for intervening gameplay events consistently rather than advance one cell per animation frame. SPEC will settle event ordering, large elapsed-time handling, and the treatment of background/focus changes. A test can replace clock progression with explicit elapsed-time inputs.
+The controller supplies elapsed time; the engine accumulates fall and captured contact intervals. First contact begins full G independently of gravity phase. Grounded changes preserve deadlines, support loss clears contact and recontact starts fresh. Hard drop lands without forcing a lock; zero descent preserves state. Hold initializes fresh incoming timing while consuming episode eligibility. Pause supplies no gameplay time. SPEC owns exact chronology, numerical boundaries and failure atomicity.
 
 ## Randomness and verification
 
-The engine receives a piece source through a narrow interface. Production selection chooses each tetromino independently; tests supply known sequences. Engine behavior is deterministic for a given initial state, piece sequence, command sequence, and elapsed-time sequence.
+Each source instance owns a lazy seven-bag cursor and injected randomness. Restart constructs a fresh source. The session validates identifiers but permits arbitrary injected repeated sequences. Observation/placement never draws. Source failure preserves published gameplay state without undoing collaborator consumption.
 
-Engine checks cover rules and state transitions without a browser. Browser checks cover controls, animation integration, pause/focus handling, display updates, and session flows. Verification design must include lock timing from actual contact, especially when contact occurs between ordinary gravity ticks.
+Deterministic engine/controller checks cover pure placement, bag failures, draw counts, exchanges, counters, contact/order and snapshots. Production Chromium checks cover physical controls/focus, rendering and lifecycle; isolated fixtures remain outside production. [DECOMPOSITION](DECOMPOSITION.md) owns logical seams; SPEC owns behavior, PLAN delivery and layout physical paths.
 
 ## Choices and tradeoffs
 
-Canvas provides direct control of the board and piece drawing. DOM elements keep status and buttons accessible and easy to test. A framework would add infrastructure without a demonstrated UI need; an all-DOM board is feasible but places cell rendering into element management. The selected Canvas/DOM split keeps drawing separate from game decisions.
-
-A pure engine adds a clear boundary that supports deterministic verification and the planned feature expansion. It does not require an event bus, dependency-injection framework, generalized plugin system, or speculative configurable rule engine. A static client avoids server operation and account dependencies.
-
-## Expansion boundaries
-
-Seven-bag behavior changes the piece source. Hold changes engine commands/state and its UI. Ghost display consumes engine-derived placement information. Wall kicks change rotation validation. Hard drop adds an engine command and input mapping. Their exact contracts will be specified in a feature campaign; baseline modules do not contain inactive implementations.
-
-Logical component detail is owned by [DECOMPOSITION](DECOMPOSITION.md). Behavioral formulas and acceptance belong to SPEC; physical allocation and delivery order belong to layout and PLAN.
+Canvas controls cell rendering; DOM provides semantic controls and labels. Focused pure placement helpers and localized aggregate transitions support all five features without a second engine, configurable rule framework, generic event bus or service layer. Static delivery avoids server/account dependencies. Exact kick data describes project behavior without external Guideline certification.

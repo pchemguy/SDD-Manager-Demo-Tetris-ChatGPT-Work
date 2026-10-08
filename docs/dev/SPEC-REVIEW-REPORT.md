@@ -2,19 +2,18 @@
 
 ## Current gate
 
-State: **Ready for dependent PLAN authoring**. Scoped technical conformance review passes and the user accepted the written specification at checkpoint `6b2605766d9cb88053be8a56d3bac09488da07d5`. No confirmed document-quality defect or unresolved behavioral decision remains. This is preparation readiness, not an implementation test pass.
+State: **Ready for complete-project planning and acceptance**. Accepted baseline and modern feature decisions are incorporated; the complete current owners pass scoped conformance. Original reviews and findings remain below. This gate describes document readiness, not runtime acceptance.
 
-Reviewed scope: SPEC and its three children. Governing design was accepted by the user at preparation checkpoint `00547db0817e947eee492a8a59756e0d6359250e`. PROJECT's preparation context reflects that acceptance and confirmed GitHub tracking. The exact current content identities follow (SHA-256).
-
-| Document | Reviewed identity |
+| Document | Reviewed identity (SHA-256) |
 | --- | --- |
-| `docs/dev/SPEC.md` | `1957efa19387693a72e5bc2578bc12eae41684ea2322205996f76c04b4e9cea4` |
-| `docs/dev/spec/board-and-pieces.md` | `318c7577899a2365c468c13f3ab8b8057643490a67716e01dc1a9327ce9752d7` |
-| `docs/dev/spec/browser-interaction.md` | `24d21f81dbb24b33d2d198793cce6194ec0d2b2fd190ec47e5ad9a3648096bcc` |
-| `docs/dev/spec/session-and-timing.md` | `e97bf04b409f2cb155f8c59e797fd90c775121aa21a0a77f623400f079d211dd` |
-| `docs/dev/PROJECT.md` | `585820be5f322e346cff69789b2178a03c03c62367db4c2756a6198a7d86cb0e` |
-| `docs/dev/ARCHITECTURE.md` | `41849d0f494c99501847d21378cdb1378a6adc31b91775e4ae3cda002fb1c5f7` |
-| `docs/dev/DECOMPOSITION.md` | `0053d29f5628c1283f36e1d3f8158f6eacc3be1b25485c7bca9976dbfed30c74` |
+| `docs/dev/SPEC.md` | `464308a577e91bec87f8071abde85915e4a28b3f8bdf2ae9c0d5b844e68a81d4` |
+| `docs/dev/spec/board-and-pieces.md` | `9bb85e488f2bab86be88ff8d1eedc285f749a30f5589df65075d7a0d83d74833` |
+| `docs/dev/spec/session-and-timing.md` | `9f98d13667add448adbfd37ade6a7eca888ec20e5085412f54032ad6fe2f901d` |
+| `docs/dev/spec/browser-interaction.md` | `f114ddb641f829cb30f009cc515938973d098497d622d9096a9d09b7dfb901da` |
+| `docs/dev/spec/modern-piece-controls.md` | `7444dd212359d75b2b2a86684ebfd6c4519bd76708e807cb61639f45197c5763` |
+| `docs/dev/PROJECT.md` | `aa795c0fd4ecc704f42f6c037a3556e94b612ae22b0e85cf1ebbb0fe579833db` |
+| `docs/dev/ARCHITECTURE.md` | `0a7ac908dfb0613fdcde87ea7b22aca7313149685c7ee4a0f7b8abe2feb824df` |
+| `docs/dev/DECOMPOSITION.md` | `b44d9af82c860792a739204c698c09c861118e9bdd63d19745cf972df3d3968d` |
 
 ## Initial review
 
@@ -55,3 +54,9 @@ PLAN preparation updates PROJECT's document-navigation/status paragraph only. Co
 ## Revision 4
 
 TASKS preparation updates PROJECT's preparation context and navigation to record accepted PLAN/layout, inline method selection, and the executable hierarchy. No project scope or gameplay contract changes. SPEC and all children, ARCHITECTURE, and DECOMPOSITION remain byte-identical to their accepted state. Refresh the PROJECT identity in the current table and retain the conformance gate as Ready. No implementation acceptance is claimed.
+
+## Revision 5
+
+2026-10-08: T-033 accepted-source incorporation, inline assessment. B-01–B-06, T-01–T-06 and U-01–U-05 retain all unaffected baseline obligations; F-01–F-07 and FA-01–FA-08 specify the accepted bags, kicks, hold, ghost/drop, atomicity and display directly. Compared both literal kick tables and every feature clause with accepted FEATURE-SPEC; the canonical F-01 onward is identical. Source/placement/session/browser/presentation responsibilities match design. Grounded full-G timing, no reset on zero descent, fresh held contact, exact deadline order and source-failure publication remain coherent. No new behavioral decision or compatibility claim is introduced. Historical scope exclusions apply to baseline preparation only.
+
+Checks: read complete changed roots/children against accepted feature sources; grouped requirement/acceptance coverage, ownership/dependency/error/timing semantics, local links and whitespace. Current exact identities are above. No unresolved conformance finding remains. Active FEATURE-TASKS still owns T-021–T-036; transfer and TASKS reassessment remain T-034.

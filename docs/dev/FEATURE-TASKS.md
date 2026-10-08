@@ -124,13 +124,14 @@ At T-034, accepted task incorporation may transfer the single executable owner t
             Completion: Reproducible static distribution and accurate user/agent/API guidance; no dependency upgrade or site deployment.
             Result: Fresh git-archive copy of committed 002e5d5: npm ci installed 62 locked packages; fresh owned browser prepare reports Chromium 153.0.8010.0; 175/175 tests, strict build and 23/23 browser cases pass. Dev/preview HTTP commands exercised by suite. README covers all keys, bags/kicks/ghost/hold, awards and delayed drop; API/TSDoc audit preserves valid-piece preconditions and error ownership. Current documentation-only diff typecheck/build passes with identical production bundles. README/AGENTS links and tracked credential exclusion pass; inspected production contains no fixture import, secret or remote asset. Other-plugin/prior-Tetris disclosure retained. Issue #32 verified.
 
-        - [ ] T-033 — Incorporate accepted design contracts strategy and layout
+        - [x] T-033 — Incorporate accepted design contracts strategy and layout
             Depends on: T-032.
             Scope: PROJECT, ARCHITECTURE, DECOMPOSITION, SPEC/children, PLAN/layout and affected adjacent SPEC/PLAN QC reports through sdd-integrate-feature.
             Contracts: Accepted feature source targets; FA-08.
             Evidence: Complete main documents describe intended game directly; preserve baseline scope/evidence and phase-2 boundaries; eliminate contradictory current contracts/stale preparation claims; reassess changed SPEC/design and PLAN/SPEC coverage. Keep active task ownership intact.
             Checks: Document/link/whitespace checks; affected QC reviews; npm run test and npm run build if substantive source/doc changes warrant.
             Completion: Accepted non-task sources incorporated with current main QC; no premature archive or completion claim.
+            Result: Complete PROJECT/design/SPEC/children/PLAN/layout incorporated from accepted sources; F-01 onward retained verbatim including both kick tables. Current SHA-256 main SPEC/design and PLAN/layout conformance rechecks Ready; historical QC cycles retained. Requirement routes, full-G timing, unique active ownership and local links/whitespace pass. No source change or runtime claim; T-034 retains task transfer. Issue #33 verified.
 
         - [ ] T-034 — Reconcile task ownership archive eligible sources and recheck hierarchy
             Depends on: T-033.
