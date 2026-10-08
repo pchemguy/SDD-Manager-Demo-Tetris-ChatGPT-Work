@@ -13,7 +13,7 @@ At T-034, accepted task incorporation may transfer the single executable owner t
 ## Phase 2 — Modern piece controls
 
 - [ ] Phase 2 — Modern piece controls
-    - [ ] Milestone 2.1 — Bag, ghost and delayed drop
+    - [x] Milestone 2.1 — Bag, ghost and delayed drop
         - [x] T-021 — Implement lazy validated seven-bag piece sources
             Depends on: Baseline complete; accepted preparation and eligible activation.
             Scope: src/engine/piece-source.ts; tests/engine/piece-source.test.ts and deterministic fixtures; source API documentation.
@@ -50,13 +50,14 @@ At T-034, accepted task incorporation may transfer the single executable owner t
             Completion: Playable bag/ghost/drop path; hold/kicks deferred to 2.2.
             Result: Keyboard RED and production non-bag preview RED observed before wiring. Full 106/106 tests/build passed; modern/display/gameplay Chromium 153.0.8010.0 suite 12/12 passed. Actual pixel outline/drop, 400-ms partial gravity/full delay, native repeat/focus exclusion and repeat preservation verified. Four obsolete independent-source cases updated to literal identity-bag geometry: I/J/L bottom tiling gives one line/154 points; center stack gives 101 points and preview T. Ghost/active/settled readability inspected in screenshot; 800/1280 DPR 1/2 bounds pass. npm proxy/color environment warnings only. Issue #24 verified.
 
-        - [ ] T-025 — Review test and report milestone 2.1
+        - [x] T-025 — Review test and report milestone 2.1
             Depends on: T-021–T-024.
             Scope: Whole 2.1 code, tests, public docs and report docs/dev/reports/phases/2/2.1.md.
             Contracts: FEATURE-PLAN 2.1 exit.
             Evidence: Review ownership, source consumption, landing/scoring/contact and production input; repair required defects; demonstrate usable changed path; report concise capabilities, limitations, explicit deferrals and TODO None or eligible findings.
             Checks: Complete current unit/controller tests, strict build and relevant real Chromium checks; inspect ghost readability.
-            Completion: Report committed/pushed/read back before review issue then milestone closure.
+            Completion: Reviewed 2.1 code and published [milestone report](reports/phases/2/2.1.md); no blockers/TODO.
+            Result: Fresh full 106/106 tests, strict build and all 19/19 Chromium cases pass. Source/landing/drop/contact/input/render ownership inspected separately; screenshots readable at required viewport/DPR. Hold/kicks deferred explicitly; no whole-feature or main integration claim. Issue #25 verified; hosted review/milestone closure follows publication.
 
     - [ ] Milestone 2.2 — Kicks and hold
         - [ ] T-026 — Implement ordered rotation candidate placement
