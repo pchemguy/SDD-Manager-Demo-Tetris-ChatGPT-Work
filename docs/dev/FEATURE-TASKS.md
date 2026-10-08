@@ -4,7 +4,7 @@
 
 [Campaign](features/001_3fd5011-modern-piece-controls/README.md): `001_3fd5011`, working branch `feature/001_3fd5011-modern-piece-controls`, baseline `3fd501155708a92ddf63415f02180bdde9167836`, target `main`. Accepted feature design, [SPEC](FEATURE-SPEC.md), [PLAN](FEATURE-PLAN.md) and [layout](FEATURE-LAYOUT.md) govern this list. Main [TASKS](TASKS.md) retains completed baseline T-001–T-020; feature IDs are new and never duplicate those items.
 
-The user selected inline execution. PLAN/layout is accepted; executable range selection is still pending. No feature task is complete and no implementation is claimed. This list alone does not start execution or create hosted objects. [Preparation review](FEATURE-TASKS-REVIEW-REPORT.md) supplies conformance readiness. Each delivery task includes meaningful tests and professional API/module documentation, not separate padding tasks. Read exact owning SPEC contracts rather than infer rules from this list.
+The user selected inline execution. PLAN/layout is accepted; the user selected the full expansion T-021–T-036 on 2026-10-08. Execution is active; completed task evidence is recorded below. Phase 2 hosting is activated with verified task issues #21–#36. [Preparation review](FEATURE-TASKS-REVIEW-REPORT.md) supplies conformance readiness. Each delivery task includes meaningful tests and professional API/module documentation, not separate padding tasks. Read exact owning SPEC contracts rather than infer rules from this list.
 
 Verify current worktree/refs and preparation publication before selection. Activate only eligible phase 2 and reconcile confirmed repository GitHub tracking before its first task. The baseline is complete on main. Preserve existing authentication and scoped publication authorization; use protected credential transfer if the observed shell failure recurs. Commit/push/readback completed outcomes before managed issue closure; review closure precedes milestone closure.
 
@@ -14,13 +14,14 @@ At T-034, accepted task incorporation may transfer the single executable owner t
 
 - [ ] Phase 2 — Modern piece controls
     - [ ] Milestone 2.1 — Bag, ghost and delayed drop
-        - [ ] T-021 — Implement lazy validated seven-bag piece sources
+        - [x] T-021 — Implement lazy validated seven-bag piece sources
             Depends on: Baseline complete; accepted preparation and eligible activation.
             Scope: src/engine/piece-source.ts; tests/engine/piece-source.test.ts and deterministic fixtures; source API documentation.
             Contracts: F-01 / FA-01.
             Evidence: Known shuffle permutation, six random calls per lazy bag, aligned seven-type groups, boundary repeat, invalid random/source exceptions without partial bag, fresh instance; injected repeated sources remain valid. Observe contract-test RED before source implementation.
             Checks: npm run test -- tests/engine/piece-source.test.ts; npm run typecheck; full npm run test.
             Completion: Validated sevenBagPieceSource; no composition or unrelated random-source change.
+            Result: RED observed 11 missing-source failures; focused 12/12 and full 93/93 tests passed; typecheck passed. Lazy six-call bags, literal permutations/boundary repeat, fresh instance and invalid/throwing refill atomicity verified. npm reports an environment http-proxy deprecation warning; no test failures/skips. GitHub issue #21 association verified.
 
         - [ ] T-022 — Establish shared pure landing placement
             Depends on: T-021.
@@ -147,4 +148,4 @@ At T-034, accepted task incorporation may transfer the single executable owner t
 
 ## Selection handoff
 
-Sixteen tasks comprise twelve delivery tasks and four dedicated review tasks. Milestone 2.1 stops at T-025; 2.2 at T-030; 2.3 at T-035; the full expansion ends at T-036. Select an explicit range through sdd-implement; preparation and inline method selection do not silently select it. No product code, hosted object or implementation completion belongs to this preparation checkpoint.
+Sixteen tasks comprise twelve delivery tasks and four dedicated review tasks. Milestone 2.1 stops at T-025; 2.2 at T-030; 2.3 at T-035; the full expansion ends at T-036. Select an explicit range through sdd-implement; preparation and inline method selection do not silently select it. The owning task results record product implementation and verified hosted associations.
