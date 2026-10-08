@@ -26,6 +26,6 @@ Maintain these links and command guidance when owning artifacts appear. Keep exe
 
 ## Environment and checks
 
-Preparation uses the standard ChatGPT Work Linux cloud sandbox. Node.js 24.19.0, npm 11.9.0, and Python 3.12.14 were observed. Pinned dependencies are installed. `npm run test` and `npm run typecheck` were validated for the initial piece module. Build/dev/preview/browser-suite commands are declared but await a runnable application. Chromium provisioning was interrupted by cancelled network approval; no browser acceptance is claimed. Do not modify or execute files under `/pyenv`.
+Preparation uses the standard ChatGPT Work Linux cloud sandbox. Node.js 24.19.0, npm 11.9.0, and Python 3.12.14 were observed. Pinned dependencies are installed. `npm run test` and `npm run typecheck` were validated for the initial piece module. Build and explicit-loopback dev/preview commands are usable. Milestone 1.1 Chromium acceptance passed using task-owned @sparticuz/chromium 153.0.0 assets (browser 153.0.8010.0), multiprocess launch and /etc/fonts. The official Playwright download supplied HTML; use the recorded supported packaged route when standard provisioning is unavailable. Full baseline acceptance remains pending. Do not modify or execute files under `/pyenv`.
 
 For documentation changes, inspect relative links, consistency with accepted decisions, and `git diff --check`. Establish package commands during implementation preparation and update this guidance from actual evidence.

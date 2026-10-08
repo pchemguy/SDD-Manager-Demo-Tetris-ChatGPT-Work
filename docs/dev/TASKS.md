@@ -27,7 +27,7 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
 ## Phase 1 — Baseline Tetris
 
 - [ ] Phase 1 — Baseline Tetris
-    - [ ] Milestone 1.1 — Playable browser slice
+    - [x] Milestone 1.1 — Playable browser slice
         - [x] T-001 — Define typed pieces and executable test toolchain
             Scope: package manifest/lockfile, TypeScript/Vite/Vitest/Playwright configuration, engine types/pieces, `tests/engine/pieces.test.ts`; compatible stable tooling versions and ignored generated output. No UI framework or product scaffold from another application.
             Depends on: accepted preparation, eligible phase projection, and established phase branch.
@@ -68,11 +68,13 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Completion: working intermediate browser game, with 1.1 deferrals accurately stated in README; no claim of complete baseline acceptance.
             Result: Observed missing entry build and missing controller RED; 37 unit/controller tests, typecheck/build and three Playwright cases passed. Chromium 153.0.8010.0 packaged assets used with ownership-safe extraction and multiprocess contexts; official CDN supplied HTML and cloud browser could not reach local sandbox. Pixel evidence and screenshot inspect active/settled cells; isolated public-API fixture verifies clear and blocked spawn. Remaining progression/pause policies documented. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/5.
 
-        - [ ] T-006 — Review, test and report milestone 1.1
+        - [x] T-006 — Review, test and report milestone 1.1
             Depends on: T-001–T-005 complete and published.
             Scope: whole playable slice and its dependency/test boundaries, relevant README/guidance, PLAN 1.1 exits; no new milestone scope.
             Evidence: code review plus current engine/controller/browser smoke, typecheck/build, contact/clear/spawn regression and useful-play demonstration; repair bugs/critical issues/contract violations before completion. Record explicit remaining 1.2/1.3 deferrals and player-feedback decision evidence without changing scope.
             Report: `docs/dev/reports/phases/1/1.1.md`, with checks/results/limitations and TODO None or eligible findings. Publish/close all constituent issues including this review, then close/read back milestone 1.1.
+            Result: Code review found no blocker within slice; 37 unit tests, strict typecheck/build and three Chromium cases passed. Visual text/Canvas inspection passed after correcting task browser fonts. Report records environment limits, evidence and explicit 1.2/1.3 deferrals; TODO None. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/6.
+
     - [ ] Milestone 1.2 — Complete gameplay progression
         - [ ] T-007 — Define score, level and gravity progression rules
             Scope: `src/engine/progression.ts`, `tests/engine/progression.test.ts`, relevant public types/documentation.
