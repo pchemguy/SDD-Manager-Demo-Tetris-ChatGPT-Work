@@ -44,12 +44,14 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Completion: board helpers preserve input/aggregate ownership and return coherent placement/merge/clear results without clock or browser access.
             Result: Observed seven board failures against skeleton. Corrected a test fixture that accidentally seeded a collision in the legal-margin case. Full Vitest suite passed 23/23 and typecheck passed; covers occupied bounds, overlap, independent rows, pure merge, one-to-four clears and stable row order. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/2.
 
-        - [ ] T-003 — Establish piece sources and session lifecycle snapshots
+        - [x] T-003 — Establish piece sources and session lifecycle snapshots
             Scope: `src/engine/piece-source.ts`, lifecycle/state portions of `src/engine/session.ts`, related engine types, `tests/engine/piece-source.test.ts`, `tests/engine/session.test.ts`, controlled-source fixture.
             Depends on: T-001, T-002.
             Contracts: B-03, T-01/T-02 idle/start/restart, snapshot isolation; A-05/A-06 initialization.
             Evidence: idle makes no draw; start draws active then preview; repeated identifiers are valid; start outside idle is a no-op; restart resets state using fresh factory; snapshot mutation cannot affect session. Run focused source/session tests, current engine regression and typecheck with observed RED/GREEN.
             Completion: deterministic injectable session initialization, public value contracts, and detached snapshots support later rule/timing integration.
+            Result: Source and lifecycle assertions failed against skeleton; separately observed snapshot mutation leaking into engine, then fixed ownership. Full Vitest suite passed 27/27 and typecheck passed. Controlled selection allows repeats, idle draws nothing, start draws two, restart creates fresh source, snapshots are detached. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/3.
+
         - [ ] T-004 — Implement movement and event-driven locking cycles
             Scope: gameplay/timing portions of `src/engine/session.ts`, `tests/engine/session.test.ts`, `tests/engine/timing.test.ts`; real board/source collaborators.
             Depends on: T-002, T-003.
