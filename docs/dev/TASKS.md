@@ -132,12 +132,14 @@ Engine public design seams are `GameSession` with start/restart/pause/resume/com
             Completion: complete clock/input/error collaboration respects engine ownership and remains correct across lifecycle changes.
             Result: Seven new controller failures preceded implementation; 80/80 unit tests, typecheck/build and nine Chromium cases passed. Real production controls, pause and gap paths plus isolated source/Canvas failure and dispose verified. Browser clock fixtures now pause wall-time progression; exact repeat test flushes via physical keyup and recovery waits for the next due frame, correcting fixture assumptions without changing contracts. Native desktop blur/hidden delivery not certified; handler/controller semantics covered. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/13.
 
-        - [ ] T-014 — Finish readable display and accessible controls
+        - [x] T-014 — Finish readable display and accessible controls
             Scope: Canvas/status views, page shell/styles, display/controls browser checks and meaningful rendering-operation checks.
             Depends on: T-013.
             Contracts: U-03/U-04; A-07.
             Evidence: all labeled counters/preview/status, semantic labeled buttons with correct disabled state and focus, Canvas accessible/fallback text, polite lifecycle/error announcements, visible instructions and type/color consistency. Chromium checks/visual inspection at 800 × 600 and 1280 × 720, DPR 1/2; no overlap/horizontal scroll and preserved board ratio. Run relevant regressions/typecheck/build/browser display tests with RED/GREEN for behavioral display changes.
             Completion: readable complete player interface; no unsupported full nonvisual-accessibility claim.
+            Result: Four viewport/DPR checks failed before layout/buffer corrections; 80 unit tests, strict build and five display cases passed. Inspected 800x600 and 1280x720 screenshots, including DPR2: square sharp board, visible counters/preview/controls, focus and readable glyphs. Semantic controls/disabled states, accessible Canvas text and polite status verified; no certification claim. Hosted issue: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work/issues/14.
+
         - [ ] T-015 — Review, test and report milestone 1.3
             Depends on: T-011–T-014 complete and published.
             Scope: whole baseline engine/browser contract collaboration, input/lifecycle/failure/display paths and prior milestone regressions.
