@@ -21,18 +21,18 @@ A grounded piece receives one full gravity interval before locking, measured fro
 
 Hold, ghost piece, seven-bag randomization, wall kicks, and hard drop belong to a subsequent SDD feature expansion. The baseline architecture supports localized extension, but the MVP does not implement those capabilities in anticipation.
 
-The baseline excludes multiplayer, accounts, a server, online leaderboards, persistent scores, touch controls, audio, and licensed branding or assets. These exclusions are design proposals for a focused desktop MVP, subject to design review.
+The baseline excludes multiplayer, accounts, a server, online leaderboards, persistent scores, touch controls, audio, and licensed branding or assets. The user accepted these design boundaries.
 
 ## Success and preparation decisions
 
 Success means a playable baseline with reproducible engine checks, a usable browser interface, and repository evidence connecting accepted requirements to verified delivery. The game is intended to run entirely in the browser and be distributable as static files; hosting is a separate deployment decision.
 
-The next specification stage must settle exact rotation matrices and spawn positions, scoring and speed formulas, keyboard bindings/repeat behavior, pause/focus timing, game-over boundaries, simultaneous event ordering, and target browser support. These details are not implemented contracts yet.
+The [specification](SPEC.md) defines exact rotation matrices and spawn positions, scoring and speed formulas, keyboard bindings/repeat behavior, pause/focus timing, game-over boundaries, simultaneous event ordering, and target browser support. Its concrete gameplay defaults require human specification review before dependent planning.
 
 ## Preparation context
 
 Repository: https://github.com/pchemguy/SDD-Manager-Demo-Tetris-ChatGPT-Work. Initial checkpoint: `1261ab9cdd4a20a6b3ef2ab1d12ba50e636167c0`. Default integration branch: `main`. Preparation branch: `design-docs`.
 
-GitHub plugin repository reads and the HTTPS Git clone succeeded. The plugin reports write permission; no hosted tracking objects have been created. GitHub task/label/milestone tracking is recommended, with user confirmation pending for the baseline lifecycle. Counts and eligible phase scope will come from the accepted PLAN and TASKS.
+GitHub plugin repository reads, the HTTPS Git clone, and preparation publication succeeded. The user confirmed GitHub task/label/milestone tracking for the baseline lifecycle, including verification-based completion and reconciliation. No hosted tracking objects have been created. Counts and eligible phase scope will come from the accepted PLAN and TASKS; only the eligible phase will be projected.
 
-Only design preparation is recorded here. SPEC, PLAN, layout, TASKS, and product implementation remain to be prepared. See [architecture](ARCHITECTURE.md) and [decomposition](DECOMPOSITION.md).
+Design is accepted and specification preparation is recorded here. PLAN, layout, TASKS, and product implementation remain to be prepared. See [architecture](ARCHITECTURE.md), [decomposition](DECOMPOSITION.md), and the [SPEC review](SPEC-REVIEW-REPORT.md).
