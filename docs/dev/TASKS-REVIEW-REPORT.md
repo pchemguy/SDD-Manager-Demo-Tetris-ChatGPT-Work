@@ -6,7 +6,7 @@ State: **Ready for current execution**. Complete TASKS conforms to incorporated 
 
 | Document | Reviewed SHA-256 |
 | --- | --- |
-| `docs/dev/TASKS.md` | `3c2aea53dc7066d4db7f276a79d98e543cee7873f46f5fde1d9cffdf2608d62a` |
+| `docs/dev/TASKS.md` | `4b1ba047a703c3368fc879c2a1347688484f63550decc7a2aba1d47956cbfc02` |
 | `docs/dev/PLAN.md` | `3fb6af27f1431cbf261bc7905c18484df46f06c67b19032a868a6d7892d6088f` |
 | `docs/dev/layout.md` | `e06bfd0fbd63614c2201decbad8d94cdfe8d87978cd9892b256c8e3e3f4ba616` |
 | `docs/dev/SPEC.md` | `464308a577e91bec87f8071abde85915e4a28b3f8bdf2ae9c0d5b844e68a81d4` |
@@ -58,4 +58,4 @@ Recheck: exactly 36 unique ordered task IDs with four-space Phase → Milestone 
 
 ## Revision 2
 
-T-036 completion currency recheck: task/parent status and observed verification evidence updated only; all 36 IDs, task scopes, dependency order, hierarchy, review units and governing contracts remain unchanged from T-034. Exact TASKS content identity refreshed above; conformance Ready retained. Runtime and publication evidence remain in owning reports.
+T-036 completion currency recheck: task/parent status and observed verification evidence updated only; all 36 IDs, task scopes, dependency order, hierarchy, review units and governing contracts remain unchanged from T-034. Exact TASKS content identity refreshed above; conformance Ready retained. Runtime and observed publication evidence remain in owning reports; subsequent publication readback wording is status-only and the exact TASKS identity reflects it.
